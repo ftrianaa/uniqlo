@@ -13,9 +13,9 @@ import {
 } from '@chakra-ui/react';
 import { FiPlayCircle } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { items, tutorials } from './data';
+import { kids, kidsTutorials } from './data';
 
-export const ResourcesSubmenu = props => {
+export const KidsSubmenu = props => {
   const { isOpen } = props;
   const navigate = useNavigate();
   return (
@@ -49,7 +49,7 @@ export const ResourcesSubmenu = props => {
               }}
               gap={6}
             >
-              {items.map((item, id) => (
+              {kids.map((item, id) => (
                 <Stack key={id} spacing="3">
                   <Text fontSize="sm" fontWeight="medium" color="accent">
                     {item.title}
@@ -77,7 +77,7 @@ export const ResourcesSubmenu = props => {
                 </Stack>
               ))}
             </SimpleGrid>
-            {tutorials.map((item, id) => (
+            {kidsTutorials.map((item, id) => (
               <Stack key={id} spacing="6">
                 <Text fontSize="sm" fontWeight="medium" color="accent">
                   {item.title}

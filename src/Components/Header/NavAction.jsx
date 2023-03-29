@@ -1,6 +1,14 @@
-import { Box, Center, Flex, HStack, Icon, Text, useColorModeValue as mode } from '@chakra-ui/react'
-const MobileNavAction = (props) => {
-  const { label, icon, isActive, href, children } = props
+import {
+  Box,
+  Center,
+  Flex,
+  HStack,
+  Icon,
+  Text,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
+const MobileNavAction = props => {
+  const { label, icon, isActive, href, children } = props;
   return (
     <Center
       as="a"
@@ -23,10 +31,10 @@ const MobileNavAction = (props) => {
         {children}
       </Flex>
     </Center>
-  )
-}
-const DesktopNavAction = (props) => {
-  const { label, icon, href = '#' } = props
+  );
+};
+const DesktopNavAction = props => {
+  const { label, icon, href } = props;
   return (
     <HStack spacing="2" as="a" href={href}>
       <Text fontSize="sm" fontWeight="semibold">
@@ -34,10 +42,10 @@ const DesktopNavAction = (props) => {
       </Text>
       <Icon as={icon} />
     </HStack>
-  )
-}
+  );
+};
 
 export const NavAction = {
   Mobile: MobileNavAction,
   Desktop: DesktopNavAction,
-}
+};

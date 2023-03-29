@@ -37,15 +37,42 @@ import { NavCategorySubmenu } from './NavCategorySubmenu';
 import { SearchInput } from './SearchInput';
 import { ResourcesSubmenu } from './ResourcesSubmenu';
 import { PopoverIcon } from './PopoverIcon';
+import { useNavigate } from 'react-router-dom';
+
+const buttonArr = [
+  {
+    id: 1,
+    name: 'women',
+    route: '/women',
+  },
+  {
+    id: 2,
+    name: 'men',
+    route: '/men',
+  },
+  {
+    id: 3,
+    name: 'kids',
+    route: '/kids',
+  },
+  {
+    id: 4,
+    name: 'baby',
+    route: '/baby',
+  },
+];
 
 const Header = () => {
+  const navigate = useNavigate();
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
   });
+
   const { onToggle, isOpen } = useDisclosure({
     defaultIsOpen: false,
   });
+
   return (
     <>
       <Flex
@@ -56,8 +83,6 @@ const Header = () => {
           base: 'flex',
           lg: 'none',
         }}
-        position="sticky"
-        top="0"
       >
         <Box px="3" py="3" borderBottomWidth="1px" overflow="auto">
           <Flex
@@ -90,14 +115,6 @@ const Header = () => {
         </Flex> */}
         <MobileBottomNav />
       </Flex>
-
-      {/* <Box
-        minH="100vh"
-        display={{
-          base: 'none',
-          lg: 'block',
-        }}
-      > */}
       <Box
         px="8"
         bg={mode('white', 'gray.800')}
@@ -114,18 +131,16 @@ const Header = () => {
 
             {isDesktop ? (
               <ButtonGroup variant="link" spacing="5" size="sm">
-                <Button onMouseOver={onToggle} onMouseOut={onToggle}>
-                  Product
-                </Button>
-                <Button onMouseOver={onToggle} onMouseOut={onToggle}>
-                  Pricing
-                </Button>
-                <Button onMouseOver={onToggle} onMouseOut={onToggle}>
-                  Resources
-                </Button>
-                <Button onMouseOver={onToggle} onMouseOut={onToggle}>
-                  Support
-                </Button>
+                {buttonArr.map((item, index) => (
+                  <Button
+                    onPointerEnter={onToggle}
+                    onPointerLeave={onToggle}
+                    onClick={() => navigate(item.route)}
+                    textTransform="uppercase"
+                  >
+                    {item.name}
+                  </Button>
+                ))}
               </ButtonGroup>
             ) : (
               <IconButton
@@ -140,24 +155,21 @@ const Header = () => {
             <Box width="full" mx="8">
               <SearchInput />
             </Box>
-            <NavAction.Desktop icon={RiHeartLine} />
-            <NavAction.Desktop icon={AiOutlineUser} />
+            <NavAction.Desktop icon={RiHeartLine} href="/wishlist" />
+            <NavAction.Desktop icon={AiOutlineUser} href="/member/details" />
             <Box position="relative">
-              <NavAction.Desktop icon={RiShoppingCartLine} />
+              <NavAction.Desktop icon={RiShoppingCartLine} href="/cart" />
               <CartCount>1</CartCount>
             </Box>
           </HStack>
         </Flex>
-        {isOpen && isDesktop ? (
-          <ResourcesSubmenu isOpen={isDesktop && isOpen} />
-        ) : (
-          <></>
-        )}
       </Box>
-      {/* <NavCategoryMenu.Desktop />
-        <NavCategorySubmenu.Desktop /> */}
-      {/* <Box bg="blackAlpha.400" pos="fixed" zIndex="-1" inset="0" /> */}
-      {/* </Box> */}
+
+      {isOpen && isDesktop ? (
+        <ResourcesSubmenu isOpen={isDesktop && isOpen} />
+      ) : (
+        <></>
+      )}
     </>
   );
 };
