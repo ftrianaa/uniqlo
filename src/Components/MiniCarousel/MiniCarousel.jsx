@@ -4,8 +4,6 @@ import 'keen-slider/keen-slider.min.css';
 import { Items } from './data';
 import { Box, Image, Text } from '@chakra-ui/react';
 import './styles.css';
-import { products } from './data';
-import { ProductCard } from './ProductCard';
 export default function MiniCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -28,9 +26,13 @@ export default function MiniCarousel() {
     <>
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
-          {products.map(product => (
-            <Box className="keen-slider__slide">
-              <ProductCard key={product.id} product={product} />
+          {Items.map(item => (
+            <Box p={2} className="keen-slider__slide ">
+              <Image src={item.img} alt={item.title} />
+              <Text fontWeight="bold" fontSize="18px">
+                {item.title}
+              </Text>
+              <Text fontSize="16px">{item.desc}</Text>
             </Box>
           ))}
         </div>

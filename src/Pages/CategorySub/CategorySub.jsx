@@ -37,7 +37,7 @@ import {
 
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
-import { ProductCarousel } from '../../Components/ProductCarousel/ProductCarousel';
+import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 
 const CategorySub = () => {
   const { category, subCategory } = useParams();

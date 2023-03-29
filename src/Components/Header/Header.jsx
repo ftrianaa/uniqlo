@@ -116,11 +116,12 @@ const Header = () => {
         <MobileBottomNav />
       </Flex>
       <Box
-        px="8"
+        px="20"
         bg={mode('white', 'gray.800')}
         position="sticky"
         top="0"
         zIndex="999"
+        borderBottom="1px solid rgb(204, 204, 204)"
       >
         <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
           <HStack flex="24rem" spacing="32px">

@@ -33,18 +33,8 @@ export const CategoryFilter = () => (
       md: '8',
       lg: '12',
     }}
-    py={{
-      base: '6',
-      md: '8',
-      lg: '12',
-    }}
   >
-    <Box
-      mt={{
-        base: '8',
-        md: '16',
-      }}
-    >
+    <Box>
       <Grid
         templateColumns={{
           base: '1fr',
@@ -111,13 +101,7 @@ export const CategoryFilter = () => (
               <SortbySelect />
             </HStack>
           </Stack>
-          <Box
-            mt="6"
-            borderWidth="2px"
-            minH="480px"
-            rounded="xl"
-            borderStyle="dashed"
-          >
+          <Box mt="6" minH="480px" rounded="xl">
             <Items />
           </Box>
         </Box>

@@ -8,6 +8,16 @@ import CompletePayment from '../Pages/CompletePayment/CompletePayment';
 import { Home } from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
 import ItemProduct from '../Pages/Profile/ItemProduct';
+import Member from '../Pages/Profile/Member';
+import Coupon from '../Pages/Profile/Member/Coupon';
+import Orders from '../Pages/Profile/Member/Orders';
+import Profile from '../Pages/Profile/Member/Profile';
+import PurchaseHistory from '../Pages/Profile/Member/PurchaseHistory';
+import Addresses from '../Pages/Profile/Setting/Addresses';
+import EditPassword from '../Pages/Profile/Setting/EditPassword';
+import EditProfile from '../Pages/Profile/Setting/EditProfile';
+import Unsubscribe from '../Pages/Profile/Setting/Unsubscribe';
+import Wallet from '../Pages/Profile/Setting/Wallet';
 import Register from '../Pages/Register/Register';
 import Wishlist from '../Pages/Wishlist/Wishlist';
 
@@ -18,13 +28,23 @@ const Routers = () => {
       <Route path="/:category" element={<Category />} />
       <Route path="/:category/:categorysub" element={<CategorySub />} />
       <Route path="/products/:category/:id" element={<ItemProduct />} />
-      <Route path="/member/details" element={<ItemProduct />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registry" element={<Register />} />
       <Route path="/complete" element={<CompletePayment />} />
+      <Route path="/member" element={<Member />}>
+        <Route path="details" element={<Profile />} />
+        <Route path="coupon" element={<Coupon />} />
+        <Route path="purchase/history" element={<PurchaseHistory />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="edit" element={<EditProfile />} />
+        <Route path="addresses" element={<Addresses />} />
+        <Route path="edit/password" element={<EditPassword />} />
+        <Route path="wallets" element={<Wallet />} />
+        <Route path="unsubscribe" element={<Unsubscribe />} />
+      </Route>
     </Routes>
   );
 };
