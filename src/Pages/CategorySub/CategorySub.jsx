@@ -14,6 +14,7 @@ import {
   Text,
   Grid,
   SimpleGrid,
+  Flex,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -38,6 +39,7 @@ import {
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
+import SliderBanner from '../../Components/SliderBanner/SliderBanner';
 
 const CategorySub = () => {
   const { category, subCategory } = useParams();
@@ -46,7 +48,7 @@ const CategorySub = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container bgColor="white">
         <Box
           maxW="7xl"
           mx="auto"
@@ -55,28 +57,65 @@ const CategorySub = () => {
             md: '8',
             lg: '12',
           }}
-          py={{
-            base: '6',
-            md: '8',
-            lg: '12',
-          }}
+          py="5"
         >
           <ProductBreadcrumb data={breadcrumbData} />
           <Box>
-            <Heading textTransform="uppercase" fontSize="48px">
+            <Heading
+              textTransform="uppercase"
+              fontSize="48px"
+              fontWeight="bold"
+              pt="6"
+            >
               {category}
             </Heading>
           </Box>
-          <Box as="section">
+          <Box as="section" pt="5">
             <Stack spacing="16">
               <Tabs size="lg" variant="with-line">
                 <TabList>
-                  <Tab>Home</Tab>
-                  <Tab>Components</Tab>
-                  <Tab>Pricing</Tab>
+                  <Flex align="center" w="25%" justify="center">
+                    <Tab
+                      textTransform="uppercase"
+                      fontSize="18px"
+                      fontWeight="bold"
+                    >
+                      <Text textAlign="center">wanita</Text>
+                    </Tab>
+                  </Flex>
+                  <Flex align="center" w="25%" justify="center">
+                    <Tab
+                      textTransform="uppercase"
+                      fontSize="18px"
+                      fontWeight="bold"
+                    >
+                      <Text textAlign="center">pria</Text>
+                    </Tab>
+                  </Flex>
+                  <Flex align="center" w="25%" justify="center">
+                    <Tab
+                      textTransform="uppercase"
+                      fontSize="18px"
+                      fontWeight="bold"
+                    >
+                      <Text textAlign="center">anak</Text>
+                    </Tab>
+                  </Flex>
+                  <Flex align="center" w="25%" justify="center">
+                    <Tab
+                      textTransform="uppercase"
+                      fontSize="18px"
+                      fontWeight="bold"
+                    >
+                      <Text textAlign="center">bayi</Text>
+                    </Tab>
+                  </Flex>
                 </TabList>
               </Tabs>
             </Stack>
+          </Box>
+          <Box py="5">
+            <SliderBanner />
           </Box>
           <Box
             mt={{
@@ -161,13 +200,7 @@ const CategorySub = () => {
                     <SortbySelect />
                   </HStack>
                 </Stack>
-                <Box
-                  mt="6"
-                  borderWidth="2px"
-                  minH="480px"
-                  rounded="xl"
-                  borderStyle="dashed"
-                >
+                <Box mt="6" minH="480px" rounded="xl">
                   <SimpleGrid
                     columns={{
                       base: 1,
@@ -188,8 +221,24 @@ const CategorySub = () => {
               </Box>
             </Grid>
           </Box>
+          <Box py="10">
+            <Heading
+              textTransform="uppercase"
+              fontSize="32px"
+              fontWeight="bold"
+            >
+              baru saja dilihat
+            </Heading>
+            <ProductCarousel />
+          </Box>
           <Box>
-            <Header>people also buy</Header>
+            <Heading
+              textTransform="capitalize"
+              fontSize="32px"
+              fontWeight="bold"
+            >
+              people also buy
+            </Heading>
             <Text>Padu padan yang Cocok dengan atasan Anda.</Text>
             <ProductCarousel />
           </Box>

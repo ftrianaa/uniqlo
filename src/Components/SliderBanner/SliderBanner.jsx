@@ -5,7 +5,7 @@ import { Items } from './data';
 import { Box, Image, Text } from '@chakra-ui/react';
 import '../../CSS/styles.css';
 
-export default function AppBenefits() {
+export default function SliderBanner() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -17,7 +17,7 @@ export default function AppBenefits() {
       setLoaded(true);
     },
     slides: {
-      perView: 4,
+      perView: 1,
       spacing: 15,
     },
     loop: true,
@@ -30,10 +30,6 @@ export default function AppBenefits() {
           {Items.map(item => (
             <Box p={2} className="keen-slider__slide ">
               <Image src={item.img} alt={item.title} />
-              <Text fontWeight="bold" fontSize="18px">
-                {item.title}
-              </Text>
-              <Text fontSize="16px">{item.desc}</Text>
             </Box>
           ))}
         </div>
@@ -55,7 +51,7 @@ export default function AppBenefits() {
           </>
         )}
       </div>
-      {/* {loaded && instanceRef.current && (
+      {loaded && instanceRef.current && (
         <div className="dots">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
@@ -71,7 +67,7 @@ export default function AppBenefits() {
             );
           })}
         </div>
-      )} */}
+      )}
     </>
   );
 }

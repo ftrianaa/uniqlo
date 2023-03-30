@@ -27,7 +27,7 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 const Login = () => {
   return (
     <>
-      <Box px="8" borderBottom="1px solid #dadada">
+      <Box borderBottom="1px solid #dadada" px="20" py="5">
         <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Uniqlo_logo_Japanese.svg"
@@ -36,16 +36,20 @@ const Login = () => {
         </Flex>
       </Box>
 
-      <Container mt={10}>
+      <Container mt={10} px="20">
         <Flex border="1px solid #dadada" p={5}>
           <Box w="47.5%">
             <Flex justify="space-between" align="center">
-              <Heading textTransform="uppercase" fontSize="36px">
+              <Heading
+                textTransform="uppercase"
+                fontSize="36px"
+                fontWeight="bold"
+              >
                 masuk
               </Heading>
               <Text color="#378694">Wajib diisi*</Text>
             </Flex>
-            <Flex>
+            <Flex align="center" justify="space-between">
               <Text>Masuk dengan alamat e-mail dan kata sandi Anda.</Text>
               <Popover>
                 <PopoverTrigger>
@@ -63,8 +67,12 @@ const Login = () => {
               </Popover>
             </Flex>
             <Box>
-              <FormControl>
-                <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormControl my="3">
+                <FormLabel
+                  textTransform="uppercase"
+                  fontSize="18px"
+                  fontWeight="bold"
+                >
                   <Flex>
                     alamat email
                     <Text
@@ -82,8 +90,12 @@ const Login = () => {
                   variant="flushed"
                 />
               </FormControl>
-              <FormControl>
-                <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormControl my="3">
+                <FormLabel
+                  textTransform="uppercase"
+                  fontSize="18px"
+                  fontWeight="bold"
+                >
                   <Flex>
                     kata sandi
                     <Text
@@ -104,45 +116,78 @@ const Login = () => {
                   Kata sandi minimal harus 8 karakter, dan terdiri dari huruf
                   dan angka.
                 </FormHelperText>
-                <Checkbox>Tunjukkan kata sandi saya</Checkbox>
               </FormControl>
+              <Checkbox fontSize="14px" color="black" py="2">
+                Tunjukkan kata sandi saya
+              </Checkbox>
             </Box>
-            <Text
-              textDecor="underline"
-              fontWeight="bold"
-              textTransform="uppercase"
-            >
-              ketentuan penggunaan
-            </Text>
-            <Text
-              textDecor="underline"
-              fontWeight="bold"
-              textTransform="uppercase"
-            >
-              kebijakan privasi
-            </Text>
-            <Button textTransform="uppercase">masuk</Button>
-            <Text
-              textDecor="underline"
-              fontWeight="bold"
-              textTransform="uppercase"
-            >
-              lupa kata sandi anda?
-            </Text>
+            <Box py="4">
+              <Text
+                textDecor="underline"
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize="16px"
+              >
+                ketentuan penggunaan
+              </Text>
+              <Text
+                textDecor="underline"
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize="16px"
+              >
+                kebijakan privasi
+              </Text>
+            </Box>
+            <Box py="3">
+              <Button
+                textTransform="uppercase"
+                bgColor="black"
+                color="white"
+                fontWeight="bold"
+                borderRadius="0"
+                w="50%"
+              >
+                masuk
+              </Button>
+              <Text
+                textDecor="underline"
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize="16px"
+              >
+                lupa kata sandi anda?
+              </Text>
+            </Box>
           </Box>
           <Flex w="5%" align="center" justify="center">
             <Divider orientation="vertical" />
           </Flex>
           <Box w="47.5%">
-            <Heading textTransform="uppercase" fontSize="36px">
+            <Heading
+              textTransform="uppercase"
+              fontSize="36px"
+              fontWeight="bold"
+            >
               buat akun
             </Heading>
-            <Text>
+            <Text fontSize="16px">
               Jika Anda membuat akun, Anda bisa mendapatkan layanan yang
               dipersonalisasi seperti melihat riwayat pembelian dan mendapatkan
               kupon diskon dengan keanggotaan Anda. Daftar hari ini, gratis!
             </Text>
-            <Button textTransform="uppercase">buat akun</Button>
+            <Box py="8">
+              <Button
+                textTransform="uppercase"
+                bgColor="black"
+                color="white"
+                fontWeight="bold"
+                borderRadius="0"
+                w="50%"
+              >
+                buat akun
+              </Button>
+            </Box>
           </Box>
         </Flex>
       </Container>

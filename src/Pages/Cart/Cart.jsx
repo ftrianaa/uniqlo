@@ -34,6 +34,7 @@ import { SlArrowRight } from 'react-icons/sl';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
+import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import { cart } from './data';
 
 const Cart = () => {
@@ -42,7 +43,7 @@ const Cart = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container px="20" bgColor="white">
         <Breadcrumb
           fontSize="sm"
           fontWeight="medium"
@@ -57,50 +58,50 @@ const Cart = () => {
           </BreadcrumbItem>
         </Breadcrumb>
 
-        <Heading fontSize="36px" textTransform="uppercase" textAlign="left">
+        <Heading
+          fontSize="36px"
+          textTransform="uppercase"
+          textAlign="left"
+          fontWeight="bold"
+        >
           keranjang belanja
         </Heading>
-        <Grid
-          templateRows={['repeat(1, 1fr)', 'repeat(0, 1fr)', 'repeat(0, 1fr)']}
-          templateColumns={[
-            'repeat(0, 1fr)',
-            'repeat(2, 1fr)',
-            'repeat(2, 1fr)',
-          ]}
-          fontSize="15px"
-          gap={5}
-        >
-          <GridItem colSpan={[1, 1, 1]} w="800px">
+        <Flex fontSize="15px">
+          <Box w="65%">
             {cart.map((item, index) => {
               total += item.qty * item.price;
               return (
                 <>
-                  <Flex direction="row" mt={5} key={index}>
+                  <Flex direction="row" my={5} key={index}>
                     <Flex justify="center" align="center">
                       <Image
                         src={item.src}
                         alt={item.title}
-                        w={[50, '40px', 200]}
-                        h={[50, '40px', 200]}
+                        w={[50, '40px', 230]}
+                        h={[50, '40px', 230]}
                         maxW="none"
                         objectFit="contain"
                       />
                     </Flex>
-                    <Flex m={5}>
-                      <Box>
-                        <Flex justify="space-between" align="center">
-                          <Box>
-                            <Heading
+
+                    <Box px="5">
+                      <Flex justify="space-between" align="center">
+                        <Box>
+                          <Flex align="center">
+                            <Text
                               fontSize="16px"
                               textAlign="left"
                               textOverflow="ellipsis"
                               overflow="hidden"
                               whiteSpace="nowrap"
-                              w={['150px', '150px', '250px']}
-                              mb={2}
+                              w={['150px', '150px', '400px']}
+                              fontWeight="bold"
                             >
                               {item.title}
-                            </Heading>
+                            </Text>
+                            <CloseButton size="sm" />
+                          </Flex>
+                          <Box my="5">
                             <Text color="#7d7d7d">
                               kode produk: {item.codeItem}
                             </Text>
@@ -109,41 +110,40 @@ const Cart = () => {
                             <Text color="#7d7d7d">{item.notes}</Text>
                             <Text fontWeight="bold">Rp{item.price}</Text>
                           </Box>
-                          <CloseButton size="sm" />
+                        </Box>
+                      </Flex>
+                      <Flex justify="space-between">
+                        <Box>
+                          <Text fontWeight="bold" textTransform="uppercase">
+                            Jumlah
+                          </Text>
+                          <Select>
+                            <option value={item.qty}>{item.qty}</option>
+                          </Select>
+                        </Box>
+                        <Flex>
+                          <Text fontWeight="bold" textTransform="uppercase">
+                            subtotal:
+                          </Text>
+                          <Text fontWeight="bold">
+                            Rp{item.qty * item.price}
+                          </Text>
                         </Flex>
-                        <Flex justify="space-between">
-                          <Box>
-                            <Text fontWeight="bold" textTransform="uppercase">
-                              Jumlah
-                            </Text>
-                            <Select>
-                              <option value={item.qty}>{item.qty}</option>
-                            </Select>
-                          </Box>
-                          <Flex>
-                            <Text fontWeight="bold" textTransform="uppercase">
-                              subtotal:
-                            </Text>
-                            <Text fontWeight="bold">
-                              Rp{item.qty * item.price}
-                            </Text>
-                          </Flex>
-                        </Flex>
-                      </Box>
-                    </Flex>
+                      </Flex>
+                    </Box>
                   </Flex>
-                  <Divider />
+                  <Divider w="98%" />
                 </>
               );
             })}
-          </GridItem>
-          <GridItem colSpan={[1, 1, 1]}>
-            <Box border="1px solid #e0e0e0" m={5} p="5">
-              <Text fontWeight="bold" textTransform="uppercase">
+          </Box>
+          <Box w="35%">
+            <Box border="1px solid #e0e0e0" p="5">
+              <Text fontWeight="bold" textTransform="uppercase" fontSize="20px">
                 RINGKASAN PESANAN|{cart.length} PRODUK
               </Text>
-              <Flex justify="space-between">
-                <Text>subtotal produk</Text>
+              <Flex justify="space-between" py="5">
+                <Text>Subtotal produk</Text>
                 <Text>Rp{total}</Text>
               </Flex>
               <Flex justify="space-between">
@@ -156,45 +156,44 @@ const Cart = () => {
                 <Text>termasuk PPN</Text>
                 <Text>Rp{(total * 10) / 100}</Text>
               </Flex>
-              <Flex justify="space-between">
+              <Flex justify="space-between" pt="5">
                 <Text fontWeight="bold" textTransform="uppercase">
                   Total pesanan
                 </Text>
                 <Text fontWeight="bold">Rp{total}</Text>
               </Flex>
             </Box>
-            <Divider />
-            <Flex justify="space-between" m={3}>
+            <Box my="5">
+              <Divider />
+            </Box>
+            <Flex justify="space-between">
               <Flex align="center">
                 <RiCoupon3Line />
                 <Text> Kupon </Text>
               </Flex>
               <SlArrowRight />
             </Flex>
-            <Divider />
-            <Flex justify="space-between" m={3}>
+            <Box my="5">
+              <Divider />
+            </Box>
+            <Flex justify="space-between">
               <Flex align="center">
                 <RiGiftLine />
                 <Text> Jadikan sebagai kado </Text>
               </Flex>
               <SlArrowRight />
             </Flex>
-            <Flex align="center" justify="space-between" m={3}>
+            <Flex align="center" justify="space-between" my="5">
               <Text w="80%">
                 Produk pilihan Anda akan disimpan hingga 30 menit setelah tombol
                 “Lanjutkan Pembelian” ditekan.
               </Text>
               <RiInformationLine />
             </Flex>
-            <Text
-              fontSize="20px"
-              fontWeight="bold"
-              textTransform="uppercase"
-              m={3}
-            >
+            <Text fontSize="20px" fontWeight="bold" textTransform="uppercase">
               ketentuan penggunaan
             </Text>
-            <Text m={3}>
+            <Text my="5">
               Dengan menekan tombol pembayaran, Anda setuju dengan syarat dan
               ketentuan kami.
             </Text>
@@ -202,7 +201,6 @@ const Cart = () => {
               textDecor="underline"
               fontWeight="bold"
               textTransform="uppercase"
-              m="3"
             >
               ketentuan penggunaan
             </Text>
@@ -213,21 +211,36 @@ const Cart = () => {
               borderColor="red"
               color="#fff"
               textTransform="uppercase"
-              m={3}
+              my="5"
+              borderRadius="0"
             >
               lanjutkan ke pembayaran
             </Button>
-            <Button w="100%" variant="outline" textTransform="uppercase" m={3}>
+            <Button
+              w="100%"
+              variant="outline"
+              textTransform="uppercase"
+              borderColor="black"
+              borderRadius="0"
+            >
               lanjut belanja
             </Button>
-            <Text fontSize="14px" color="#7d7d7d" m={3}>
+            <Text fontSize="14px" color="#7d7d7d">
               Memenuhi syarat untuk pengiriman gratis.
             </Text>
-          </GridItem>
-        </Grid>
-        <Heading fontSize="36px" textTransform="uppercase" textAlign="left">
-          baru saja dilihat
-        </Heading>
+          </Box>
+        </Flex>
+        <Box>
+          <Heading
+            fontSize="36px"
+            textTransform="uppercase"
+            textAlign="left"
+            fontWeight="bold"
+          >
+            baru saja dilihat
+          </Heading>
+          <ProductCarousel />
+        </Box>
       </Container>
       <Footer />
     </>

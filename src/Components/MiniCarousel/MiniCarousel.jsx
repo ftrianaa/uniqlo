@@ -3,7 +3,8 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import { Items } from './data';
 import { Box, Image, Text } from '@chakra-ui/react';
-import './styles.css';
+import '../../CSS/styles.css';
+
 export default function MiniCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
