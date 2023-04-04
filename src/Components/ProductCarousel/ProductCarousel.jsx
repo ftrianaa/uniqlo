@@ -7,6 +7,7 @@ import '../../CSS/styles.css';
 
 import { products } from './data';
 import { ProductCard } from './ProductCard';
+import { useNavigate } from 'react-router-dom';
 export default function ProductCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
@@ -24,13 +25,17 @@ export default function ProductCarousel() {
     },
     loop: true,
   });
-
+  const navigate = useNavigate();
   return (
     <>
       <div className="navigation-wrapper">
         <div ref={sliderRef} className="keen-slider">
           {products.map(product => (
-            <Box className="keen-slider__slide">
+            <Box
+              className="keen-slider__slide"
+              onClick={() => navigate('/product/koleksi-kemeja')}
+              cursor="pointer"
+            >
               <ProductCard key={product.id} product={product} />
             </Box>
           ))}

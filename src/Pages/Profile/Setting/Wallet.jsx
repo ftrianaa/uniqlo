@@ -8,7 +8,7 @@ const Wallet = () => {
         kartu kredit saya
       </Heading>
       <Text>Dapat menyimpan hingga 5 kartu kredit.</Text>
-      <Text> Tidak ada kartu kredit yang terdaftar.</Text>
+      <Text mt="5"> Tidak ada kartu kredit yang terdaftar.</Text>
     </>
   );
 };

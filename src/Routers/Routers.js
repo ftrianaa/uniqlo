@@ -7,6 +7,7 @@ import Checkout from '../Pages/Checkout/Checkout';
 import CompletePayment from '../Pages/CompletePayment/CompletePayment';
 import { Home } from '../Pages/Home/Home';
 import Login from '../Pages/Login/Login';
+import Products from '../Pages/Products/Products';
 import ItemProduct from '../Pages/Profile/ItemProduct';
 import Member from '../Pages/Profile/Member';
 import Coupon from '../Pages/Profile/Member/Coupon';
@@ -19,6 +20,8 @@ import EditProfile from '../Pages/Profile/Setting/EditProfile';
 import Unsubscribe from '../Pages/Profile/Setting/Unsubscribe';
 import Wallet from '../Pages/Profile/Setting/Wallet';
 import Register from '../Pages/Register/Register';
+import Search from '../Pages/Search/Search';
+import SPLEvent from '../Pages/SPLEvent/SPLEvent';
 import Wishlist from '../Pages/Wishlist/Wishlist';
 
 const Routers = () => {
@@ -28,12 +31,15 @@ const Routers = () => {
       <Route path="/:category" element={<Category />} />
       <Route path="/:category/:categorysub" element={<CategorySub />} />
       <Route path="/products/:category/:id" element={<ItemProduct />} />
+      <Route path="/products/:id" element={<Products />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registry" element={<Register />} />
       <Route path="/complete" element={<CompletePayment />} />
+      <Route path="/search/:name" element={<Search />} />
+      <Route path="/spl/:name" element={<SPLEvent />} />
       <Route path="/member" element={<Member />}>
         <Route path="details" element={<Profile />} />
         <Route path="coupon" element={<Coupon />} />

@@ -1,6 +1,7 @@
 import {
   AspectRatio,
   Box,
+  Flex,
   HStack,
   Image,
   Skeleton,
@@ -12,51 +13,62 @@ import {
 import { Rating } from './Rating';
 import { PriceTag } from './PriceTag';
 import { ProductButtonGroup } from './ProductButtonGroup';
-
+import { useNavigate } from 'react-router-dom';
+import { TbHeartPlus } from 'react-icons/tb';
+import { ColorPicker } from '../ProductGallery/ColorPicker';
 export const ProductCard = props => {
   const { product } = props;
+  const navigate = useNavigate();
+  // let colors = [];
+  // product.color.map(item => colors.push(item));
+  // console.log(colors, 'ini color');
   return (
-    <Stack spacing="3" p={3}>
+    <Stack
+      spacing="3"
+      p={3}
+      onClick={() => navigate('/product/koleksi-kemeja')}
+    >
       <Box position="relative" className="group">
-        <AspectRatio ratio={3 / 4}>
-          <Image
-            src={product.imageUrl}
-            alt={product.name}
-            draggable="false"
-            fallback={<Skeleton />}
-          />
+        <AspectRatio ratio={5 / 5}>
+          <Box>
+            <Box position="absolute" zIndex="1" top="10px" right="10px">
+              <TbHeartPlus size="24px" />
+            </Box>
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              draggable="false"
+              fallback={<Skeleton />}
+            />
+          </Box>
         </AspectRatio>
-        <HStack spacing="3" position="absolute" top="4" left="4">
-          {product.tags?.map(tag => (
-            <Tag
-              key={tag.name}
-              bg={`${tag.color}.500`}
-              color="white"
-              fontWeight="semibold"
-            >
-              {tag.name}
-            </Tag>
-          ))}
-        </HStack>
-        <Box
-          opacity="0"
-          transition="opacity 0.1s"
-          _groupHover={{
-            opacity: 1,
-          }}
-          position="absolute"
-          bottom="3"
-          left="3"
-          right="3"
-          bg={useColorModeValue('white', 'gray.800')}
-          borderRadius="md"
-          padding="1.5"
-        >
-          <ProductButtonGroup />
-        </Box>
       </Box>
+
       <Stack spacing="1">
-        <Text>{product.name}</Text>
+        <ColorPicker options={product.colors} />
+        <Flex
+          justify="space-between"
+          textTransform="uppercase"
+          fontSize="13px"
+          color="#ababab"
+          fontWeight="bold"
+          my="3"
+        >
+          <Text>{product.category}</Text>
+          <Text>{product.size}</Text>
+        </Flex>
+        <Text fontWeight="bold" my="5">
+          {product.name}
+        </Text>
+        <PriceTag
+          currency={product.currency}
+          price={product.price}
+          priceProps={{
+            fontWeight: 'bold',
+            fontSize: 'sm',
+            color: useColorModeValue('black', 'white'),
+          }}
+        />
         <HStack>
           <Rating defaultValue={product.rating} size="sm" />
           <Text
@@ -64,19 +76,10 @@ export const ProductCard = props => {
             fontSize="sm"
             color={useColorModeValue('gray.800', 'gray.200')}
           >
-            12
+            (12)
           </Text>
         </HStack>
       </Stack>
-      <PriceTag
-        currency={product.currency}
-        price={product.price}
-        priceProps={{
-          fontWeight: 'bold',
-          fontSize: 'sm',
-          color: useColorModeValue('black', 'white'),
-        }}
-      />
     </Stack>
   );
 };

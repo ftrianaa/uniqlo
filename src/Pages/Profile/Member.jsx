@@ -19,7 +19,7 @@ const Member = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container bgColor="white" px="20">
         <Breadcrumb
           fontSize="sm"
           fontWeight="medium"
@@ -33,14 +33,19 @@ const Member = () => {
             <BreadcrumbLink href="#">Member</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
-        <Heading textTransform="uppercase" fontSize="36px">
+        <Heading
+          textTransform="uppercase"
+          fontSize="36px"
+          fontWeight="bold"
+          my="5"
+        >
           keanggotaan
         </Heading>
         <Flex>
-          <Box w="30%">
+          <Box w="25%">
             <SideMenuMember />
           </Box>
-          <Box w="70%" border="1px solid #7d7d7d" p="5">
+          <Box w="75%" border="1px solid rgb(224, 224, 224)" p="5" mb="10">
             <Outlet />
           </Box>
         </Flex>

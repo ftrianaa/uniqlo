@@ -258,6 +258,7 @@ const Register = () => {
                 bgColor="black"
                 color="white"
                 w="45%"
+                onClick={() => navigate('/')}
               >
                 daftar
               </Button>

@@ -4,6 +4,7 @@ import {
   Checkbox,
   Flex,
   FormControl,
+  FormHelperText,
   FormLabel,
   Heading,
   Input,
@@ -19,38 +20,44 @@ const EditProfile = () => {
   return (
     <>
       <Flex justify="space-between" align="center">
-        <Heading textTransform="uppercase" fontSize="32px" fontWeight="bold">
+        <Text textTransform="uppercase" fontSize="32px" fontWeight="bold">
           sunting profil
-        </Heading>
+        </Text>
         <Text color="#378694">Wajib diisi*</Text>
       </Flex>
       <Flex align="center" justify="space-between">
-        <Flex align="center">
+        <Flex align="center" w="30%">
           <Heading textTransform="uppercase" fontSize="18px" fontWeight="bold">
             alamat email
           </Heading>
           <Text color="#378694">*</Text>
         </Flex>
-        <Text>{biodata.email}</Text>
+        <Text w="70%">{biodata.email}</Text>
       </Flex>
       <Checkbox>Ganti alamat e-mail</Checkbox>
-      <Text>
-        Disclaimer: kami dapat melakukan pengiriman ke rumah dan Cash on
-        Delivery (COD) kecuali pada area tertentu. Order yang tidak bisa di
-        layani akan di batalkan secara otomatis.
-      </Text>
-      <Text textDecor="underline">
-        Silahkan klik disini untuk informasi lebih lanjut.
-      </Text>
+      <Box my="5">
+        <Text>
+          Disclaimer: kami dapat melakukan pengiriman ke rumah dan Cash on
+          Delivery (COD) kecuali pada area tertentu. Order yang tidak bisa di
+          layani akan di batalkan secara otomatis.
+        </Text>
+        <Text textDecor="underline">
+          Silahkan klik disini untuk informasi lebih lanjut.
+        </Text>
+      </Box>
       <Text>
         Jika Anda ingin menggunakan alamat profil sebagai "Alamat Keanggotaan",
         harap lengkapi semua informasi termasuk nama dan nomor telepon Anda.
       </Text>
       <Box>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 <Flex>
                   Nama Depan
                   <Text
@@ -68,10 +75,14 @@ const EditProfile = () => {
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 <Flex>
                   Nama belakang
                   <Text
@@ -89,10 +100,14 @@ const EditProfile = () => {
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 <Flex>
                   Alamat detail/jalan
                   <Text
@@ -110,10 +125,14 @@ const EditProfile = () => {
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 <Flex>
                   kode pos
                   <Text
@@ -131,22 +150,39 @@ const EditProfile = () => {
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 telepon
               </FormLabel>
             </Box>
             <Box w="70%">
-              <Input type="text" variant="flushed" value={biodata.telephone} />
+              <Input
+                type="text"
+                variant="flushed"
+                value={biodata.telephone}
+                w="60%"
+              />
+              <FormHelperText fontSize="14px" color="black">
+                Mohon untuk tidak memasukkan kode negara (+62) jika nomor
+                melebihi 11 digit
+              </FormHelperText>
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 <Flex>
                   nomor ponsel
                   <Text
@@ -160,26 +196,51 @@ const EditProfile = () => {
               </FormLabel>
             </Box>
             <Box w="70%">
-              <Input type="text" variant="flushed" value={biodata.phone} />
+              <Input
+                type="text"
+                variant="flushed"
+                value={biodata.phone}
+                w="60%"
+              />
+              <FormHelperText fontSize="14px" color="black">
+                Mohon untuk tidak memasukkan kode negara (+62) jika nomor
+                melebihi 11 digit
+              </FormHelperText>
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 tanggal lahir
               </FormLabel>
             </Box>
             <Box w="70%">
-              <Input type="date" variant="flushed" value={biodata.dob} />
+              <Input
+                type="date"
+                variant="flushed"
+                value={biodata.dob}
+                w="60%"
+              />
+              <FormHelperText fontSize="14px">
+                Tidak dapat mengubah tanggal lahir setelah Anda mendaftar.
+              </FormHelperText>
             </Box>
           </Flex>
         </FormControl>
-        <FormControl>
+        <FormControl my="3">
           <Flex align="center">
             <Box w="30%">
-              <FormLabel textTransform="uppercase" fontSize="16px">
+              <FormLabel
+                textTransform="uppercase"
+                fontSize="16px"
+                fontWeight="bold"
+              >
                 jenis kelamin
               </FormLabel>
             </Box>
@@ -199,13 +260,22 @@ const EditProfile = () => {
         Anda mungkin akan dihubungi melalui telepon atau email jika kami
         memiliki pertanyaan tentang pesanan dan pilihan pengiriman Anda.
       </Text>
-      <Text textTransform="uppercase" fontWeight="bold" fontSize="16px">
+      <Text textTransform="uppercase" fontWeight="bold" fontSize="16px" my="3 ">
         KONFIRMASI LANGGANAN
       </Text>
       <Box>
         <Checkbox>Newsletter Uniqlo</Checkbox>
       </Box>
-      <Button textTransform="uppercase" fontWeight="bold">
+      <Button
+        textTransform="uppercase"
+        fontWeight="bold"
+        mt="5"
+        variant="outline"
+        bgColor="black"
+        color="white"
+        borderRadius="0"
+        w="30%"
+      >
         simpan perubahan
       </Button>
     </>

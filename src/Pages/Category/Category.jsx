@@ -76,15 +76,28 @@ const Category = () => {
               <Text fontSize="15px">
                 Berbagai pilihan kemeja menawan untuk gaya Ramadhan
               </Text>
-              <Button textTransform="uppercase" color="black">
+              <Button
+                fontWeight="bold"
+                textTransform="uppercase"
+                color="black"
+                borderRadius="0"
+                onClick={() => navigate('/product/koleksi-kemeja')}
+              >
                 selengkapnya
               </Button>
             </Box>
           </Box>
-          <Image
-            src="https://im.uniqlo.com/global-cms/spa/res1f3ad9fb65d3f4deebd1a06f83425130fr.jpg"
-            mt="5"
-          />
+          <Box
+            className="spl-event"
+            onClick={() => navigate('/spl/hariraya')}
+            cursor="pointer"
+          >
+            <Image
+              src="https://im.uniqlo.com/global-cms/spa/res1f3ad9fb65d3f4deebd1a06f83425130fr.jpg"
+              alt="spl-event"
+              mt="5"
+            />
+          </Box>
           <Box>
             <Heading
               textTransform="uppercase"
@@ -107,7 +120,12 @@ const Category = () => {
             </Heading>
             <Wrap align="center" justify="center">
               {categories.map((cats, index) => (
-                <WrapItem key={index} w="23%">
+                <WrapItem
+                  key={index}
+                  w="23%"
+                  onClick={() => navigate('/category/men')}
+                  cursor="pointer"
+                >
                   <Box>
                     <Image src={cats.src} alt={cats.alt} />
                     <Text textAlign="center">{cats.alt}</Text>
@@ -116,7 +134,7 @@ const Category = () => {
               ))}
             </Wrap>
           </Box>
-          <Box>
+          <Box className="new-arrivals" my="5">
             <Heading
               textTransform="uppercase"
               fontSize="36px"
@@ -133,6 +151,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mb="10"
+              onClick={() => navigate('/new arrivals/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
@@ -168,6 +187,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mb="10"
+              onClick={() => navigate('/top picks/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
@@ -190,6 +210,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mb="10"
+              onClick={() => navigate('/seasonal picks/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
@@ -211,6 +232,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mb="10"
+              onClick={() => navigate('/value buy/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
@@ -233,6 +255,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mb="10"
+              onClick={() => navigate('/ut collection/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
@@ -255,6 +278,7 @@ const Category = () => {
               borderColor="black"
               borderRadius="0"
               mt="10"
+              onClick={() => navigate('/special collaboration/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>

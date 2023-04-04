@@ -12,11 +12,13 @@ import {
 import { Rating } from './Rating';
 import { PriceTag } from './PriceTag';
 import { ProductButtonGroup } from './ProductButtonGroup';
+import { useNavigate } from 'react-router-dom';
 
 export const ProductCard = props => {
   const { product } = props;
+  const navigate = useNavigate();
   return (
-    <Stack spacing="3">
+    <Stack spacing="3" onClick={() => navigate('/product/koleksi-kemeja')}>
       <Box position="relative" className="group">
         <AspectRatio ratio={3 / 4}>
           <Image

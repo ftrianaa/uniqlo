@@ -17,7 +17,7 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CheckboxFilter } from '../../Components/CategoryFilter/CheckboxFilter';
 import { ColorPicker } from '../../Components/CategoryFilter/ColorPicker';
 import { MobileFilter } from '../../Components/CategoryFilter/MobileFilter';
@@ -43,6 +43,7 @@ import SliderBanner from '../../Components/SliderBanner/SliderBanner';
 
 const CategorySub = () => {
   const { category, subCategory } = useParams();
+  const navigate = useNavigate();
   //   console.log(category, 'categoryyy');
   //   console.log(subCategory, 'subbsbsss');
   return (
@@ -200,7 +201,13 @@ const CategorySub = () => {
                     <SortbySelect />
                   </HStack>
                 </Stack>
-                <Box mt="6" minH="480px" rounded="xl">
+                <Box
+                  mt="6"
+                  minH="480px"
+                  rounded="xl"
+                  onClick={() => navigate('/product/koleksi-kemeja')}
+                  cursor="pointer"
+                >
                   <SimpleGrid
                     columns={{
                       base: 1,

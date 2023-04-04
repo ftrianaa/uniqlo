@@ -23,8 +23,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box borderBottom="1px solid #dadada" px="20" py="5">
@@ -147,6 +149,7 @@ const Login = () => {
                 fontWeight="bold"
                 borderRadius="0"
                 w="50%"
+                onClick={() => navigate('/')}
               >
                 masuk
               </Button>
@@ -184,6 +187,7 @@ const Login = () => {
                 fontWeight="bold"
                 borderRadius="0"
                 w="50%"
+                onClick={() => navigate('/registry')}
               >
                 buat akun
               </Button>

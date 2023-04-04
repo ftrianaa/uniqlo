@@ -10,32 +10,32 @@ import React from 'react';
 const PurchaseHistory = () => {
   return (
     <>
-      <Heading textTransform="uppercase" fontSize="32px" fontWeight="bold">
+      <Text textTransform="uppercase" fontSize="32px" fontWeight="bold">
         Riwayat Pembelian
-      </Heading>
+      </Text>
       <UnorderedList>
-        <ListItem>
+        <ListItem my="2">
           Anda dapat melihat riwayat pembelian Anda di toko retail dan toko
           online.
         </ListItem>
-        <ListItem>
+        <ListItem my="2">
           Riwayat pembelian toko retail Anda akan terlihat pada hari berikutnya,
           jika Anda memindai barcode keanggotaan Anda dengan pembelian Anda.
         </ListItem>
-        <ListItem>
+        <ListItem my="2">
           Riwayat pembelian tidak menunjukkan barang yang dikembalikan atau
           ditukar.
         </ListItem>
-        <ListItem>
+        <ListItem my="2">
           Riwayat pembelian bukanlah bukti pembelian yang sah.
         </ListItem>
-        <ListItem>
+        <ListItem my="2">
           Harap bawa tanda terima jika Anda ingin mengembalikan atau menukar
           barang di toko.
         </ListItem>
       </UnorderedList>
-      <Divider />
-      <Text fontWeight="bold" fontSize="16px" textTransform="uppercase">
+      <Divider my="4" />
+      <Text fontWeight="bold" fontSize="16px" textTransform="uppercase" mb="5">
         item
       </Text>
       <Text fontWeight="bold" fontSize="20px" textTransform="uppercase">

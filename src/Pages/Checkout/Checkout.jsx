@@ -1,3 +1,4 @@
+import { CheckIcon } from '@chakra-ui/icons';
 import {
   Box,
   Breadcrumb,
@@ -37,7 +38,7 @@ const Checkout = () => {
   return (
     <>
       <Header />
-      <Container>
+      <Container bgColor="white" px="20">
         <Breadcrumb
           fontSize="sm"
           fontWeight="medium"
@@ -57,50 +58,71 @@ const Checkout = () => {
           </BreadcrumbItem>
         </Breadcrumb>
 
-        <Heading fontSize="36px" textTransform="uppercase">
+        <Heading
+          fontSize="36px"
+          textTransform="uppercase"
+          fontWeight="bold"
+          my="5"
+        >
           Lanjutkan ke Pembayaran
         </Heading>
         <Flex>
-          <Box width="62.5%" p={5}>
-            <Box border="1px solid #dadada">
-              <Heading fontSize="32px" textTransform="uppercase">
+          <Box width="62.5%">
+            <Box border="1px solid #dadada" px="5">
+              <Heading
+                fontSize="32px"
+                textTransform="uppercase"
+                fontWeight="bold"
+              >
                 opsi pengiriman
               </Heading>
               <Text>
                 Pesanana degan Alterasi : +1 hari dari waktu pengiriman normal.
               </Text>
-              <Text>Memenuhi syarat untuk pengiriman gratis</Text>
-              <Divider />
-              <RadioGroup>
+              <Text mt="2" mb="5">
+                Memenuhi syarat untuk pengiriman gratis
+              </Text>
+            </Box>
+            <Box border="1px solid #dadada" px="5" borderTop="none">
+              <RadioGroup py="5">
                 <Stack>
                   <Radio value="1">
                     Kirim ke Alamat
                     <Flex>
                       <Text>Pengiriman:</Text>
-                      <Text color="#37869">TBD</Text>
+                      <Text color="#378694" mx="2">
+                        TBD
+                      </Text>
                     </Flex>
-                    <Text fontWeight="bold">
-                      JABODETABEK: NEXT DAY, Pulau Jawa: 1-10 hari kerja, Luar
-                      Jawa: 2-13 hari kerja
-                    </Text>
+                    <Box>
+                      <Text fontWeight="bold">
+                        JABODETABEK: NEXT DAY, Pulau Jawa: 1-10 hari kerja,
+                      </Text>
+                      <Text fontWeight="bold"> Luar Jawa: 2-13 hari kerja</Text>
+                    </Box>
                   </Radio>
                   <Radio value="2">
                     Klik & Ambil
                     <Flex>
                       <Text>Pengiriman:</Text>
-                      <Text color="#37869">Gratis</Text>
+                      <Text color="#378694" mx="2">
+                        Gratis
+                      </Text>
                     </Flex>
-                    <Text fontWeight="bold">
-                      JABODETABEK: 0-2 hari kerja, Pulau Jawa: 0-10 hari kerja,
-                      Luar Jawa: 0-13 hari kerja
-                    </Text>
+                    <Box>
+                      <Text fontWeight="bold">
+                        JABODETABEK: 0-2 hari kerja, Pulau Jawa: 0-10 hari
+                        kerja,
+                      </Text>
+                      <Text fontWeight="bold">Luar Jawa: 0-13 hari kerja</Text>
+                    </Box>
                   </Radio>
                 </Stack>
               </RadioGroup>
               <Divider />
               {addresses.map((item, index) => (
                 <>
-                  <Flex key={index} justify="space-between">
+                  <Flex key={index} justify="space-between" my="5">
                     <Flex w="30%">
                       <Text>{item.name}</Text>
                       {item.primary === true ? (
@@ -109,85 +131,187 @@ const Checkout = () => {
                         <></>
                       )}
                     </Flex>
-                    <Box w="40%">{item.address}</Box>
-                    <Box w="30%">
+                    <Box w="35%" px="5">
+                      {item.address}
+                    </Box>
+                    <Flex
+                      w="35%"
+                      align="center"
+                      justify="center"
+                      direction="column"
+                    >
                       {item.primary === true ? (
-                        <Button>terpilih</Button>
+                        <Button
+                          textTransform="uppercase"
+                          w="50%"
+                          variant="outline"
+                          borderColor="black"
+                          bgColor="white"
+                          color="black"
+                          borderRadius="0"
+                          size="sm"
+                          leftIcon={<CheckIcon color="green" />}
+                        >
+                          terpilih
+                        </Button>
                       ) : (
-                        <Button>pilih</Button>
+                        <Button
+                          textTransform="uppercase"
+                          w="50%"
+                          variant="outline"
+                          borderColor="black"
+                          bgColor="white"
+                          color="black"
+                          borderRadius="0"
+                          size="sm"
+                        >
+                          pilih
+                        </Button>
                       )}
 
-                      <Button>ubah</Button>
-                    </Box>
+                      <Button
+                        textTransform="uppercase"
+                        w="50%"
+                        variant="outline"
+                        borderColor="black"
+                        bgColor="white"
+                        color="black"
+                        borderRadius="0"
+                        size="sm"
+                        mt="3"
+                      >
+                        ubah
+                      </Button>
+                    </Flex>
                   </Flex>
                   <Divider />
                 </>
               ))}
-              <Divider />
-              <Button>Lanjut ke pembayaran</Button>
-              <Button>daftar alamat baru</Button>
+              <Box my="6">
+                <Button
+                  textTransform="uppercase"
+                  w="35%"
+                  variant="outline"
+                  borderColor="black"
+                  bgColor="black"
+                  color="white"
+                  borderRadius="0"
+                  fontWeight="bold"
+                >
+                  Lanjut ke pembayaran
+                </Button>
+                <Button
+                  textTransform="uppercase"
+                  w="35%"
+                  variant="outline"
+                  borderColor="black"
+                  bgColor="white"
+                  color="black"
+                  borderRadius="0"
+                  mx="5"
+                  fontWeight="bold"
+                >
+                  daftar alamat baru
+                </Button>
+              </Box>
             </Box>
-            <Box border="1px solid #dadada" mt={10}>
-              <Heading fontSize="32px" textTransform="uppercase">
-                pilihan pembayaran
-              </Heading>
-              <Text>Silahkan pilih opsi pembayaran Anda.</Text>
-              <Divider />
-              <RadioGroup defaultValue="1" textTransform="capitalize">
-                <Stack spacing={4} direction="row">
-                  <Radio value="1">bayar di tempat</Radio>
-                  <Radio value="2">kartu kredit</Radio>
-                  <Radio value="3">bayar di toko</Radio>
-                  <Radio value="4">pembayaran transfer bank</Radio>
-                </Stack>
-              </RadioGroup>
-              <Divider />
-              <Text>
-                Harap lakukan pembayaran kepada kurir secara tunai saat kurir
-                mengirimkan pesanan Anda.
-              </Text>
-              <Button textTransform="uppercase">lanjutkan</Button>
-            </Box>
-            <Box border="1px solid #dadada" mt={10}>
-              <Heading fontSize="32px" textTransform="uppercase">
-                ringkasan pesanan
-              </Heading>
-              <Divider />
-              <Flex justify="space-between">
-                <Text>subtotal produk</Text>
-                <Text>Rp{total}</Text>
-              </Flex>
-              <Flex justify="space-between">
-                <Text>Pengiriman</Text>
-                <Text>Rp0</Text>
-              </Flex>
-              <Divider />
-              <Flex justify="space-between">
-                <Text fontWeight="bold" textTransform="uppercase">
-                  Subtotal
+            <Box>
+              <Box border="1px solid #dadada" mt={10} px="5">
+                <Box my="5">
+                  <Text
+                    fontSize="32px"
+                    textTransform="uppercase"
+                    fontWeight="bold"
+                  >
+                    pilihan pembayaran
+                  </Text>
+                  <Text>Silahkan pilih opsi pembayaran Anda.</Text>
+                </Box>
+              </Box>
+              <Box border="1px solid #dadada" p="5" borderTop="none">
+                <RadioGroup defaultValue="1" textTransform="capitalize">
+                  <Stack spacing={4} direction="row">
+                    <Radio value="1">bayar di tempat</Radio>
+                    <Radio value="2">kartu kredit</Radio>
+                    <Radio value="4">pembayaran transfer bank</Radio>
+                  </Stack>
+                </RadioGroup>
+                <Divider my="5" />
+                <Text>
+                  Harap lakukan pembayaran kepada kurir secara tunai saat kurir
+                  mengirimkan pesanan Anda.
                 </Text>
-                <Text fontWeight="bold">Rp{total}</Text>
-              </Flex>
-              <Flex justify="space-between">
-                <Text>termasuk PPN</Text>
-                <Text>Rp{(total * 10) / 100}</Text>
-              </Flex>
-              <Divider />
-              <Flex justify="space-between">
-                <Text fontWeight="bold" textTransform="uppercase">
-                  Total pesanan
-                </Text>
-                <Text fontWeight="bold">Rp{total}</Text>
-              </Flex>
-              <Button textTransform="uppercase" bgColor="red" color="white">
-                lanjutkan pemesanan
-              </Button>
-              <Text fontSize="14px" color="#7d7d7d">
-                Tekan Lakukan Pemesanan untuk menyelesaikan pembayaran.
-              </Text>
+                <Button
+                  textTransform="uppercase"
+                  w="40%"
+                  variant="outline"
+                  borderColor="black"
+                  bgColor="black"
+                  color="white"
+                  borderRadius="0"
+                  fontWeight="bold"
+                  mt="5"
+                >
+                  lanjutkan
+                </Button>
+              </Box>
             </Box>
-            <Box border="1px solid #dadada" mt={10}>
-              <Flex m="5">
+            <Box>
+              <Box border="1px solid #dadada" mt={10} px="5">
+                <Heading
+                  fontSize="32px"
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                >
+                  ringkasan pesanan
+                </Heading>
+              </Box>
+              <Box border="1px solid #dadada" p="5" borderTop="none">
+                <Flex justify="space-between">
+                  <Text>Subtotal produk</Text>
+                  <Text>Rp{total}</Text>
+                </Flex>
+                <Flex justify="space-between" my="3">
+                  <Text>Pengiriman</Text>
+                  <Text>Rp0</Text>
+                </Flex>
+                <Divider />
+                <Flex justify="space-between" my="3">
+                  <Text fontWeight="bold" textTransform="uppercase">
+                    Subtotal
+                  </Text>
+                  <Text fontWeight="bold">Rp{total}</Text>
+                </Flex>
+                <Flex justify="space-between">
+                  <Text>termasuk PPN</Text>
+                  <Text>Rp{(total * 10) / 100}</Text>
+                </Flex>
+                <Divider my="3" />
+                <Flex justify="space-between">
+                  <Text fontWeight="bold" textTransform="uppercase">
+                    Total pesanan
+                  </Text>
+                  <Text fontWeight="bold">Rp{total}</Text>
+                </Flex>
+                <Box mt="6">
+                  <Button
+                    textTransform="uppercase"
+                    bgColor="red"
+                    color="white"
+                    borderRadius="0"
+                    fontWeight="bold"
+                    w="40%"
+                  >
+                    lakukan pemesanan
+                  </Button>
+                  <Text fontSize="14px" color="#7d7d7d">
+                    Tekan Lakukan Pemesanan untuk menyelesaikan pembayaran.
+                  </Text>
+                </Box>
+              </Box>
+            </Box>
+            <Box border="1px solid #dadada" mt={10} mb={10}>
+              <Flex m="5" align="center">
                 <SlLock />
                 <Box ml="2">
                   <Text>
@@ -203,9 +327,13 @@ const Checkout = () => {
           </Box>
           <Box width="6.25%"></Box>
           <Box width="31.25%">
-            <Box border="1px solid #dadada">
+            <Box border="1px solid #dadada" p="5">
               <Flex justify="space-between">
-                <Text fontWeight="bold" textTransform="uppercase">
+                <Text
+                  fontWeight="bold"
+                  textTransform="uppercase"
+                  fontSize="20px"
+                >
                   RINGKASAN PESANAN|{cart.length} PRODUK
                 </Text>
                 <Text
@@ -216,11 +344,11 @@ const Checkout = () => {
                   ubah
                 </Text>
               </Flex>
-              <Flex justify="space-between">
-                <Text>subtotal produk</Text>
+              <Flex justify="space-between" mt="5">
+                <Text>Subtotal produk</Text>
                 <Text>Rp{total}</Text>
               </Flex>
-              <Flex justify="space-between">
+              <Flex justify="space-between" mt="2" mb="5">
                 <Text>Pengiriman</Text>
                 <Text>Rp0</Text>
               </Flex>
@@ -230,11 +358,11 @@ const Checkout = () => {
                 </Text>
                 <Text fontWeight="bold">Rp{total}</Text>
               </Flex>
-              <Flex justify="space-between">
+              <Flex justify="space-between" my="2">
                 <Text>termasuk PPN</Text>
                 <Text>Rp{(total * 10) / 100}</Text>
               </Flex>
-              <Flex justify="space-between">
+              <Flex justify="space-between" mt="5">
                 <Text fontWeight="bold" textTransform="uppercase">
                   Total pesanan
                 </Text>
@@ -242,8 +370,8 @@ const Checkout = () => {
               </Flex>
             </Box>
 
-            <Box border="1px solid #dadada">
-              <Text fontWeight="bold" textTransform="uppercase">
+            <Box border="1px solid #dadada" mt="5" p="5">
+              <Text fontWeight="bold" textTransform="uppercase" mb="5">
                 produk yang dipesan
               </Text>
               <Wrap>
@@ -259,10 +387,10 @@ const Checkout = () => {
             </Box>
             <Box mt={5}>
               <Divider />
-              <Flex justify="space-between" m={3}>
-                <Flex align="center">
+              <Flex justify="space-between" my="3">
+                <Flex align="center" justify="center">
                   <RiCoupon3Line />
-                  <Text> Kupon </Text>
+                  <Text mx="2"> Kupon </Text>
                 </Flex>
                 <SlArrowRight />
               </Flex>
