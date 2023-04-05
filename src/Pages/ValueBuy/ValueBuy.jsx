@@ -41,7 +41,7 @@ import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import SliderBanner from '../../Components/SliderBanner/SliderBanner';
 
-const CategorySub = () => {
+const ValueBuy = () => {
   const { category, subCategory } = useParams();
   const navigate = useNavigate();
   //   console.log(category, 'categoryyy');
@@ -58,7 +58,6 @@ const CategorySub = () => {
             md: '8',
             lg: '12',
           }}
-          py="5"
         >
           <ProductBreadcrumb data={breadcrumbData} />
           <Box>
@@ -68,7 +67,7 @@ const CategorySub = () => {
               fontWeight="bold"
               pt="6"
             >
-              {category}
+              value buy
             </Heading>
           </Box>
           <Box as="section" pt="5">
@@ -115,15 +114,10 @@ const CategorySub = () => {
               </Tabs>
             </Stack>
           </Box>
-          <Box py="5">
+          {/* <Box py="5">
             <SliderBanner />
-          </Box>
-          <Box
-            mt={{
-              base: '8',
-              md: '16',
-            }}
-          >
+          </Box> */}
+          <Box mt="2">
             <Grid
               templateColumns={{
                 base: '1fr',
@@ -205,7 +199,7 @@ const CategorySub = () => {
                   mt="6"
                   minH="480px"
                   rounded="xl"
-                  onClick={() => navigate('/products/baju')}
+                  onClick={() => navigate('/product/koleksi-kemeja')}
                   cursor="pointer"
                 >
                   <SimpleGrid
@@ -255,4 +249,4 @@ const CategorySub = () => {
   );
 };
 
-export default CategorySub;
+export default ValueBuy;

@@ -18,7 +18,7 @@ export const ProductCard = props => {
   const { product } = props;
   const navigate = useNavigate();
   return (
-    <Stack spacing="3" onClick={() => navigate('/product/koleksi-kemeja')}>
+    <Stack spacing="3" onClick={() => navigate('/products/baju')}>
       <Box position="relative" className="group">
         <AspectRatio ratio={3 / 4}>
           <Image

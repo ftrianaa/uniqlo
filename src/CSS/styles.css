@@ -115,3 +115,16 @@ body {
 .arrow--disabled {
      fill: rgba(255, 255, 255, 0.5);
 }
+.thumbnail .keen-slider__slide {
+     font-size: 30px;
+     margin-top: 10px;
+}
+
+.thumbnail .keen-slider__slide {
+     cursor: pointer;
+}
+
+.thumbnail .keen-slider__slide.active {
+     border: 2px dashed black;
+     height: 50px;
+}

@@ -11,7 +11,9 @@ import {
   Heading,
   Image,
   Input,
+  ListItem,
   Popover,
+  PopoverAnchor,
   PopoverArrow,
   PopoverBody,
   PopoverCloseButton,
@@ -19,6 +21,8 @@ import {
   PopoverTrigger,
   Portal,
   Text,
+  UnorderedList,
+  useBoolean,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -27,18 +31,19 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+
   return (
     <>
-      <Box borderBottom="1px solid #dadada" px="20" py="5">
+      <Box borderBottom="1px solid #dadada" px="20" py="5" bgColor="white">
         <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Uniqlo_logo_Japanese.svg"
+            src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
             h="9"
           />
         </Flex>
       </Box>
 
-      <Container mt={10} px="20">
+      <Container mt={10} px="20" bgColor="white">
         <Flex border="1px solid #dadada" p={5}>
           <Box w="47.5%">
             <Flex justify="space-between" align="center">
@@ -53,19 +58,40 @@ const Login = () => {
             </Flex>
             <Flex align="center" justify="space-between">
               <Text>Masuk dengan alamat e-mail dan kata sandi Anda.</Text>
-              <Popover>
+
+              <Popover placement="left">
                 <PopoverTrigger>
-                  <AiOutlineInfoCircle />
+                  <Text>
+                    <AiOutlineInfoCircle />
+                  </Text>
                 </PopoverTrigger>
-                <Portal>
-                  <PopoverContent>
-                    <PopoverArrow />
-                    <PopoverCloseButton />
-                    <PopoverBody>
-                      <Button colorScheme="blue">Button</Button>
-                    </PopoverBody>
-                  </PopoverContent>
-                </Portal>
+                <PopoverContent w="500px">
+                  <PopoverArrow />
+                  <PopoverCloseButton />
+                  <PopoverBody>
+                    <Box p="10px">
+                      <Text>
+                        Untuk menjaga keamanan akun Anda, harap pertimbangkan
+                        untuk mengubah sandi Anda jika salah satu hal berikut
+                        berlaku pada Anda:
+                      </Text>
+                      <UnorderedList my="5">
+                        <ListItem>
+                          Kata sandi yang Anda gunakan untuk akun UNIQLO Anda
+                          sama dengan yang Anda gunakan untuk akun, layanan, dan
+                          situs web lain
+                        </ListItem>
+                        <ListItem>
+                          Anda belum mengubah kata sandi Anda baru-baru ini
+                        </ListItem>
+                      </UnorderedList>
+                      <Text>
+                        Untuk mengubah kata sandi Anda, silakan pilih GANTI KATA
+                        SANDI SAYA di halaman KEANGGOTAAN.
+                      </Text>
+                    </Box>
+                  </PopoverBody>
+                </PopoverContent>
               </Popover>
             </Flex>
             <Box>

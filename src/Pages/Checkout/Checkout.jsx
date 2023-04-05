@@ -210,6 +210,7 @@ const Checkout = () => {
                   borderRadius="0"
                   mx="5"
                   fontWeight="bold"
+                  onClick={() => navigate('/member/addresses')}
                 >
                   daftar alamat baru
                 </Button>
@@ -301,6 +302,7 @@ const Checkout = () => {
                     borderRadius="0"
                     fontWeight="bold"
                     w="40%"
+                    onClick={() => navigate('/complete')}
                   >
                     lakukan pemesanan
                   </Button>
@@ -340,6 +342,8 @@ const Checkout = () => {
                   fontWeight="bold"
                   textTransform="uppercase"
                   textDecor="underline"
+                  onClick={() => navigate('/cart')}
+                  cursor="pointer"
                 >
                   ubah
                 </Text>
@@ -376,7 +380,11 @@ const Checkout = () => {
               </Text>
               <Wrap>
                 {cart.map((item, index) => (
-                  <WrapItem key={index}>
+                  <WrapItem
+                    key={index}
+                    onClick={() => navigate('/products/5')}
+                    cursor="pointer"
+                  >
                     <Box>
                       <Image src={item.src} w="70px" />
                       <Text>x{item.qty}</Text>

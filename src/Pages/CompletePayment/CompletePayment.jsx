@@ -5,17 +5,24 @@ import {
   Divider,
   Flex,
   Heading,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
   Spacer,
   Text,
   Tooltip,
 } from '@chakra-ui/react';
 import React from 'react';
 import { RiInformationLine } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import { cart, addresses } from '../Checkout/data';
 
 const CompletePayment = () => {
+  const navigate = useNavigate();
   function orderId(length) {
     let result = '';
     let counter = 0;
@@ -102,9 +109,28 @@ const CompletePayment = () => {
                 </Text>
                 <Spacer />
                 <Text>Tentang pembatalan</Text>
-                <Tooltip label="Hey, I'm here!" aria-label="A tooltip">
-                  <RiInformationLine />
-                </Tooltip>
+                <Popover islazy trigger={'hover'} placement="left">
+                  <PopoverTrigger>
+                    <Text>
+                      <RiInformationLine />
+                    </Text>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+
+                    <PopoverBody>
+                      <Flex>
+                        <Text>
+                          Saat ini, setiap pembelanjaan melalui online tidak
+                          dapat di batalkan. Jika Anda ingin membatalkan, Anda
+                          dapat melakukan pengembalian produk dan selanjutnya
+                          melakukan transaksi kembali. Untuk keterangan lebih
+                          lanjut silahkan cek <u>Kebijakan pengembalian</u>
+                        </Text>
+                      </Flex>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
               </Flex>
               <Flex my="5">
                 <Button
@@ -125,6 +151,7 @@ const CompletePayment = () => {
                   fontWeight="bold"
                   w="40%"
                   mx="3"
+                  onClick={() => navigate('/member/orders')}
                 >
                   riwayat pesanan
                 </Button>

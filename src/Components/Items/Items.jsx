@@ -1,6 +1,6 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
-import { ProductCard } from './ProductCard';
+import { ProductCard } from '../ProductCard/ProductCard';
 import { products } from './_data';
 
 export const Items = () => {
@@ -12,7 +12,6 @@ export const Items = () => {
           base: 1,
           sm: 2,
           md: 3,
-          lg: 4,
         }}
         gap={{
           base: '8',

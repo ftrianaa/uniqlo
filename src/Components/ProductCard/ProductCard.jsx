@@ -12,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 import { Rating } from './Rating';
 import { PriceTag } from './PriceTag';
-import { ProductButtonGroup } from './ProductButtonGroup';
 import { useNavigate } from 'react-router-dom';
 import { TbHeartPlus } from 'react-icons/tb';
 import { ColorPicker } from '../ProductGallery/ColorPicker';
@@ -23,9 +22,9 @@ export const ProductCard = props => {
   // product.color.map(item => colors.push(item));
   // console.log(colors, 'ini color');
   return (
-    <Stack spacing="3" p={3} onClick={() => navigate('/products/baju')}>
+    <Stack spacing="3" w="230px" onClick={() => navigate('/products/baju')}>
       <Box position="relative" className="group">
-        <AspectRatio ratio={5 / 5}>
+        <AspectRatio ratio={5 / 5} width="230px">
           <Box>
             <Box position="absolute" zIndex="1" top="10px" right="10px">
               <TbHeartPlus size="24px" />

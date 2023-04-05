@@ -33,7 +33,7 @@ export default function ProductCarousel() {
           {products.map(product => (
             <Box
               className="keen-slider__slide"
-              onClick={() => navigate('/product/koleksi-kemeja')}
+              onClick={() => navigate('/products/baju')}
               cursor="pointer"
             >
               <ProductCard key={product.id} product={product} />

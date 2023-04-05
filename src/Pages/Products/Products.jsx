@@ -34,6 +34,7 @@ const Products = () => {
           </BreadcrumbItem>
         </Breadcrumb>
         <ProductGallery />
+
         <Box mb="10">
           <Heading textTransform="uppercase" fontSize="32px" fontWeight="bold">
             baru saja dilihat

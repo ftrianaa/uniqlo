@@ -213,6 +213,7 @@ const Cart = () => {
               textTransform="uppercase"
               my="5"
               borderRadius="0"
+              onClick={() => navigate('/checkout')}
             >
               lanjutkan ke pembayaran
             </Button>
@@ -222,6 +223,7 @@ const Cart = () => {
               textTransform="uppercase"
               borderColor="black"
               borderRadius="0"
+              onClick={() => navigate('/')}
             >
               lanjut belanja
             </Button>

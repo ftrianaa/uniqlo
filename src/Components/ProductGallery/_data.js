@@ -29,7 +29,7 @@ export const images = [
     src: 'https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80',
     alt: 'Awesome watch',
   },
-]
+];
 export const products = [
   {
     id: '1',
@@ -86,4 +86,49 @@ export const products = [
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
     images,
   },
-]
+];
+export const review = [
+  {
+    title: 'comfortable',
+    date: '02/04/2023',
+    size: 's',
+    fit: 'Ukuran pas',
+    comment:
+      'The material f this shirt is kinda thick, suitable for women as well',
+    name: 'lum',
+    gender: 'wanita',
+    age: '',
+    height: '',
+    weight: '',
+    from: 'Kuala Lumpur',
+  },
+  {
+    title: 'T SHIRT UNIQLO SANGAT NYAMAN',
+    date: '01/04/2023',
+    size: 'L',
+    fit: 'Ukuran pas',
+    comment:
+      'T shirt produk Uniqlo sangat nyaman di pakai, saya sangat suka sekali.. Uniqlo emang the best',
+    name: 'yeni',
+    gender: 'wanita',
+    age: '45 hingga 54 tahun',
+    height: '156 - 160cm',
+    weight: '76 - 80kg',
+    from: 'Java Island',
+  },
+  {
+    title:
+      '[MUST HAVE] BASIC STYLE FOR COMBINATION MODEL + COMFORTABLE T-SHIRT',
+    date: '31/03/2023',
+    size: 'L',
+    fit: 'Ukuran pas',
+    comment:
+      'Warna-nya soft suka bangett, cuttingan presisi dan pas, nyaman dipakai, cocok buat layering / mix & match, worth it to buy guysss ✨✨👍',
+    name: '',
+    gender: 'pria',
+    age: '45 hingga 54 tahun',
+    height: 'Tinggi: 166 - 170cm',
+    weight: ' 71 - 75kg',
+    from: 'JABODETABEK',
+  },
+];

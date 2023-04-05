@@ -13,6 +13,11 @@ import {
   FormLabel,
   Heading,
   Input,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverContent,
+  PopoverTrigger,
   Radio,
   RadioGroup,
   Stack,
@@ -57,9 +62,27 @@ const Register = () => {
             >
               buat akun
             </Heading>
-            <Tooltip hasArrow label="Search places" bg="gray.300" color="black">
-              <SlLock />
-            </Tooltip>
+            <Popover islazy trigger={'hover'} placement="left">
+              <PopoverTrigger>
+                <Text>
+                  <SlLock />
+                </Text>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverBody>
+                  <Box>
+                    <Text>
+                      Kami mengenkripsi semua informasi sensitif Anda dengan
+                      teknologi enkripsi
+                    </Text>
+                    <Text textDecor="underline">
+                      TLS (Transport Layer Security).
+                    </Text>
+                  </Box>
+                </PopoverBody>
+                <PopoverArrow />
+              </PopoverContent>
+            </Popover>
           </Flex>
 
           <Box border="1px solid #dadada" p={5} my="10">

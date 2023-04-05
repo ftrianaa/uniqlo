@@ -1,9 +1,10 @@
 import React from 'react';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
-import { Box } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { images } from './_data';
 import { Gallery } from './Gallery';
+import AppBenefits from '../../Components/AppBenefits/AppBenefits';
 // console.log(images, 'ini imageesss');
 export const Home = () => {
   return (
@@ -25,7 +26,17 @@ export const Home = () => {
       > */}
       {/* <Gallery images={images} /> */}
       <Gallery images={images} />
-
+      <Box bgColor="white" pb="4">
+        <Heading
+          fontWeight="bold"
+          fontSize="36px"
+          textTransform="uppercase"
+          mx="4"
+        >
+          app benefits
+        </Heading>
+        <AppBenefits />
+      </Box>
       {/* </Box> */}
       <Footer />
     </>

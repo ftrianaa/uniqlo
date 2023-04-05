@@ -8,15 +8,17 @@ import {
   Tag,
   Text,
   useColorModeValue,
-} from '@chakra-ui/react'
-import { Rating } from './Rating'
-import { PriceTag } from './PriceTag'
-import { ProductButtonGroup } from './ProductButtonGroup'
+} from '@chakra-ui/react';
+import { Rating } from './Rating';
+import { PriceTag } from './PriceTag';
+import { ProductButtonGroup } from './ProductButtonGroup';
+import { useNavigate } from 'react-router-dom';
 
-export const ProductCard = (props) => {
-  const { product } = props
+export const ProductCard = props => {
+  const { product } = props;
+  const navigate = useNavigate();
   return (
-    <Stack spacing="3">
+    <Stack spacing="3" onClick={() => navigate('/product/koleksi-kemeja')}>
       <Box position="relative" className="group">
         <AspectRatio ratio={3 / 4}>
           <Image
@@ -27,8 +29,13 @@ export const ProductCard = (props) => {
           />
         </AspectRatio>
         <HStack spacing="3" position="absolute" top="4" left="4">
-          {product.tags?.map((tag) => (
-            <Tag key={tag.name} bg={`${tag.color}.500`} color="white" fontWeight="semibold">
+          {product.tags?.map(tag => (
+            <Tag
+              key={tag.name}
+              bg={`${tag.color}.500`}
+              color="white"
+              fontWeight="semibold"
+            >
               {tag.name}
             </Tag>
           ))}
@@ -54,7 +61,11 @@ export const ProductCard = (props) => {
         <Text>{product.name}</Text>
         <HStack>
           <Rating defaultValue={product.rating} size="sm" />
-          <Text fontWeight="medium" fontSize="sm" color={useColorModeValue('gray.800', 'gray.200')}>
+          <Text
+            fontWeight="medium"
+            fontSize="sm"
+            color={useColorModeValue('gray.800', 'gray.200')}
+          >
             12
           </Text>
         </HStack>
@@ -69,5 +80,5 @@ export const ProductCard = (props) => {
         }}
       />
     </Stack>
-  )
-}
+  );
+};

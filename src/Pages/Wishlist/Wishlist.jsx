@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Box,
   Breadcrumb,
   BreadcrumbItem,
@@ -17,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import { wishlist } from './data';
-
+import { FcLike } from 'react-icons/fc';
 const Wishlist = () => {
   const navigate = useNavigate();
   return (
@@ -49,12 +50,31 @@ const Wishlist = () => {
         </Heading>
 
         <Box border="1px solid #dadada" p="28px 20px">
-          <Text>{wishlist.length} Item(s)</Text>
+          <Text>{wishlist.length} Produk</Text>
 
           {wishlist.map((item, index) => (
             <>
-              <Flex key={index} m="20px 0">
-                <Image src={item.src} alt={item.title} w="190px" />
+              <Flex
+                key={index}
+                m="20px 0"
+                onClick={() => navigate('/products/5')}
+                cursor="pointer"
+              >
+                <Box position="relative" className="group">
+                  <AspectRatio ratio={5 / 5} width="190px">
+                    <Box>
+                      <Box
+                        position="absolute"
+                        zIndex="1"
+                        right="10px"
+                        top="10px"
+                      >
+                        <FcLike size="24px" />
+                      </Box>
+                      <Image src={item.src} alt={item.title} w="190px" />
+                    </Box>
+                  </AspectRatio>
+                </Box>
                 <Box textTransform="capitalize" ml={5}>
                   <Box>
                     <Text fontWeight="bold">{item.title}</Text>

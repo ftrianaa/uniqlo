@@ -22,6 +22,8 @@ import Wallet from '../Pages/Profile/Setting/Wallet';
 import Register from '../Pages/Register/Register';
 import Search from '../Pages/Search/Search';
 import SPLEvent from '../Pages/SPLEvent/SPLEvent';
+import StoreInventory from '../Pages/StoreInventory/StoreInventory';
+import ValueBuy from '../Pages/ValueBuy/ValueBuy';
 import Wishlist from '../Pages/Wishlist/Wishlist';
 
 const Routers = () => {
@@ -39,7 +41,9 @@ const Routers = () => {
       <Route path="/registry" element={<Register />} />
       <Route path="/complete" element={<CompletePayment />} />
       <Route path="/search/:name" element={<Search />} />
+      <Route path="/discounts" element={<ValueBuy />} />
       <Route path="/spl/:name" element={<SPLEvent />} />
+      <Route path="/store inventory" element={<StoreInventory />} />
       <Route path="/member" element={<Member />}>
         <Route path="details" element={<Profile />} />
         <Route path="coupon" element={<Coupon />} />

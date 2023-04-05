@@ -27,6 +27,7 @@ import { CategoryFilter } from '../../Components/CategoryFilter/CategoryFilter';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import { Items } from '../../Components/Items/Items';
+import { MenuGallery } from '../../Components/MenuGallery/MenuGallery';
 import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import { Slider } from '../../Components/Slider/Slider';
@@ -122,7 +123,7 @@ const Category = () => {
               {categories.map((cats, index) => (
                 <WrapItem
                   key={index}
-                  w="23%"
+                  w="24.2%"
                   onClick={() => navigate('/category/men')}
                   cursor="pointer"
                 >
@@ -143,20 +144,24 @@ const Category = () => {
             >
               New Arrivals
             </Heading>
-            <CategoryFilter />
+            <MenuGallery />
             <Button
               w="100%"
               textTransform="uppercase"
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mb="10"
+              my="10"
               onClick={() => navigate('/new arrivals/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
           </Box>
-          <Image src="https://im.uniqlo.com/global-cms/spa/resd79b1466f8de36b69fe966df9156a0a6fr.jpeg" />
+          <Image
+            src="https://im.uniqlo.com/global-cms/spa/resd79b1466f8de36b69fe966df9156a0a6fr.jpeg"
+            onClick={() => navigate('/search/coming-soon')}
+            cursor="pointer"
+          />
           <Box>
             <Heading
               textTransform="uppercase"
@@ -179,14 +184,14 @@ const Category = () => {
             >
               Top Picks
             </Heading>
-            <CategoryFilter />
+            <MenuGallery />
             <Button
               w="100%"
               textTransform="uppercase"
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mb="10"
+              my="10"
               onClick={() => navigate('/top picks/koleksi-kemeja')}
             >
               Selengkapnya
@@ -202,14 +207,14 @@ const Category = () => {
             >
               Seasonal Picks
             </Heading>
-            <CategoryFilter />
+            <MenuGallery />
             <Button
               w="100%"
               textTransform="uppercase"
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mb="10"
+              my="10"
               onClick={() => navigate('/seasonal picks/koleksi-kemeja')}
             >
               Selengkapnya
@@ -224,19 +229,23 @@ const Category = () => {
             >
               Value Buy
             </Heading>
-            <CategoryFilter />
+            <MenuGallery />
             <Button
               w="100%"
               textTransform="uppercase"
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mb="10"
+              my="10"
               onClick={() => navigate('/value buy/koleksi-kemeja')}
             >
               Selengkapnya
             </Button>
-            <Image src="https://im.uniqlo.com/global-cms/spa/resd713f4ef3b81b263e3b3c271f5fb4cc5fr.jpg" />
+            <Image
+              src="https://im.uniqlo.com/global-cms/spa/resd713f4ef3b81b263e3b3c271f5fb4cc5fr.jpg"
+              onClick={() => navigate('/discounts')}
+              cursor="pointer"
+            />
           </Box>
           <Box>
             <Heading
@@ -254,7 +263,7 @@ const Category = () => {
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mb="10"
+              my="10"
               onClick={() => navigate('/ut collection/koleksi-kemeja')}
             >
               Selengkapnya
@@ -277,7 +286,7 @@ const Category = () => {
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mt="10"
+              my="10"
               onClick={() => navigate('/special collaboration/koleksi-kemeja')}
             >
               Selengkapnya
@@ -334,7 +343,7 @@ const Category = () => {
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mt="10"
+              my="10"
             >
               Selengkapnya
             </Button>
@@ -388,7 +397,7 @@ const Category = () => {
               variant="outline"
               borderColor="black"
               borderRadius="0"
-              mt="10"
+              my="10"
             >
               Selengkapnya
             </Button>

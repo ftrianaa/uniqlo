@@ -45,9 +45,7 @@ import { SearchInput } from './SearchInput';
 import { ResourcesSubmenu } from './ResourcesSubmenu';
 import { PopoverIcon } from './PopoverIcon';
 import { useNavigate } from 'react-router-dom';
-import { MenSubmenu } from './MenSubmenu';
-import { KidsSubmenu } from './KidsSubmenu';
-import { BabySubmenu } from './babySubmenu';
+
 import Men from '../MenuDropdown/Men';
 import Women from '../MenuDropdown/Women';
 import Child from '../MenuDropdown/Child';
@@ -172,7 +170,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent width={'100%'} borderRadius="0">
+                  <PopoverContent w="98.6vw" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Women />
                     </PopoverBody>
@@ -191,8 +189,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent width={'100%'} borderRadius="0">
-                    <PopoverArrow />
+                  <PopoverContent w="98.6vw" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Men />
                     </PopoverBody>
@@ -211,7 +208,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent width={'100%'} borderRadius="0">
+                  <PopoverContent w="98.6vw" borderRadius="0">
                     <PopoverArrow />
                     <PopoverBody padding={'25px'}>
                       <Child />
@@ -231,8 +228,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent width={'100%'} borderRadius="0">
-                    <PopoverArrow />
+                  <PopoverContent w="98.6vw" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Baby />
                     </PopoverBody>
