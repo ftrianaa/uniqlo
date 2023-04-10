@@ -68,16 +68,16 @@ export default function Gallery() {
     },
     [ThumbnailPlugin(instanceRef)]
   );
-
+  // console.log(instanceRef, 'ini sider ref');
   return (
     <>
-      <Flex>
+      <Flex direction={'row-reverse'}>
         <Box w="80%">
           <div className="navigation-wrapper">
             <div ref={sliderRef} className="keen-slider">
               {images.map(item => (
                 <Box p={2} className="keen-slider__slide ">
-                  <AspectRatio ratio={4 / 3}>
+                  <AspectRatio ratio={4 / 3} maxH="50vh">
                     <Image src={item.src} alt={item.title} />
                   </AspectRatio>
                 </Box>
@@ -107,6 +107,7 @@ export default function Gallery() {
             )}
           </div>
         </Box>
+
         <Box w="20%">
           <div ref={thumbnailRef} className="keen-slider thumbnail">
             {images.map(item => (

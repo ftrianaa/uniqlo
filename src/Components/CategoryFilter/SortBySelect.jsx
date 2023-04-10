@@ -1,4 +1,4 @@
-import { Select, useColorModeValue } from '@chakra-ui/react'
+import { Select, useColorModeValue } from '@chakra-ui/react';
 const sortByOptions = {
   defaultValue: 'best-seller',
   options: [
@@ -19,21 +19,21 @@ const sortByOptions = {
       value: 'high-to-low',
     },
   ],
-}
+};
 
-export const SortbySelect = (props) => (
+export const SortbySelect = props => (
   <Select
     size="sm"
     aria-label="Sort by"
     defaultValue={sortByOptions.defaultValue}
     focusBorderColor={useColorModeValue('blue.500', 'blue.200')}
-    rounded="md"
     {...props}
+    borderColor="#7d7d7d"
   >
-    {sortByOptions.options.map((option) => (
+    {sortByOptions.options.map(option => (
       <option key={option.value} value={option.value}>
         {option.label}
       </option>
     ))}
   </Select>
-)
+);

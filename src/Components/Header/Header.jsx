@@ -31,7 +31,7 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
 import { MdMenu } from 'react-icons/md';
 import { RiHeartLine, RiShoppingCartLine } from 'react-icons/ri';
 // import { CurrencySelect } from '../CurrencySelect';
@@ -105,11 +105,11 @@ const Header = () => {
         pb="4.5rem"
         overflow="hidden"
         display={{
-          base: 'flex',
+          base: 'none',
           lg: 'none',
         }}
       >
-        <Box px="3" py="3" borderBottomWidth="1px" overflow="auto">
+        {/* <Box px="3" py="3" borderBottomWidth="1px" overflow="auto">
           <Flex
             align="center"
             justify="space-between"
@@ -124,24 +124,24 @@ const Header = () => {
                 <VisuallyHidden>Toggle Menu</VisuallyHidden>
                 <Box as={MdMenu} fontSize="3xl" />
               </Center>
-              {/* <Logo h="3" /> */}
-              <Image src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Uniqlo_logo_Japanese.svg" />
+
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
+                h="3"
+              />
             </HStack>
-            {/* <Box>
-              <CurrencySelect />
-            </Box> */}
           </Flex>
           <SearchInput />
-        </Box>
+        </Box> */}
 
         {/* <Flex flex="1" fontSize="sm" overflow="auto">
           <NavCategoryMenu.Mobile />
           <NavCategorySubmenu.Mobile />
         </Flex> */}
-        <MobileBottomNav />
+        {/* <MobileBottomNav /> */}
       </Flex>
       <Box
-        px="20"
+        px={[5, '20']}
         bg={mode('white', 'gray.800')}
         position="sticky"
         top="0"
@@ -150,13 +150,12 @@ const Header = () => {
       >
         <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
           <HStack flex="24rem" spacing="32px">
-            <Image
-              src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
-              h="9"
-            />
-
             {isDesktop ? (
               <>
+                <Image
+                  src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
+                  h="9"
+                />
                 <Popover islazy trigger={'hover'}>
                   <PopoverTrigger>
                     <Box>
@@ -248,46 +247,74 @@ const Header = () => {
               //     </Button>
               //   ))}
               // </ButtonGroup>
-              <IconButton
-                variant="ghost"
-                icon={<FiMenu fontSize="1.25rem" />}
-                aria-label="Open Menu"
+              // <IconButton
+              //   variant="ghost"
+              //   icon={<FiMenu fontSize="1.25rem" />}
+              //   aria-label="Open Menu"
+              // />
+              <Image
+                src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
+                h="7"
               />
             )}
           </HStack>
 
           <HStack spacing="8" flexShrink={0}>
-            <Box width="full" mx="8">
-              <SearchInput />
-            </Box>
-            <NavAction.Desktop icon={RiHeartLine} href="/wishlist" />
-            <Popover islazy trigger={'hover'}>
-              <PopoverTrigger>
-                <Box>
-                  <AiOutlineUser cursor="pointer" />
+            {!isDesktop ? (
+              <Box>
+                <AiOutlineSearch />
+              </Box>
+            ) : (
+              <></>
+            )}
+            {isDesktop ? (
+              <>
+                <Box width="full" mx="8">
+                  <SearchInput />
                 </Box>
-              </PopoverTrigger>
-              <PopoverContent width={'100%'} borderRadius="0">
-                <PopoverArrow />
-                <PopoverBody padding={'25px'}>
-                  <Profile />
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
+
+                <Popover islazy trigger={'hover'}>
+                  <PopoverTrigger>
+                    <Box>
+                      <AiOutlineUser cursor="pointer" />
+                    </Box>
+                  </PopoverTrigger>
+                  <PopoverContent width={'100%'} borderRadius="0">
+                    <PopoverArrow />
+                    <PopoverBody padding={'25px'}>
+                      <Profile />
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
+              </>
+            ) : (
+              <></>
+            )}
+
+            <NavAction.Desktop icon={RiHeartLine} href="/wishlist" />
             {/* <NavAction.Desktop icon={AiOutlineUser} href="/member/details" /> */}
             <Box position="relative">
               <NavAction.Desktop icon={RiShoppingCartLine} href="/cart" />
               <CartCount>1</CartCount>
             </Box>
+            {!isDesktop ? (
+              <IconButton
+                variant="ghost"
+                icon={<FiMenu fontSize="1.25rem" />}
+                aria-label="Open Menu"
+              />
+            ) : (
+              <></>
+            )}
           </HStack>
         </Flex>
       </Box>
 
-      {isOpen && isDesktop ? (
+      {/* {isOpen && isDesktop ? (
         <ResourcesSubmenu isOpen={isDesktop && isOpen} />
       ) : (
         <></>
-      )}
+      )} */}
     </>
   );
 };

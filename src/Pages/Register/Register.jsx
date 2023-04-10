@@ -62,13 +62,20 @@ const Register = () => {
             >
               buat akun
             </Heading>
-            <Popover islazy trigger={'hover'} placement="left">
+            <Popover
+              islazy
+              trigger={'hover'}
+              placement="left"
+              openDelay="0"
+              closeDelay="0"
+            >
               <PopoverTrigger>
                 <Text>
                   <SlLock />
                 </Text>
               </PopoverTrigger>
               <PopoverContent>
+                <PopoverArrow />
                 <PopoverBody>
                   <Box>
                     <Text>
@@ -80,7 +87,6 @@ const Register = () => {
                     </Text>
                   </Box>
                 </PopoverBody>
-                <PopoverArrow />
               </PopoverContent>
             </Popover>
           </Flex>

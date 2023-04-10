@@ -38,7 +38,7 @@ import { Share } from './Share';
 import { SizePicker } from './SizePicker';
 import Gallery from './Gallery';
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { ProgressBar } from '../ProgressBar/Progressbar';
+import { ProgressBar } from './Progressbar';
 import { review } from './_data';
 import { useNavigate } from 'react-router-dom';
 
@@ -80,7 +80,7 @@ export const ProductGallery = () => {
                 kode produk: 455758
               </Text>
             </Flex>
-            <Accordion>
+            <Accordion allowToggle allowMultiple>
               <AccordionItem>
                 <h2>
                   <AccordionButton>
@@ -238,6 +238,7 @@ export const ProductGallery = () => {
               border="1px solid black"
               w="40%"
               my="5"
+              onClick={() => navigate('/products/E457999/review/new')}
             >
               tulis ulasan
             </Button>
@@ -335,6 +336,7 @@ export const ProductGallery = () => {
               border="1px solid black"
               w="40%"
               my="5"
+              onClick={() => navigate('/products/E457999/review')}
             >
               lihat lebih banyak
             </Button>

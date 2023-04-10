@@ -1,0 +1,63 @@
+export const review = [
+  {
+    title: 'comfortable',
+    rate: 4,
+    size: 'S',
+    fit: 'Ukuran Pas',
+    comment:
+      'First time trying high rise underwear, and still feels comfortable',
+    name: 'cottoncandy',
+    gender: 'Wanita',
+    age: '20 sampai 24 tahun',
+    height: '166 - 170cm',
+    weight: '51 - 55kg',
+    city: 'JABODETABEK',
+    date: '08/04/2023',
+  },
+  {
+    title: 'si nyaman',
+    rate: 5,
+    size: 'L',
+    fit: 'Ukuran Pas',
+    comment:
+      'Sangat nyaman dipakai, tidak jiplak saat dipakai, dan tidak gerah',
+    name: '',
+    gender: 'Wanita',
+    age: '25 sampai 34 tahun',
+    height: '156 - 160cm',
+    weight: '56 - 60kg',
+    city: 'Sulawesi Island',
+    date: '04/04/2023',
+  },
+  {
+    title: 'light n quick drying',
+    rate: 5,
+    size: 'L',
+    fit: 'Ukuran Pas',
+    comment:
+      'This is my 8th purchase. Its light, comfortable and most important it`s easy to wash n quick to dry. It`s great for travel as it occupies very little space in your luggage. Its made of high quality material, stretches according to your body shape, very durable and comes in many colors.',
+    name: 'anthony',
+    gender: 'Wanita',
+    age: '65 tahun atau lebih',
+    height: '151 - 155cm',
+    weight: '56 - 60kg',
+    city: 'Selangor',
+    date: '03/04/2023',
+  },
+
+  {
+    title: 'HIGH RISE BRIEFS',
+    rate: 5,
+    size: 'L',
+    fit: 'Sedikit Longgar',
+    comment:
+      'I like this kind of briefs so much. Hopes outlets provide xs size',
+    name: '',
+    gender: 'Wanita',
+    age: '35 hingga 44 tahun',
+    height: '156 - 160cm',
+    weight: '41 - 45kg',
+    city: 'Sabah',
+    date: '03/04/2023',
+  },
+];

@@ -5,11 +5,6 @@ export const Step = props => {
   const { isActive, isCompleted, isLastStep, label, ...stackProps } = props;
   return (
     <Box>
-      <Box>
-        <Text fontWeight="bold" fontSize="9px" textTransform="uppercase">
-          {label}
-        </Text>
-      </Box>
       <HStack flex={isLastStep ? '0' : '1'} spacing="0" {...stackProps}>
         <StepCircle isActive={isActive} isCompleted={isCompleted} />
         {!isLastStep && (
@@ -21,6 +16,9 @@ export const Step = props => {
           />
         )}
       </HStack>
+      <Box>
+        <Text>{label}</Text>
+      </Box>
     </Box>
   );
 };

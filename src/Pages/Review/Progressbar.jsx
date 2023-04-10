@@ -5,9 +5,9 @@ import { useStep } from './useStep';
 export const ProgressBar = () => {
   const numberOfSteps = [
     { id: 1, value: 'Ketat' },
-    { id: 2, value: 'sedikit ketat' },
-    { id: 3, value: 'pas' },
-    { id: 4, value: 'sedikit longgar' },
+    { id: 2, value: '.' },
+    { id: 3, value: 'Pas' },
+    { id: 4, value: '.' },
     { id: 5, value: 'Longgar' },
   ];
 
@@ -28,7 +28,7 @@ export const ProgressBar = () => {
           <Step
             key={id}
             cursor="pointer"
-            onClick={() => setStep(id)}
+            // onClick={() => setStep(id)}
             isActive={currentStep === id}
             // isCompleted={currentStep > id}
             isLastStep={numberOfSteps.length === id + 1}

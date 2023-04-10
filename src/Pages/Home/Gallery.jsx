@@ -43,6 +43,7 @@ export const Gallery = props => {
                 _hover={{
                   opacity: 1,
                 }}
+                maxH="80vh"
               >
                 <Image
                   src={image.src}

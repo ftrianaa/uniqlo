@@ -17,7 +17,7 @@ export const Step = props => {
             orientation="horizontal"
             borderWidth="1px"
             borderColor={isCompleted ? 'accent' : 'inherit'}
-            w="5vw  "
+            w="3vw  "
           />
         )}
       </HStack>

@@ -5,6 +5,7 @@ export const Rating = props => {
   const { defaultValue = 0, max = 5, size = 'md', rootProps } = props;
   const color = useColorModeValue('gray.200', 'gray.600');
   const activeColor = useColorModeValue('yellow.400', 'yellow.200');
+
   return (
     <HStack spacing="0.5" {...rootProps}>
       {Array.from({
