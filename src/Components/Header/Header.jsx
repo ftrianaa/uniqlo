@@ -88,7 +88,7 @@ const Header = () => {
       <Flex
         bgColor="#f4f4f4"
         className="top-header"
-        px="20"
+        px={{ base: 5, md: 10, lg: 20 }}
         h="30px"
         align="center"
         justify="left"
@@ -141,7 +141,7 @@ const Header = () => {
         {/* <MobileBottomNav /> */}
       </Flex>
       <Box
-        px={[5, '20']}
+        px={{ base: 5, md: 10, lg: 20 }}
         bg={mode('white', 'gray.800')}
         position="sticky"
         top="0"

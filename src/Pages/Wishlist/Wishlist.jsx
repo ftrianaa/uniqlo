@@ -12,6 +12,7 @@ import {
   Image,
   Text,
   useColorModeValue as mode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -21,36 +22,72 @@ import { wishlist } from './data';
 import { FcLike } from 'react-icons/fc';
 const Wishlist = () => {
   const navigate = useNavigate();
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Header />
-      <Container bgColor="white" px="20">
-        <Breadcrumb
-          fontSize="sm"
-          fontWeight="medium"
-          color={mode('gray.600', 'gray.400')}
-          separator={'/'}
-        >
-          <BreadcrumbItem>
-            <BreadcrumbLink onClick={() => navigate('/')}>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Wishlist</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
+      {!isDesktop ? (
+        <Box bgColor={'#f4f4f4'}>
+          <Text
+            fontSize="22px"
+            textTransform="uppercase"
+            fontWeight="bold"
+            textAlign="left"
+            p={5}
+            px={{ base: 5, md: 10 }}
+          >
+            Wishlist
+          </Text>
+        </Box>
+      ) : (
+        <></>
+      )}
+      <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
+        {isDesktop ? (
+          <>
+            <Breadcrumb
+              fontSize="sm"
+              fontWeight="medium"
+              color={mode('gray.600', 'gray.400')}
+              separator={'/'}
+            >
+              <BreadcrumbItem>
+                <BreadcrumbLink onClick={() => navigate('/')}>
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#">Wishlist</BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+            <Heading
+              fontSize="36px"
+              textTransform="uppercase"
+              fontWeight="bold"
+              textAlign="left"
+              py="8"
+            >
+              Wish list
+            </Heading>
+          </>
+        ) : (
+          <></>
+        )}
 
-        <Heading
-          fontSize="36px"
-          textTransform="uppercase"
-          fontWeight="bold"
-          textAlign="left"
-          py="8"
+        <Box
+          border={{ base: 'none', lg: '1px solid #dadada' }}
+          p={{ base: 'none', lg: '28px 20px' }}
         >
-          Wish list
-        </Heading>
-
-        <Box border="1px solid #dadada" p="28px 20px">
-          <Text>{wishlist.length} Produk</Text>
+          <Text
+            pt={{ base: 5, lg: 0 }}
+            fontWeight={{ base: 'bold', lg: 'normal' }}
+            textTransform={{ base: 'uppercase', lg: 'none' }}
+          >
+            {wishlist.length} Produk
+          </Text>
 
           {wishlist.map((item, index) => (
             <>
@@ -75,11 +112,15 @@ const Wishlist = () => {
                     </Box>
                   </AspectRatio>
                 </Box>
-                <Box textTransform="capitalize" ml={5}>
+                <Box
+                  textTransform="capitalize"
+                  ml={5}
+                  fontSize={['15px', '16px']}
+                >
                   <Box>
                     <Text fontWeight="bold">{item.title}</Text>
                   </Box>
-                  <Box my="5">
+                  <Box my={{ base: 0, lg: 5 }}>
                     <Text color="#7d7d7d">kode produk: {item.codeItem}</Text>
                     <Text>Warna: {item.color}</Text>
                     <Text>ukuran: {item.size}</Text>
@@ -90,7 +131,8 @@ const Wishlist = () => {
                   </Box>
                 </Box>
               </Flex>
-              {wishlist.length > 1 && index < wishlist.length ? (
+
+              {isDesktop && wishlist.length > 1 && item.id < wishlist.length ? (
                 <Divider />
               ) : (
                 <></>

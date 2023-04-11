@@ -31,7 +31,7 @@ const Footer = () => {
       <Container
         as="footer"
         role="contentinfo"
-        px={[5, '20']}
+        px={{ base: 5, md: 10, xl: 20 }}
         bgColor="#f4f4f4"
       >
         {isDesktop ? (

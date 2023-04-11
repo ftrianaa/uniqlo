@@ -23,7 +23,7 @@ export const ProductCard = props => {
   // product.color.map(item => colors.push(item));
   // console.log(colors, 'ini color');
   return (
-    <Stack spacing="3" p={3} onClick={() => navigate('/products/baju')}>
+    <Stack spacing="3" p={2} onClick={() => navigate('/products/baju')}>
       <Box position="relative" className="group">
         <AspectRatio ratio={5 / 5}>
           <Box>

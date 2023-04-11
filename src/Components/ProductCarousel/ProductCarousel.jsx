@@ -19,17 +19,28 @@ export default function ProductCarousel() {
     created() {
       setLoaded(true);
     },
-    slides: {
-      perView: 4,
-      spacing: 15,
+    breakpoints: {
+      '(max-width: 959px)': {
+        slides: {
+          perView: 3,
+          spacing: 1,
+        },
+      },
+      '(min-width: 960px)': {
+        slides: {
+          perView: 4,
+          spacing: 5,
+        },
+      },
     },
+
     loop: true,
   });
   const navigate = useNavigate();
   return (
     <>
-      <div className="navigation-wrapper">
-        <div ref={sliderRef} className="keen-slider">
+      <Box className="navigation-wrapper">
+        <Box ref={sliderRef} className="keen-slider">
           {products.map(product => (
             <Box
               className="keen-slider__slide"
@@ -39,7 +50,7 @@ export default function ProductCarousel() {
               <ProductCard key={product.id} product={product} />
             </Box>
           ))}
-        </div>
+        </Box>
         {loaded && instanceRef.current && (
           <>
             <Arrow
@@ -57,9 +68,9 @@ export default function ProductCarousel() {
             />
           </>
         )}
-      </div>
+      </Box>
       {/* {loaded && instanceRef.current && (
-        <div className="dots">
+        <Box className="dots">
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map(idx => {
@@ -73,7 +84,7 @@ export default function ProductCarousel() {
               ></button>
             );
           })}
-        </div>
+        </Box>
       )} */}
     </>
   );
