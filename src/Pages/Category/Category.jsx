@@ -17,6 +17,7 @@ import {
   VStack,
   Wrap,
   WrapItem,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -35,45 +36,61 @@ import { categories, liveStation, news, uniqloToday } from './data';
 const Category = () => {
   const { category } = useParams();
   const navigate = useNavigate();
-
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Header />
-      <Box px="20" bgColor="white">
-        <Breadcrumb
-          fontSize="sm"
-          fontWeight="medium"
-          color={mode('gray.600', 'gray.400')}
-          separator={'/'}
-        >
-          <BreadcrumbItem>
-            <BreadcrumbLink onClick={() => navigate('/')}>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">{category}</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
+      <Box px={{ base: 5, md: 10, lg: 20 }} bgColor="white">
+        {isDesktop ? (
+          <>
+            <Breadcrumb
+              fontSize="sm"
+              fontWeight="medium"
+              color={mode('gray.600', 'gray.400')}
+              separator={'/'}
+            >
+              <BreadcrumbItem>
+                <BreadcrumbLink onClick={() => navigate('/')}>
+                  Home
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="#">{category}</BreadcrumbLink>
+              </BreadcrumbItem>
+            </Breadcrumb>
+            <Heading
+              textTransform="uppercase"
+              fontSize="48px"
+              fontWeight="bold"
+              textAlign="center"
+            >
+              {category}
+            </Heading>
+          </>
+        ) : (
+          <></>
+        )}
 
         <Box>
-          <Heading
-            textTransform="uppercase"
-            fontSize="48px"
-            fontWeight="bold"
-            textAlign="center"
-          >
-            {category}
-          </Heading>
           <Box>
             <Image src="https://im.uniqlo.com/global-cms/spa/res140999e3d5d2fc3333546b1e84d869c4fr.jpg" />
             <Box
               m="5"
               color="#fff"
               textShadow="0 2px 2px rgba(27,27,27,0.3)"
-              top="50%"
+              top={{ base: '8%', lg: '50%' }}
               position="absolute"
               display="block"
             >
-              <Heading fontSize="34px">Koleksi Kemeja</Heading>
+              <Heading
+                fontSize={{ base: '22px', lg: '34px' }}
+                // lineHeight={{ base: 0, lg: '4.5rem' }}
+              >
+                Koleksi Kemeja
+              </Heading>
               <Text fontSize="15px">
                 Berbagai pilihan kemeja menawan untuk gaya Ramadhan
               </Text>
@@ -102,7 +119,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22x', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -113,17 +130,24 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
               Search by category
             </Heading>
-            <Wrap align="center" justify="center">
+            <Grid
+              align="center"
+              justify="center"
+              fontSize={{ base: '15px', lg: '16px' }}
+              templateColumns="repeat(4, 1fr)"
+              gridColumnGap="0.75rem"
+              gridRowGap="1.5rem"
+            >
               {categories.map((cats, index) => (
-                <WrapItem
+                <GridItem
                   key={index}
-                  w="24.2%"
+                  // w={{ base: '21%', lg: '24.2%' }}
                   onClick={() => navigate('/category/men')}
                   cursor="pointer"
                 >
@@ -131,9 +155,9 @@ const Category = () => {
                     <Image src={cats.src} alt={cats.alt} />
                     <Text textAlign="center">{cats.alt}</Text>
                   </Box>
-                </WrapItem>
+                </GridItem>
               ))}
-            </Wrap>
+            </Grid>
           </Box>
           <Box className="new-arrivals" my="5">
             <Heading
@@ -165,7 +189,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -178,7 +202,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -201,7 +225,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -223,7 +247,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -250,7 +274,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -273,7 +297,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -295,7 +319,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -306,7 +330,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -317,24 +341,26 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
               Featured News
             </Heading>
             <Grid
-              templateColumns="repeat(2,1fr)"
+              templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(2,1fr)' }}
               gap="1"
               borderTop="1px solid #dadada"
               borderBottom="1px solid #dadada"
             >
               {news.map((item, index) => (
-                <GridItem key={index}>
-                  <Image src={item.src} />
-                  <Text fontWeight="bold">{item.alt}</Text>
-                  <Text>{item.description}</Text>
-                </GridItem>
+                <Flex key={index} flexDirection={{ base: 'row', lg: 'column' }}>
+                  <Image src={item.src} w={{ base: '155px', lg: '100%' }} />
+                  <Box px={{ base: 3, lg: 0 }}>
+                    <Text fontWeight="bold">{item.alt}</Text>
+                    <Text>{item.description}</Text>
+                  </Box>
+                </Flex>
               ))}
             </Grid>
             <Button
@@ -367,28 +393,33 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
               uniqlo today
             </Heading>
             <Grid
-              templateColumns="repeat(2,1fr)"
+              templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(2,1fr)' }}
               gap={1}
               borderTop="1px solid #dadada"
               borderBottom="1px solid #dadada"
+              fontSize={{ base: '15px', lg: '16px' }}
             >
               {uniqloToday.map((item, index) => (
-                <GridItem key={index}>
+                <Flex key={index}>
                   <HStack>
-                    <Image src={item.src} w="200px" alt={item.alt} />
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      w={{ base: '155px', lg: '200px' }}
+                    />
                     <VStack>
                       <Text fontWeight="bold">{item.title}</Text>
                       <Text>{item.description}</Text>
                     </VStack>
                   </HStack>
-                </GridItem>
+                </Flex>
               ))}
             </Grid>
             <Button
@@ -405,7 +436,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -413,18 +444,21 @@ const Category = () => {
             </Heading>
 
             <Grid
-              templateColumns="repeat(3,1fr)"
+              templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(3,1fr)' }}
               gap={1}
               borderTop="1px solid #dadada"
               borderBottom="1px solid #dadada"
             >
               {liveStation.map((item, index) => (
                 <GridItem key={index}>
-                  <Grid templateColumns="repeat(2, 1fr)" gap={2}>
+                  <Grid
+                    templateColumns="repeat(2, 1fr)"
+                    gap={{ base: 0, lg: 2 }}
+                  >
                     <GridItem>
                       <Image
                         src={item.src}
-                        w="200px"
+                        w={{ base: '155px', lg: '200px' }}
                         alt={item.alt}
                         objectFit="contain"
                       />

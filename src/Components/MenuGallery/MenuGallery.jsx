@@ -26,18 +26,22 @@ export const MenuGallery = () => {
         >
           <Box onClick={() => navigate('/products/baju')} cursor="pointer">
             <Image src="https://im.uniqlo.com/global-cms/spa/res30e7c4091690753456c88b55cf3b6951fr.jpg" />
-            <Text fontWeight="bold" mt="5">
+            <Text
+              fontWeight="bold"
+              mt="5"
+              fontSize={{ base: '15px', lg: '16px' }}
+            >
               UT Attack on Titan Lengan Pendek
             </Text>
-            <Text>
+            <Text fontSize={{ base: '15px', lg: '16px' }}>
               Terinspirasi dari pertarungan hebat antara manusia dan Titan.
             </Text>
-            <Text fontWeight="bold" fontSize="20px">
+            <Text fontWeight="bold" fontSize={{ base: '15px', lg: '20px' }}>
               Rp199.000
             </Text>
           </Box>
 
-          <Box width="full">
+          <Box width={'100%'}>
             <Items />
           </Box>
         </Grid>

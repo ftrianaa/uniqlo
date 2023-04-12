@@ -1,21 +1,16 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
+
 import { ProductCard } from '../ProductCard/ProductCard';
 import { products } from './_data';
 
 export const Items = () => {
-  const navigate = useNavigate();
   return (
-    <Box onClick={() => navigate('/products/baju')} cursor="pointer">
+    <Box>
       <SimpleGrid
-        columns={{
-          base: 1,
-          sm: 2,
-          md: 3,
-        }}
+        columns="3"
         gap={{
-          base: '8',
-          lg: '10',
+          base: '2',
+          lg: '8',
         }}
       >
         {products.map(product => (

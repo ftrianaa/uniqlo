@@ -169,7 +169,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent w="98.6vw" borderRadius="0">
+                  <PopoverContent w="100%" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Women />
                     </PopoverBody>
@@ -188,7 +188,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent w="98.6vw" borderRadius="0">
+                  <PopoverContent w="100%" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Men />
                     </PopoverBody>
@@ -207,7 +207,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent w="98.6vw" borderRadius="0">
+                  <PopoverContent w="100%" borderRadius="0">
                     <PopoverArrow />
                     <PopoverBody padding={'25px'}>
                       <Child />
@@ -227,7 +227,7 @@ const Header = () => {
                       </Text>
                     </Box>
                   </PopoverTrigger>
-                  <PopoverContent w="98.6vw" borderRadius="0">
+                  <PopoverContent w="100%" borderRadius="0">
                     <PopoverBody padding={'25px'}>
                       <Baby />
                     </PopoverBody>

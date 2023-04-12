@@ -77,10 +77,10 @@ export default function AppBenefits() {
             <Flex p={2}>
               <Image src={item.img} alt={item.title} w="150px" />
               <Box>
-                <Text fontWeight="bold" fontSize="18px">
+                <Text fontWeight="bold" fontSize="15px">
                   {item.title}
                 </Text>
-                <Text fontSize="16px">{item.desc}</Text>
+                <Text fontSize="15px">{item.desc}</Text>
               </Box>
             </Flex>
           ))}

@@ -22,9 +22,14 @@ export const ProductCard = props => {
   // product.color.map(item => colors.push(item));
   // console.log(colors, 'ini color');
   return (
-    <Stack spacing="3" w="230px" onClick={() => navigate('/products/baju')}>
+    <Stack
+      spacing="3"
+      w={{ base: '100px', lg: '230px' }}
+      onClick={() => navigate('/products/baju')}
+      cursor="pointer"
+    >
       <Box position="relative" className="group">
-        <AspectRatio ratio={5 / 5} width="230px">
+        <AspectRatio ratio={5 / 5} width={{ base: '110px', lg: '230' }}>
           <Box>
             <Box position="absolute" zIndex="1" top="10px" right="10px">
               <TbHeartPlus size="24px" />
