@@ -34,7 +34,13 @@ const Login = () => {
 
   return (
     <>
-      <Box borderBottom="1px solid #dadada" px="20" py="5" bgColor="white">
+      <Box
+        borderBottom="1px solid #dadada"
+        px={{ base: 5, md: 10, lg: 20 }}
+        py="5"
+        bgColor="white"
+        w="100vw"
+      >
         <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
           <Image
             src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
@@ -43,7 +49,12 @@ const Login = () => {
         </Flex>
       </Box>
 
-      <Container mt={10} px="20" bgColor="white">
+      <Container
+        mt={10}
+        px={{ base: 5, md: 10, lg: 20 }}
+        bgColor="white"
+        w="100vw"
+      >
         <Flex border="1px solid #dadada" p={5}>
           <Box w="47.5%">
             <Flex justify="space-between" align="center">

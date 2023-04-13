@@ -24,6 +24,7 @@ import {
   Text,
   Tooltip,
   useColorModeValue as mode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { SlLock } from 'react-icons/sl';
@@ -33,85 +34,151 @@ import Header from '../../Components/Header/Header';
 
 const Register = () => {
   const navigate = useNavigate();
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Header />
-      <Box w="100%" bgColor="white">
-        <Box w="65%" px="20" bgColor="white">
-          <Breadcrumb
-            fontSize="sm"
-            fontWeight="medium"
-            color={mode('gray.600', 'gray.400')}
-            separator={'/'}
+      {!isDesktop ? (
+        <Flex justify="space-between" align="center" px={{ base: 5, md: 10 }}>
+          <Heading textTransform="uppercase" fontSize="22px" fontWeight="bold">
+            buat akun
+          </Heading>
+          <Popover
+            islazy
+            trigger={'hover'}
+            placement="left"
+            openDelay="0"
+            closeDelay="0"
           >
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate('/')}>
-                UNIQLO
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Buat Akun</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-
-          <Flex justify="space-between" align="center" mt="4">
-            <Heading
-              textTransform="uppercase"
-              fontSize="36px"
-              fontWeight="bold"
-            >
-              buat akun
-            </Heading>
-            <Popover
-              islazy
-              trigger={'hover'}
-              placement="left"
-              openDelay="0"
-              closeDelay="0"
-            >
-              <PopoverTrigger>
-                <Text>
-                  <SlLock />
-                </Text>
-              </PopoverTrigger>
-              <PopoverContent>
-                <PopoverArrow />
-                <PopoverBody>
-                  <Box>
+            <PopoverTrigger>
+              <Text>
+                <SlLock />
+              </Text>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverBody>
+                <Box>
+                  <Text>
+                    Kami mengenkripsi semua informasi sensitif Anda dengan
+                    teknologi enkripsi
+                  </Text>
+                  <Text textDecor="underline">
+                    TLS (Transport Layer Security).
+                  </Text>
+                </Box>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+        </Flex>
+      ) : (
+        <></>
+      )}
+      <Box w="100%" bgColor="white">
+        <Box
+          w={{ base: '100%', lg: '65%' }}
+          px={{ base: 5, md: 10, lg: 20 }}
+          bgColor="white"
+        >
+          {isDesktop ? (
+            <>
+              <Breadcrumb
+                fontSize="sm"
+                fontWeight="medium"
+                color={mode('gray.600', 'gray.400')}
+                separator={'/'}
+              >
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => navigate('/')}>
+                    UNIQLO
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Buat Akun</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+              <Flex justify="space-between" align="center" mt="4">
+                <Heading
+                  textTransform="uppercase"
+                  fontSize="36px"
+                  fontWeight="bold"
+                >
+                  buat akun
+                </Heading>
+                <Popover
+                  islazy
+                  trigger={'hover'}
+                  placement="left"
+                  openDelay="0"
+                  closeDelay="0"
+                >
+                  <PopoverTrigger>
                     <Text>
-                      Kami mengenkripsi semua informasi sensitif Anda dengan
-                      teknologi enkripsi
+                      <SlLock />
                     </Text>
-                    <Text textDecor="underline">
-                      TLS (Transport Layer Security).
-                    </Text>
-                  </Box>
-                </PopoverBody>
-              </PopoverContent>
-            </Popover>
-          </Flex>
+                  </PopoverTrigger>
+                  <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverBody>
+                      <Box>
+                        <Text>
+                          Kami mengenkripsi semua informasi sensitif Anda dengan
+                          teknologi enkripsi
+                        </Text>
+                        <Text textDecor="underline">
+                          TLS (Transport Layer Security).
+                        </Text>
+                      </Box>
+                    </PopoverBody>
+                  </PopoverContent>
+                </Popover>
+              </Flex>
+            </>
+          ) : (
+            <></>
+          )}
 
-          <Box border="1px solid #dadada" p={5} my="10">
-            <Flex my="5" align="center">
-              <Text w="85%" fontSize="16px">
+          <Box
+            border={{ base: 'none', lg: '1px solid #dadada' }}
+            p={{ base: 0, lg: 5 }}
+            my="10"
+          >
+            <Flex
+              my={{ base: '0', lg: '5' }}
+              align="center"
+              flexDir={{ base: 'column', lg: 'row' }}
+            >
+              <Text
+                w={{ base: '100%', lg: '85%' }}
+                fontSize={{ base: '15px', lg: '16px' }}
+              >
                 Anda akan menerima email konfirmasi ke alamat e-mail Anda yang
                 terkait dengan akun. Harap pastikan untuk memeriksa e-mail yang
                 masuk dari UNIQLO.
               </Text>
-              <Text w="15%" color="#378694" fontSize="14px">
+              <Text
+                w={{ base: '100%', lg: '15%' }}
+                color="#378694"
+                fontSize={{ base: '13px', lg: '14px' }}
+                textAlign="right"
+                mt={{ base: '3', lg: '0' }}
+              >
                 Wajib diisi*
               </Text>
             </Flex>
             <Box>
               <FormControl my="5">
-                <Flex>
+                <Flex flexDir={{ base: 'column', lg: 'row' }}>
                   <FormLabel
                     textTransform="uppercase"
                     fontSize="18px"
                     fontWeight="bold"
-                    w="30%"
+                    w={{ base: '100%', lg: '30%' }}
                   >
-                    <Flex>
+                    <Flex fontSize={{ base: '15px', lg: '18px' }}>
                       alamat email
                       <Text
                         verticalAlign="super"
@@ -123,7 +190,7 @@ const Register = () => {
                     </Flex>
                   </FormLabel>
                   <Input
-                    w="70%"
+                    w={{ base: '100%', lg: '70%' }}
                     type="email"
                     placeholder="Masukkan alamat email Anda"
                     variant="flushed"
@@ -131,12 +198,12 @@ const Register = () => {
                 </Flex>
               </FormControl>
               <FormControl my="5">
-                <Flex>
+                <Flex flexDir={{ base: 'column', lg: 'row' }}>
                   <FormLabel
                     textTransform="uppercase"
-                    fontSize="18px"
+                    fontSize={{ base: '15px', lg: '18px' }}
                     fontWeight="bold"
-                    w="30%"
+                    w={{ base: '100%', lg: '30%' }}
                   >
                     <Flex>
                       kata sandi
@@ -149,7 +216,7 @@ const Register = () => {
                       </Text>
                     </Flex>
                   </FormLabel>
-                  <Box w="70%">
+                  <Box w={{ base: '100%', lg: '70%' }}>
                     <Input
                       type="password"
                       placeholder="Masukkan kata sandi Anda"
@@ -164,12 +231,12 @@ const Register = () => {
                 <Checkbox>Tunjukkan kata sandi saya</Checkbox>
               </FormControl>
               <FormControl my="5">
-                <Flex>
+                <Flex flexDir={{ base: 'column', lg: 'row' }}>
                   <FormLabel
                     textTransform="uppercase"
-                    fontSize="18px"
+                    fontSize={{ base: '15px', lg: '18px' }}
                     fontWeight="bold"
-                    w="30%"
+                    w={{ base: '100%', lg: '30%' }}
                   >
                     <Flex>
                       kode pos
@@ -186,22 +253,26 @@ const Register = () => {
                     type="email"
                     placeholder="Silahkan masukkan kode pos"
                     variant="flushed"
-                    w="70%"
+                    w={{ base: '100%', lg: '70%' }}
                   />
                 </Flex>
               </FormControl>
               <FormControl my="5">
-                <Flex>
+                <Flex flexDir={{ base: 'column', lg: 'row' }}>
                   <FormLabel
                     textTransform="uppercase"
-                    fontSize="18px"
+                    fontSize={{ base: '15px', lg: '18px' }}
                     fontWeight="bold"
-                    w="30%"
+                    w={{ base: '100%', lg: '30%' }}
                   >
                     Tanggal lahir
                   </FormLabel>
                   <Box>
-                    <Input type="date" variant="flushed" w="50%" />
+                    <Input
+                      type="date"
+                      variant="flushed"
+                      w={{ base: '100%', lg: '50%' }}
+                    />
                     <FormHelperText color="#7d7d7d" fontSize="14px">
                       Tidak dapat mengubah tanggal lahir setelah Anda mendaftar.
                     </FormHelperText>
@@ -209,17 +280,20 @@ const Register = () => {
                 </Flex>
               </FormControl>
               <FormControl my="5">
-                <Flex>
+                <Flex flexDir={{ base: 'column', lg: 'row' }}>
                   <FormLabel
                     textTransform="uppercase"
-                    fontSize="18px"
+                    fontSize={{ base: '15px', lg: '18px' }}
                     fontWeight="bold"
-                    w="30%"
+                    w={{ base: '100%', lg: '30%' }}
                   >
                     jenis kelamin
                   </FormLabel>
-                  <RadioGroup defaultValue="3" w="70%">
-                    <Stack spacing={4} direction="row">
+                  <RadioGroup defaultValue="3" w={{ base: '100%', lg: '70%' }}>
+                    <Stack
+                      spacing={4}
+                      direction={{ base: 'column', lg: 'row' }}
+                    >
                       <Radio value="1">Pria</Radio>
                       <Radio value="2">Wanita</Radio>
                       <Radio value="3">Tidak Dipilih</Radio>
@@ -230,7 +304,7 @@ const Register = () => {
               <FormControl my="5">
                 <FormLabel
                   textTransform="uppercase"
-                  fontSize="18px"
+                  fontSize={{ base: '15px', lg: '18px' }}
                   fontWeight="bold"
                 >
                   konfirmasi langganan
@@ -241,7 +315,7 @@ const Register = () => {
               <FormControl my="5">
                 <FormLabel
                   textTransform="uppercase"
-                  fontSize="18px"
+                  fontSize={{ base: '15px', lg: '18px' }}
                   fontWeight="bold"
                 >
                   <Flex>
@@ -255,7 +329,10 @@ const Register = () => {
                     </Text>
                   </Flex>
                 </FormLabel>
-                <FormHelperText color="#7d7d7d" fontSize="14px">
+                <FormHelperText
+                  color="#7d7d7d"
+                  fontSize={{ base: '14px', lg: '13px' }}
+                >
                   Dengan membuat akun, Anda setuju dengan persyaratan penggunaan
                   dan kebijakan privasi UNIQLO.
                 </FormHelperText>
@@ -264,11 +341,18 @@ const Register = () => {
                   PRIVASI UNIQLO
                 </Checkbox>
               </FormControl>
-              <Flex justify="space-between" align="center" w="70%" mb="8">
+              <Flex
+                justify="space-between"
+                align={{ base: 'left', lg: 'center' }}
+                w={{ base: '100%', lg: '70%' }}
+                mb="8"
+                flexDir={{ base: 'column', lg: 'row' }}
+              >
                 <Text
                   textDecor="underline"
                   fontWeight="bold"
                   textTransform="uppercase"
+                  mb={{ base: '3', lg: 0 }}
                 >
                   ketentuan penggunaan
                 </Text>
@@ -286,8 +370,9 @@ const Register = () => {
                 borderRadius="0"
                 bgColor="black"
                 color="white"
-                w="45%"
+                w={{ base: '100%', lg: '45%' }}
                 onClick={() => navigate('/')}
+                size={{ base: 'lg', lg: 'md' }}
               >
                 daftar
               </Button>

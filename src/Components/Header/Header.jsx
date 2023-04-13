@@ -257,6 +257,7 @@ const Header = () => {
               <Image
                 src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
                 h="7"
+                onClick={() => navigate('/')}
               />
             )}
           </HStack>
