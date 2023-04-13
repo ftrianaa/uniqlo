@@ -6,6 +6,7 @@ import {
   Container,
   Heading,
   useColorModeValue as mode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -16,23 +17,34 @@ import { ProductGallery } from '../../Components/ProductGallery/ProductGallery';
 
 const Products = () => {
   const navigate = useNavigate();
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Header />
-      <Container bgColor="white" px="20">
-        <Breadcrumb
-          fontSize="sm"
-          fontWeight="medium"
-          color={mode('gray.600', 'gray.400')}
-          separator={'/'}
-        >
-          <BreadcrumbItem>
-            <BreadcrumbLink onClick={() => navigate('/')}>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Product</BreadcrumbLink>
-          </BreadcrumbItem>
-        </Breadcrumb>
+      <Container bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
+        {isDesktop ? (
+          <Breadcrumb
+            fontSize="sm"
+            fontWeight="medium"
+            color={mode('gray.600', 'gray.400')}
+            separator={'/'}
+          >
+            <BreadcrumbItem>
+              <BreadcrumbLink onClick={() => navigate('/')}>
+                Home
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Product</BreadcrumbLink>
+            </BreadcrumbItem>
+          </Breadcrumb>
+        ) : (
+          <></>
+        )}
+
         <ProductGallery />
 
         <Box mb="10">

@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import { images } from './_data';
-import { AspectRatio, Box, Flex, Image, Text } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Image,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import '../../CSS/styles.css';
 
 function ThumbnailPlugin(mainRef) {
@@ -55,6 +62,10 @@ export default function Gallery() {
     },
     loop: true,
   });
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   const [thumbnailRef] = useKeenSlider(
     {
       initial: 0,
@@ -71,20 +82,20 @@ export default function Gallery() {
   // console.log(instanceRef, 'ini sider ref');
   return (
     <>
-      <Flex direction={'row-reverse'}>
-        <Box w="80%">
-          <div className="navigation-wrapper">
-            <div ref={sliderRef} className="keen-slider">
+      <Flex direction={{ base: 'row', lg: 'row-reverse' }}>
+        <Box w={{ base: '100%', lg: '80%' }}>
+          <Box className="navigation-wrapper">
+            <Box ref={sliderRef} className="keen-slider" zIndex={2}>
               {images.map(item => (
                 <Box p={2} className="keen-slider__slide ">
-                  <AspectRatio ratio={4 / 3} maxH="50vh">
+                  <AspectRatio ratio={6 / 5} maxH="50vh">
                     <Image src={item.src} alt={item.title} />
                   </AspectRatio>
                 </Box>
               ))}
-            </div>
+            </Box>
 
-            {loaded && instanceRef.current && (
+            {isDesktop && loaded && instanceRef.current && (
               <>
                 <Arrow
                   left
@@ -105,23 +116,27 @@ export default function Gallery() {
                 />
               </>
             )}
-          </div>
+          </Box>
         </Box>
-
-        <Box w="20%">
-          <div ref={thumbnailRef} className="keen-slider thumbnail">
-            {images.map(item => (
-              <Box className="keen-slider__slide ">
-                <AspectRatio ratio={4 / 3}>
-                  <Image src={item.src} alt={item.title} />
-                </AspectRatio>
-              </Box>
-            ))}
-          </div>
-        </Box>
+        {isDesktop ? (
+          <Box w="20%">
+            <Box ref={thumbnailRef} className="keen-slider thumbnail">
+              {images.map(item => (
+                <Box className="keen-slider__slide ">
+                  <AspectRatio ratio={4 / 3}>
+                    <Image src={item.src} alt={item.title} />
+                  </AspectRatio>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        ) : (
+          <></>
+        )}
       </Flex>
-      {/* {loaded && instanceRef.current && (
-        <div className="dots">
+
+      {!isDesktop && loaded && instanceRef.current && (
+        <Box className="dota" mt="18vh" zIndex={1}>
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map(idx => {
@@ -131,12 +146,12 @@ export default function Gallery() {
                 onClick={() => {
                   instanceRef.current?.moveToIdx(idx);
                 }}
-                className={'dot' + (currentSlide === idx ? ' active' : '')}
+                className={'dotd' + (currentSlide === idx ? ' active' : '')}
               ></button>
             );
           })}
-        </div>
-      )} */}
+        </Box>
+      )}
     </>
   );
 }

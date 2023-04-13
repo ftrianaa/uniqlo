@@ -14,13 +14,13 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import { Carousel, CarouselSlide, useCarousel } from './Carousel';
 
 export const Gallery = props => {
-  const { images, aspectRatio = 4 / 3, rootProps } = props;
+  const { images, aspectRatio = 16 / 9, rootProps } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [ref, slider] = useCarousel({
     slideChanged: slider => setCurrentSlide(slider.track.details.rel),
   });
-  const hasPrevious = currentSlide !== 0;
-  const hasNext = currentSlide < images.length - 1;
+  const hasPrevious = currentSlide < images.length;
+  const hasNext = currentSlide < images.length;
   return (
     <Stack spacing="4" {...rootProps}>
       <Box
@@ -43,7 +43,8 @@ export const Gallery = props => {
                 _hover={{
                   opacity: 1,
                 }}
-                maxH="80vh"
+                h="100vh"
+                w="100vw"
               >
                 <Image
                   src={image.src}

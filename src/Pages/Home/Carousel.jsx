@@ -1,6 +1,6 @@
-import { Box, Flex, IconButton, useColorModeValue } from '@chakra-ui/react'
-import { useKeenSlider } from 'keen-slider/react' // using version 6.6.10
-import { forwardRef } from 'react'
+import { Box, Flex, IconButton, useColorModeValue } from '@chakra-ui/react';
+import { useKeenSlider } from 'keen-slider/react'; // using version 6.6.10
+import { forwardRef } from 'react';
 
 export const Carousel = forwardRef(function Carousel(props, ref) {
   return (
@@ -10,21 +10,26 @@ export const Carousel = forwardRef(function Carousel(props, ref) {
       overflow="hidden"
       position="relative"
       userSelect="none"
+      width="100vw"
+      h="100vh"
       {...props}
     />
-  )
-})
-export const CarouselSlide = (props) => (
-  <Box
-    className="chakra-carousel__slide"
-    position="relative"
-    overflow="hidden"
-    width="100%"
-    minH="100%"
-    {...props}
-  />
-)
-export const CarouselIconButton = (props) => (
+  );
+});
+export const CarouselSlide = props => {
+  console.log(props, 'ini props carousel');
+  return (
+    <Box
+      className="chakra-carousel__slide"
+      // position="relative"
+      overflow="hidden"
+      width="100vw"
+      h="100vh"
+      {...props}
+    />
+  );
+};
+export const CarouselIconButton = props => (
   <IconButton
     variant="unstyled"
     boxSize="auto"
@@ -49,13 +54,20 @@ export const CarouselIconButton = (props) => (
     }}
     {...props}
   />
-)
-export const useCarousel = (options) => {
+);
+export const useCarousel = options => {
+  console.log(options, 'ini opse');
   const defaultOptions = {
     selector: '.chakra-carousel__slide',
-  }
+  };
   return useKeenSlider({
     ...defaultOptions,
+    initial: 0,
+    loop: true,
+    slides: {
+      perView: 1,
+      spacing: 2,
+    },
     ...options,
-  })
-}
+  });
+};

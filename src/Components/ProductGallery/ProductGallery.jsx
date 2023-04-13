@@ -9,41 +9,33 @@ import {
   Button,
   Divider,
   Flex,
-  FormControl,
-  FormHelperText,
-  FormLabel,
   Heading,
-  HStack,
-  Icon,
-  Image,
   Link,
   ListItem,
-  Select,
-  Skeleton,
+  Progress,
   Stack,
   Text,
   UnorderedList,
+  useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { FiClock, FiHeart } from 'react-icons/fi';
-import { RiRulerLine } from 'react-icons/ri';
 import { Rating } from './Rating';
-import { ColorPicker } from '../ColorPicker/ColorPicker';
-
 import { PriceTag } from './PriceTag';
-import { ProductBadge } from './ProductBadge';
-import { Promos } from './Promos';
-import { QuantityPicker } from './QuantityPicker';
 import { Share } from './Share';
-import { SizePicker } from './SizePicker';
 import Gallery from './Gallery';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { ProgressBar } from './Progressbar';
 import { review } from './_data';
 import { useNavigate } from 'react-router-dom';
+import Details from './Details';
 
 export const ProductGallery = () => {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   const navigate = useNavigate();
+  const color = useColorModeValue('gray.600', 'gray.400');
   return (
     <Box
       bgColor="white"
@@ -51,40 +43,60 @@ export const ProductGallery = () => {
       // mx="auto"
 
       py={{
-        base: '6',
+        base: '2',
         md: '8',
         lg: '12',
       }}
     >
       <Stack
         direction={{
-          base: 'column',
+          base: 'column-reverse',
           md: 'row',
         }}
-        spacing="16"
+        spacing={{ base: '5', lg: '16' }}
       >
         <Box flex="1">
-          <Stack spacing="8">
-            <AspectRatio ratio={4 / 3}>
+          <Stack spacing="1">
+            <AspectRatio ratio="1">
               <Gallery />
             </AspectRatio>
+            {!isDesktop ? (
+              <>
+                <Details />
+              </>
+            ) : (
+              <></>
+            )}
+
             <Flex align="center" justify="space-between">
               <Heading
-                fontSize="20px"
+                fontSize={{ base: '16px', lg: '20px' }}
                 textTransform="uppercase"
                 fontWeight="bold"
               >
                 deskripsi
               </Heading>
-              <Text color="#7d7d7d" textTransform="capitalize" fontSize="14px">
+              <Text
+                color="#7d7d7d"
+                textTransform="capitalize"
+                fontSize={{ base: '13px', lg: '14px' }}
+              >
                 kode produk: 455758
               </Text>
             </Flex>
+
             <Accordion allowToggle allowMultiple>
               <AccordionItem>
-                <h2>
+                <h2 m="0" p="0">
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
+                    <Box
+                      as="span"
+                      flex="1"
+                      textAlign="left"
+                      fontSize={{ base: '15px', lg: '16px' }}
+                      fontWeight={{ base: 'bold', lg: 'normal' }}
+                      textTransform={{ base: 'uppercase', lg: 'none' }}
+                    >
                       Ikhtisar
                     </Box>
                     <AccordionIcon />
@@ -101,7 +113,14 @@ export const ProductGallery = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
+                    <Box
+                      as="span"
+                      flex="1"
+                      textAlign="left"
+                      fontSize={{ base: '15px', lg: '16px' }}
+                      fontWeight={{ base: 'bold', lg: 'normal' }}
+                      textTransform={{ base: 'uppercase', lg: 'none' }}
+                    >
                       Material
                     </Box>
                     <AccordionIcon />
@@ -117,7 +136,14 @@ export const ProductGallery = () => {
               <AccordionItem>
                 <h2>
                   <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
+                    <Box
+                      as="span"
+                      flex="1"
+                      textAlign="left"
+                      fontSize={{ base: '15px', lg: '16px' }}
+                      fontWeight={{ base: 'bold', lg: 'normal' }}
+                      textTransform={{ base: 'uppercase', lg: 'none' }}
+                    >
                       Kebijakan pengembalian
                     </Box>
                     <ChevronRightIcon />
@@ -127,135 +153,267 @@ export const ProductGallery = () => {
             </Accordion>
           </Stack>
           <Box>
-            <Flex alignItems="center">
-              <Heading
-                fontSize="20px"
-                textTransform="uppercase"
-                fontWeight="bold"
-              >
-                ulasan
-              </Heading>
-              <Flex mx="5">
-                <Rating defaultValue={4} size="sm" />
-                <Link
-                  href="#"
-                  fontSize="sm"
-                  fontWeight="medium"
-                  color={useColorModeValue('gray.600', 'gray.400')}
-                >
-                  (12)
-                </Link>
-              </Flex>
-            </Flex>
-            <Divider />
-            <Flex>
-              <Box w="30%">
-                <Heading
-                  fontSize="20px"
+            <Flex justifyContent="space-between">
+              <Flex flexDir={{ base: 'column', lg: 'row' }}>
+                <Text
+                  fontSize={{ base: '16px', lg: '20px' }}
                   textTransform="uppercase"
                   fontWeight="bold"
+                  my={{ base: '3', lg: '5' }}
                 >
-                  rating
-                </Heading>
-                <Flex my="5">
-                  <Rating defaultValue={5} size="sm" />
-                  <Link
-                    href="#"
-                    fontSize="sm"
-                    fontWeight="medium"
-                    color={useColorModeValue('gray.600', 'gray.400')}
-                    mx="3"
-                  >
-                    (8)
-                  </Link>
-                </Flex>{' '}
-                <Flex my="5">
+                  ulasan
+                </Text>
+                <Flex mx={{ base: '0', lg: '5' }} align="center">
                   <Rating defaultValue={4} size="sm" />
                   <Link
                     href="#"
                     fontSize="sm"
                     fontWeight="medium"
                     color={useColorModeValue('gray.600', 'gray.400')}
-                    mx="3"
                   >
-                    (1)
-                  </Link>
-                </Flex>{' '}
-                <Flex my="5">
-                  <Rating defaultValue={3} size="sm" />
-                  <Link
-                    href="#"
-                    fontSize="sm"
-                    fontWeight="medium"
-                    color={useColorModeValue('gray.600', 'gray.400')}
-                    mx="3"
-                  >
-                    (1)
-                  </Link>
-                </Flex>{' '}
-                <Flex my="5">
-                  <Rating defaultValue={2} size="sm" />
-                  <Link
-                    href="#"
-                    fontSize="sm"
-                    fontWeight="medium"
-                    color={useColorModeValue('gray.600', 'gray.400')}
-                    mx="3"
-                  >
-                    (1)
-                  </Link>
-                </Flex>{' '}
-                <Flex my="5">
-                  <Rating defaultValue={1} size="sm" />
-                  <Link
-                    href="#"
-                    fontSize="sm"
-                    fontWeight="medium"
-                    color={useColorModeValue('gray.600', 'gray.400')}
-                    mx="3"
-                  >
-                    (1)
+                    (12)
                   </Link>
                 </Flex>
-              </Box>
-              <Box w="70%">
-                <Heading
-                  fontSize="20px"
+              </Flex>
+              {!isDesktop ? (
+                <>
+                  <Box>
+                    <Text
+                      fontWeight="bold"
+                      textTransform="uppercase"
+                      textDecor="underline"
+                      my="3"
+                      onClick={() => navigate('/products/E457999/review/new')}
+                    >
+                      tulis ulasan
+                    </Text>
+                  </Box>
+                </>
+              ) : (
+                <></>
+              )}
+            </Flex>
+            <Divider my={{ base: '3', lg: '0' }} />
+            <Flex flexDirection={{ base: 'column', lg: 'row' }}>
+              <Box w={{ base: '100%', lg: '30%' }}>
+                <Text
+                  fontSize={{ base: '16px', lg: '20px' }}
                   textTransform="uppercase"
                   fontWeight="bold"
+                  my={{ base: '3', lg: '5' }}
+                >
+                  rating
+                </Text>
+                <Flex my="5">
+                  <Box
+                    w={{ base: '45%', lg: '100%' }}
+                    display="flex"
+                    flexDir="row"
+                  >
+                    <Rating defaultValue={5} size="sm" />
+                    <Link
+                      href="#"
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color={color}
+                      mx="3"
+                    >
+                      (8)
+                    </Link>
+                  </Box>
+                  {!isDesktop ? (
+                    <>
+                      <Box w="55%">
+                        <Progress
+                          value={8}
+                          max={12}
+                          colorScheme="blackAlpha"
+                          borderRadius="0"
+                        />
+                      </Box>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+                <Flex my="5">
+                  <Box
+                    w={{ base: '45%', lg: '100%' }}
+                    display="flex"
+                    flexDir="row"
+                  >
+                    <Rating defaultValue={4} size="sm" />
+                    <Link
+                      href="#"
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color={color}
+                      mx="3"
+                    >
+                      (1)
+                    </Link>
+                  </Box>
+                  {!isDesktop ? (
+                    <>
+                      <Box w="55%">
+                        <Progress
+                          value={1}
+                          max={12}
+                          colorScheme="blackAlpha"
+                          borderRadius="0"
+                        />
+                      </Box>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+                <Flex my="5">
+                  <Box
+                    w={{ base: '45%', lg: '100%' }}
+                    display="flex"
+                    flexDir="row"
+                  >
+                    <Rating defaultValue={3} size="sm" />
+                    <Link
+                      href="#"
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color={color}
+                      mx="3"
+                    >
+                      (1)
+                    </Link>
+                  </Box>
+                  {!isDesktop ? (
+                    <>
+                      <Box w="55%">
+                        <Progress
+                          value={1}
+                          max={12}
+                          colorScheme="blackAlpha"
+                          borderRadius="0"
+                        />
+                      </Box>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+                <Flex my="5">
+                  <Box
+                    w={{ base: '45%', lg: '100%' }}
+                    display="flex"
+                    flexDir="row"
+                  >
+                    <Rating defaultValue={2} size="sm" />
+                    <Link
+                      href="#"
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color={color}
+                      mx="3"
+                    >
+                      (1)
+                    </Link>
+                  </Box>
+                  {!isDesktop ? (
+                    <>
+                      <Box w="55%">
+                        <Progress
+                          value={1}
+                          max={12}
+                          colorScheme="blackAlpha"
+                          borderRadius="0"
+                        />
+                      </Box>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+                <Flex my="5">
+                  <Box
+                    w={{ base: '45%', lg: '100%' }}
+                    display="flex"
+                    flexDir="row"
+                  >
+                    <Rating defaultValue={1} size="sm" />
+                    <Link
+                      href="#"
+                      fontSize="sm"
+                      fontWeight="medium"
+                      color={color}
+                      mx="3"
+                    >
+                      (1)
+                    </Link>
+                  </Box>
+                  {!isDesktop ? (
+                    <>
+                      <Box w="55%">
+                        <Progress
+                          value={1}
+                          max={12}
+                          colorScheme="blackAlpha"
+                          borderRadius="0"
+                        />
+                      </Box>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+                </Flex>
+              </Box>
+              <Box
+                w={{ base: '100%', lg: '70%' }}
+                borderY={{ base: '1px solid #ababab', lg: 'none' }}
+              >
+                <Text
+                  fontSize={{ base: '16px', lg: '20px' }}
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                  my={{ base: '3', lg: '5' }}
                 >
                   ukuran yang pas
-                </Heading>
+                </Text>
                 <ProgressBar />
               </Box>
             </Flex>
-            <Button
-              textTransform="uppercase"
-              fontWeight="bold"
-              borderRadius="0"
-              bgColor="white"
-              color="black"
-              border="1px solid black"
-              w="40%"
-              my="5"
-              onClick={() => navigate('/products/E457999/review/new')}
-            >
-              tulis ulasan
-            </Button>
-            <Divider />
+            {isDesktop ? (
+              <>
+                <Button
+                  textTransform="uppercase"
+                  fontWeight="bold"
+                  borderRadius="0"
+                  bgColor="white"
+                  color="black"
+                  border="1px solid black"
+                  w="40%"
+                  my="5"
+                  onClick={() => navigate('/products/E457999/review/new')}
+                >
+                  tulis ulasan
+                </Button>{' '}
+                <Divider />{' '}
+              </>
+            ) : (
+              <></>
+            )}
+
             <Text fontWeight="bold" my="5">
               12 ulasan
             </Text>
-            <Divider />
+
             {review.map((data, index) => (
               <Box key={index}>
-                <Divider />
+                <Divider mt="3" />
                 <Box my="3">
                   <Flex align="center" justify="space-between">
                     <Text
                       fontWeight="bold"
                       textTransform="uppercase"
-                      fontSize="20px"
+                      fontSize={{ base: '15px', lg: '20px' }}
                     >
                       {data.title}
                     </Text>
@@ -302,17 +460,17 @@ export const ProductGallery = () => {
                     ) : (
                       <></>
                     )}
-                    {data.age !== '' ? (
+                    {data.age !== '' && isDesktop ? (
                       <ListItem mr="5">{data.age}</ListItem>
                     ) : (
                       <></>
                     )}
-                    {data.height !== '' ? (
+                    {data.height !== '' && isDesktop ? (
                       <ListItem mr="5">{data.height}</ListItem>
                     ) : (
                       <></>
                     )}
-                    {data.weight !== '' ? (
+                    {data.weight !== '' && isDesktop ? (
                       <ListItem mr="5">{data.weight}</ListItem>
                     ) : (
                       <></>
@@ -334,23 +492,38 @@ export const ProductGallery = () => {
               bgColor="white"
               color="black"
               border="1px solid black"
-              w="40%"
+              w={{ base: '100%', lg: '40%' }}
               my="5"
+              size={{ base: 'lg', lg: 'md' }}
               onClick={() => navigate('/products/E457999/review')}
             >
               lihat lebih banyak
             </Button>
+            {!isDesktop ? (
+              <Text
+                textTransform="uppercase"
+                fontWeight="bold"
+                fontSize="17px"
+                textDecor="underline"
+                textAlign="center"
+                onClick={() => navigate('/products/E457999/review/new')}
+              >
+                tulis ulasan
+              </Text>
+            ) : (
+              <></>
+            )}
           </Box>
         </Box>
         <Box maxW="sm">
           <Stack spacing="8">
             <Stack spacing="4">
               <Stack>
-                <Heading size="lg" fontWeight="medium">
+                <Heading size={{ base: 'sm', lg: 'lg' }} fontWeight="bold">
                   Classic Black
                 </Heading>
               </Stack>
-              <Flex spacing="1" justify="space-between">
+              <Flex justify="space-between" w="100%" align="center">
                 <PriceTag
                   price={229}
                   // salePrice={199}
@@ -359,7 +532,26 @@ export const ProductGallery = () => {
                     fontSize: 'xl',
                   }}
                 />
-                <Flex spacing="2" alignSelf="baseline">
+                {/* {isDesktop ? (
+                  <PriceTag
+                    price={229}
+                    // salePrice={199}
+                    currency="GBP"
+                    rootProps={{
+                      fontSize: 'xl',
+                    }}
+                  />
+                ) : (
+                  <></>
+                )} */}
+
+                <Flex
+                  // spacing="2"
+                  justify={{ base: 'right', lg: 'right' }}
+                  // alignSelf="centw"
+                  align="center"
+                  width="100vw"
+                >
                   <Rating defaultValue={4} size="sm" />
                   <Link
                     href="#"
@@ -371,128 +563,22 @@ export const ProductGallery = () => {
                   </Link>
                 </Flex>
               </Flex>
-              <Text color={useColorModeValue('gray.600', 'gray.400')}>
+              <Text
+                color={useColorModeValue('gray.600', 'gray.400')}
+                fontSize={{ base: '15px', lg: '16px' }}
+              >
                 With a sleek design and a captivating essence, this is a modern
                 Classic made for every occasion.
               </Text>
             </Stack>
-            <Divider />
-            <Stack>
-              <Stack>
-                <ColorPicker
-                  defaultValue="Black"
-                  options={[
-                    {
-                      label: 'Black',
-                      value: '#000',
-                    },
-                    {
-                      label: 'Dark Gray',
-                      value: '#666',
-                    },
-                    {
-                      label: 'Light Gray',
-                      value: '#BBB',
-                    },
-                  ]}
-                />
-              </Stack>
-              <Flex>
-                <Box w="70%">
-                  <SizePicker
-                    defaultValue="32"
-                    options={[
-                      {
-                        label: '32mm',
-                        value: '32',
-                      },
-                      {
-                        label: '36mm',
-                        value: '36',
-                      },
-                      {
-                        label: '40mm',
-                        value: '40',
-                      },
-                    ]}
-                  />
-                </Box>
-                <Box
-                  spacing="1"
-                  color={useColorModeValue('gray.600', 'gray.400')}
-                >
-                  <Icon as={RiRulerLine} />
-                  <Link
-                    href="#"
-                    fontSize="xs"
-                    fontWeight="bold"
-                    textDecoration="underline"
-                    textTransform="uppercase"
-                  >
-                    Grafik Ukuran
-                  </Link>
-                </Box>
-              </Flex>
-            </Stack>
 
-            <HStack
-              spacing={{
-                base: '4',
-                md: '8',
-              }}
-              align="flex-end"
-              justify="space-evenly"
-            >
-              <Box flex="1">
-                <FormControl w="40%">
-                  <FormLabel fontSize="sm" fontWeight="medium">
-                    Jumlah
-                  </FormLabel>
-                  <Select>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </Select>
-                  <FormHelperText>Stock hampir habis</FormHelperText>
-                </FormControl>
-              </Box>
-            </HStack>
-            <Button
-              bgColor="red"
-              color="white"
-              borderRadius="0"
-              textTransform="uppercase"
-              fontWeight="bold"
-            >
-              Add to cart
-            </Button>
-            <Flex justify="space-between" align="center">
-              <Button
-                bgColor="white"
-                color="black"
-                borderRadius="0"
-                textTransform="uppercase"
-                fontWeight="bold"
-                border="black 1px solid"
-                w="48%"
-              >
-                tambah ke wishlist
-              </Button>
-              <Button
-                bgColor="white"
-                color="black"
-                borderRadius="0"
-                textTransform="uppercase"
-                fontWeight="bold"
-                border="black 1px solid"
-                w="48%"
-                onClick={() => navigate('/store inventory')}
-              >
-                cari stok di toko
-              </Button>
-            </Flex>
-            <Share />
+            {isDesktop ? (
+              <>
+                <Divider /> <Details /> <Share />
+              </>
+            ) : (
+              <></>
+            )}
           </Stack>
         </Box>
       </Stack>

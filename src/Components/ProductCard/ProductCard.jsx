@@ -29,7 +29,7 @@ export const ProductCard = props => {
       cursor="pointer"
     >
       <Box position="relative" className="group">
-        <AspectRatio ratio={5 / 5} width={{ base: '110px', lg: '230' }}>
+        <AspectRatio ratio={5 / 5} width={{ base: '110px', lg: '230px' }}>
           <Box>
             <Box position="absolute" zIndex="1" top="10px" right="10px">
               <TbHeartPlus size="24px" />

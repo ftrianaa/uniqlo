@@ -25,6 +25,7 @@ import {
   Textarea,
   UnorderedList,
   useColorModeValue as mode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -39,143 +40,220 @@ import { StarReview } from '../../Components/StarReview/StarReview';
 
 const ReviewNew = () => {
   const navigate = useNavigate();
-
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Header />
-      <Container bgColor="white" px="20">
-        <Box>
-          <Breadcrumb
-            fontSize="sm"
-            fontWeight="medium"
-            color={mode('gray.600', 'gray.400')}
-            separator={'/'}
-            my="5"
+      {!isDesktop ? (
+        <Box bgColor={'#f4f4f4'}>
+          <Text
+            fontSize="22px"
+            textTransform="uppercase"
+            fontWeight="bold"
+            textAlign="left"
+            p={5}
+            px={{ base: 5, md: 10 }}
           >
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate('/')}>
-                Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate('/products/baju')}>
-                Product
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Review</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-
+            menulis ulasan
+          </Text>
+        </Box>
+      ) : (
+        <></>
+      )}
+      <Container bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
+        <Box>
+          {isDesktop ? (
+            <>
+              <Breadcrumb
+                fontSize="sm"
+                fontWeight="medium"
+                color={mode('gray.600', 'gray.400')}
+                separator={'/'}
+                my="5"
+              >
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => navigate('/')}>
+                    Home
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => navigate('/products/baju')}>
+                    Product
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Review</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+              <Text
+                fontWeight="bold"
+                textDecor="underline"
+                cursor="pointer"
+                textTransform="uppercase"
+                onClick={() => navigate('/products/baju')}
+                pt="5"
+              >
+                kembali ke detail produk
+              </Text>
+            </>
+          ) : (
+            <></>
+          )}
           <Box py="5">
-            <Text
-              fontWeight="bold"
-              textDecor="underline"
-              cursor="pointer"
-              textTransform="uppercase"
-              onClick={() => navigate('/products/baju')}
+            <Flex
+              flexDir={{ base: 'row-reverse', lg: 'row' }}
+              borderBottom={{
+                base: '1px solid rgb(224, 224, 224)',
+                lg: 'none',
+              }}
+              py={{ base: '5', lg: '0' }}
             >
-              kembali ke detail produk
-            </Text>
-            <Heading fontSize="32px" fontWeight="bold">
-              T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
-            </Heading>
-
+              <Text
+                fontSize={{ base: '15px', lg: '32px' }}
+                fontWeight="bold"
+                my={{ base: '0', lg: '5' }}
+              >
+                T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
+              </Text>
+              {!isDesktop ? (
+                <>
+                  <Image
+                    w="100px"
+                    objectFit="contain"
+                    src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455360/item/idgoods_30_455360.jpg"
+                    mr="5"
+                  />
+                </>
+              ) : (
+                <></>
+              )}
+            </Flex>
             <Flex justify="space-between" my="5">
-              <Box w="68%">
-                <Box border="1px solid rgb(224, 224, 224)" p="5">
+              <Box w={{ base: '100%', lg: '68%' }}>
+                <Box
+                  border={{ base: 'none', lg: '1px solid rgb(224, 224, 224)' }}
+                  p={{ base: '0', lg: '5' }}
+                >
                   <Box>
-                    <Flex justify="space-between" align="center">
+                    <Flex
+                      justify={{ base: 'right', lg: 'space-between' }}
+                      align="center"
+                      w="100%"
+                    >
+                      {isDesktop ? (
+                        <Text
+                          fontWeight="bold"
+                          textTransform="uppercase"
+                          fontSize="28px"
+                        >
+                          menulis ulasan
+                        </Text>
+                      ) : (
+                        <></>
+                      )}
                       <Text
-                        fontWeight="bold"
-                        textTransform="uppercase"
-                        fontSize="28px"
+                        fontSize={{ base: '13px', lg: '14px' }}
+                        color="#378694"
                       >
-                        menulis ulasan
-                      </Text>
-                      <Text fontSize="14px" color="#378694">
                         Wajib diisi*
                       </Text>
                     </Flex>
 
-                    <Flex align="center" my="4">
-                      <Flex w="30%">
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                    <Flex
+                      align="center"
+                      my="4"
+                      flexDir={{ base: 'column', lg: 'row' }}
+                    >
+                      <Flex
+                        w={{ base: '100%', lg: '30%' }}
+                        fontSize={{ base: '15px', lg: '16px' }}
+                      >
+                        <Text fontWeight="bold" textTransform="uppercase">
                           rating
                         </Text>
                         <Text color="#378694" fontWeight="bold">
                           *
                         </Text>
                       </Flex>
-                      <StarReview />
+                      <Flex justify="left" w={{ base: '100%', lg: '70%' }}>
+                        <StarReview />
+                      </Flex>
                     </Flex>
 
-                    <Flex align="center" my="4">
-                      <Flex w="30%">
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                    <Flex
+                      align="center"
+                      my="4"
+                      flexDir={{ base: 'column', lg: 'row' }}
+                    >
+                      <Flex
+                        w={{ base: '100%', lg: '30%' }}
+                        fontSize={{ base: '15px', lg: '16px' }}
+                      >
+                        <Text fontWeight="bold" textTransform="uppercase">
                           fit
                         </Text>
                         <Text color="#378694" fontWeight="bold">
                           *
                         </Text>
                       </Flex>
-                      <ProgressBar />
+                      <Flex justify="left" w={{ base: '100%', lg: '70%' }}>
+                        <ProgressBar />
+                      </Flex>
                     </Flex>
-                    <Flex align="center" my="4">
-                      <Flex w="30%">
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                    <Flex
+                      align="center"
+                      my="4"
+                      flexDir={{ base: 'column', lg: 'row' }}
+                    >
+                      <Flex
+                        w={{ base: '100%', lg: '30%' }}
+                        fontSize={{ base: '15px', lg: '16px' }}
+                      >
+                        <Text fontWeight="bold" textTransform="uppercase">
                           judul
                         </Text>
                         <Text color="#378694" fontWeight="bold">
                           *
                         </Text>
                       </Flex>
-                      <Box w="70%">
+                      <Box w={{ base: '100%', lg: '30%' }}>
                         <Input type="text" variant="flushed" />
-                        <Text fontSize="14px" color="#7d7d7d">
+                        <Text
+                          fontSize={{ base: '13px', lg: '14px' }}
+                          color="#7d7d7d"
+                        >
                           Judul harus kurang dari 100 karakter.
                         </Text>
                       </Box>
                     </Flex>
-                    <Flex my="4">
-                      <Flex w="30%">
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                    <Flex my="4" flexDir={{ base: 'column', lg: 'row' }}>
+                      <Flex
+                        w={{ base: '100%', lg: '30%' }}
+                        fontSize={{ base: '15px', lg: '16px' }}
+                      >
+                        <Text fontWeight="bold" textTransform="uppercase">
                           komentar
                         </Text>
                         <Text color="#378694" fontWeight="bold">
                           *
                         </Text>
                       </Flex>
-                      <Box w="70%">
+                      <Box w={{ base: '100%', lg: '70%' }}>
                         <Textarea borderRadius="0" />
-                        <Text fontSize="14px" color="#7d7d7d">
+                        <Text
+                          fontSize={{ base: '13px', lg: '14px' }}
+                          color="#7d7d7d"
+                        >
                           Anda harus menulis minimal 50 karakter di kolom ini.
                         </Text>
                       </Box>
                     </Flex>
                     <FormControl w="100%">
-                      <Flex>
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                      <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                        <Text fontWeight="bold" textTransform="uppercase">
                           ukuran yang di beli
                         </Text>
                         <Text color="#378694" fontWeight="bold">
@@ -188,22 +266,24 @@ const ReviewNew = () => {
                         <option>l</option>
                       </Select>
                     </FormControl>
-                    <Flex align="center" my="4">
-                      <Flex w="30%">
-                        <Text
-                          fontWeight="bold"
-                          textTransform="uppercase"
-                          fontSize="16px"
-                        >
+                    <Flex
+                      align="center"
+                      my="4"
+                      flexDir={{ base: 'column', lg: 'row' }}
+                    >
+                      <Flex
+                        w={{ base: '100%', lg: '30%' }}
+                        fontSize={{ base: '15px', lg: '16px' }}
+                      >
+                        <Text fontWeight="bold" textTransform="uppercase">
                           nama panggilan
                         </Text>
                         <Text color="#378694" fontWeight="bold">
                           *
                         </Text>
                       </Flex>
-                      <Flex w="70%" align="center">
+                      <Flex w={{ base: '100%', lg: '70%' }} align="center">
                         <Input type="text" variant="flushed" />
-
                         <Popover isLazy trigger={'hover'}>
                           <PopoverTrigger>
                             <Text>
@@ -212,11 +292,14 @@ const ReviewNew = () => {
                           </PopoverTrigger>
                           <PopoverContent>
                             <PopoverArrow />
-                            <PopoverHeader fontSize="14px" fontWeight="bold">
+                            <PopoverHeader
+                              fontSize={{ base: '13px', lg: '14px' }}
+                              fontWeight="bold"
+                            >
                               Nama Panggilan
                             </PopoverHeader>
                             <PopoverBody>
-                              <Text fontSize="14px">
+                              <Text fontSize={{ base: '13px', lg: '14px' }}>
                                 Anda dapat membuat nama panggilan untuk
                                 mengidentifikasi komentar Anda. Nama panggilan
                                 Anda ditampilkan dengan komentar Anda. Nama
@@ -232,19 +315,15 @@ const ReviewNew = () => {
                   <Box>
                     <Text
                       textTransform="uppercase"
-                      fontSize="18px"
+                      fontSize={{ base: '15px', lg: '18px' }}
                       fontWeight="bold"
                     >
                       info pengguna
                     </Text>
                     <Flex justify="space-between" my="5">
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             jenis kelamin
                           </Text>
                           <Text color="#378694" fontWeight="bold">
@@ -258,12 +337,8 @@ const ReviewNew = () => {
                         </Select>
                       </FormControl>
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             lokasi
                           </Text>
                           <Text color="#378694" fontWeight="bold">
@@ -279,12 +354,8 @@ const ReviewNew = () => {
                     </Flex>
                     <Flex justify="space-between" my="5">
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             usia
                           </Text>
                         </Flex>
@@ -295,12 +366,8 @@ const ReviewNew = () => {
                         </Select>
                       </FormControl>
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             tinggi
                           </Text>
                         </Flex>
@@ -313,12 +380,8 @@ const ReviewNew = () => {
                     </Flex>
                     <Flex justify="space-between" my="5">
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             bobot
                           </Text>
                         </Flex>
@@ -329,12 +392,8 @@ const ReviewNew = () => {
                         </Select>
                       </FormControl>
                       <FormControl w="45%">
-                        <Flex>
-                          <Text
-                            fontWeight="bold"
-                            textTransform="uppercase"
-                            fontSize="16px"
-                          >
+                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
+                          <Text fontWeight="bold" textTransform="uppercase">
                             ukuran sepatu
                           </Text>
                         </Flex>
@@ -349,13 +408,16 @@ const ReviewNew = () => {
                   <Divider />
                   <Text
                     textTransform="uppercase"
-                    fontSize="18px"
+                    fontSize={{ base: '15px', lg: '18px' }}
                     fontWeight="bold"
                     my="2"
                   >
                     memberikan ulasan
                   </Text>
-                  <UnorderedList fontSize="14px" color="#7d7d7d">
+                  <UnorderedList
+                    fontSize={{ base: '13px', lg: '14px' }}
+                    color="#7d7d7d"
+                  >
                     <ListItem>
                       Komentar yang Anda berikan dapat digunakan untuk keperluan
                       iklan.
@@ -373,18 +435,20 @@ const ReviewNew = () => {
                     textTransform="uppercase"
                     fontWeight="bold"
                     textDecor="underline"
+                    fontSize={{ base: '15px', lg: '16px' }}
                   >
                     KETENTUAN PENGGUNAAN
                   </Text>
-                  <Flex>
+                  <Flex flexDir={{ base: 'column', lg: 'row' }}>
                     <Button
                       textTransform="uppercase"
                       fontWeight="bold"
                       borderRadius="0"
                       bgColor="black"
                       color="white"
-                      w="40%"
+                      w={{ base: '100%', lg: '40%' }}
                       my="5"
+                      size={{ base: 'lg', lg: 'md' }}
                     >
                       kirim
                     </Button>
@@ -395,23 +459,28 @@ const ReviewNew = () => {
                       bgColor="white"
                       color="black"
                       border="1px black solid"
-                      w="40%"
-                      my="5"
-                      mx="5"
+                      w={{ base: '100%', lg: '40%' }}
+                      my={{ base: '0', lg: '5' }}
+                      mx={{ base: '0', lg: '5' }}
+                      size={{ base: 'lg', lg: 'md' }}
                     >
                       kembali ke detail produk
                     </Button>
                   </Flex>
                 </Box>
               </Box>
-              <Flex w="30%">
-                <Box>
-                  <Image
-                    objectFit="contain"
-                    src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455360/item/idgoods_30_455360.jpg"
-                  />
-                </Box>
-              </Flex>
+              {isDesktop ? (
+                <Flex w="30%">
+                  <Box>
+                    <Image
+                      objectFit="contain"
+                      src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455360/item/idgoods_30_455360.jpg"
+                    />
+                  </Box>
+                </Flex>
+              ) : (
+                <></>
+              )}
             </Flex>
           </Box>
         </Box>

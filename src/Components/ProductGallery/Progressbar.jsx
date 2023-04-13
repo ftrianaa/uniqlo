@@ -21,7 +21,7 @@ export const ProgressBar = () => {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        minH="40"
+        minH={{ base: '20', lg: '40' }}
       >
         <HStack spacing="0" justify="space-evenly" flex="1">
           {numberOfSteps.map((item, id) => (
