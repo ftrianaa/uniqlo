@@ -26,7 +26,7 @@ const Profile = () => {
         Wishlist
       </Text>
       <Text cursor="pointer" onClick={() => navigate('/login')}>
-        keluar
+        Keluar
       </Text>
     </Box>
   );

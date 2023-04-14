@@ -24,6 +24,7 @@ import {
   UnorderedList,
   useBoolean,
   useColorModeValue as mode,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
@@ -31,33 +32,75 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
-    <>
+    <Box w={{ base: '128vw', lg: '100%' }}>
       <Box
         borderBottom="1px solid #dadada"
         px={{ base: 5, md: 10, lg: 20 }}
         py="5"
         bgColor="white"
-        w="100vw"
+        W="8xl"
       >
-        <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
+        <Flex height="4.5rem" align="center" mx="auto">
           <Image
             src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
             h="9"
+            onClick={() => navigate('/')}
           />
         </Flex>
       </Box>
+      {!isDesktop ? (
+        <>
+          <Flex bgColor={'#f4f4f4'} justify="space-between" align="center">
+            <Text
+              fontSize="22px"
+              textTransform="uppercase"
+              fontWeight="bold"
+              textAlign="left"
+              p={5}
+              px={{ base: 5, md: 10 }}
+            >
+              masuk
+            </Text>
+            <Text
+              fontSize="15px"
+              textTransform="uppercase"
+              fontWeight="bold"
+              textAlign="left"
+              p={5}
+              px={{ base: 5, md: 10 }}
+              onClick={() => navigate('/registry')}
+            >
+              buat akun
+            </Text>
+          </Flex>
+        </>
+      ) : (
+        <></>
+      )}
 
       <Container
-        mt={10}
+        pt={10}
         px={{ base: 5, md: 10, lg: 20 }}
         bgColor="white"
-        w="100vw"
+        maxW="8xl"
+        borderBottom={{ base: '1px solid #ababab', lg: 'none' }}
       >
-        <Flex border="1px solid #dadada" p={5}>
-          <Box w="47.5%">
-            <Flex justify="space-between" align="center">
+        <Flex
+          border={{ base: 'none', lg: '1px solid #dadada' }}
+          flexDir={{ base: 'column', lg: 'row' }}
+          p={{ base: 0, lg: 5 }}
+        >
+          <Box w={{ base: '100%', lg: '47.5%' }}>
+            <Flex
+              justify="space-between"
+              align="center"
+              display={{ base: 'none', lg: 'flex' }}
+            >
               <Heading
                 textTransform="uppercase"
                 fontSize="36px"
@@ -68,19 +111,21 @@ const Login = () => {
               <Text color="#378694">Wajib diisi*</Text>
             </Flex>
             <Flex align="center" justify="space-between">
-              <Text>Masuk dengan alamat e-mail dan kata sandi Anda.</Text>
+              <Text fontSize={{ base: '15px', lg: '16px' }}>
+                Masuk dengan alamat e-mail dan kata sandi Anda.
+              </Text>
 
               <Popover placement="left">
                 <PopoverTrigger>
                   <Text>
-                    <AiOutlineInfoCircle />
+                    <AiOutlineInfoCircle fontSize="27px" />
                   </Text>
                 </PopoverTrigger>
                 <PopoverContent w="500px">
                   <PopoverArrow />
                   <PopoverCloseButton />
                   <PopoverBody>
-                    <Box p="10px">
+                    <Box p="10px" fontSize={{ base: '15px', lg: '16px' }}>
                       <Text>
                         Untuk menjaga keamanan akun Anda, harap pertimbangkan
                         untuk mengubah sandi Anda jika salah satu hal berikut
@@ -105,11 +150,20 @@ const Login = () => {
                 </PopoverContent>
               </Popover>
             </Flex>
+            {!isDesktop ? (
+              <>
+                <Text color="#378694" textAlign="right" mt="3" fontSize="13px">
+                  Wajib diisi*
+                </Text>
+              </>
+            ) : (
+              <></>
+            )}
             <Box>
               <FormControl my="3">
                 <FormLabel
                   textTransform="uppercase"
-                  fontSize="18px"
+                  fontSize={{ base: '15px', lg: '18px' }}
                   fontWeight="bold"
                 >
                   <Flex>
@@ -132,7 +186,7 @@ const Login = () => {
               <FormControl my="3">
                 <FormLabel
                   textTransform="uppercase"
-                  fontSize="18px"
+                  fontSize={{ base: '15px', lg: '18px' }}
                   fontWeight="bold"
                 >
                   <Flex>
@@ -151,12 +205,19 @@ const Login = () => {
                   placeholder="Masukkan kata sandi Anda"
                   variant="flushed"
                 />
-                <FormHelperText color="#7d7d7d" fontSize="14px">
+                <FormHelperText
+                  color="#7d7d7d"
+                  fontSize={{ base: '13px', lg: '14px' }}
+                >
                   Kata sandi minimal harus 8 karakter, dan terdiri dari huruf
                   dan angka.
                 </FormHelperText>
               </FormControl>
-              <Checkbox fontSize="14px" color="black" py="2">
+              <Checkbox
+                fontSize={{ base: '13px', lg: '14px' }}
+                color="black"
+                py="2"
+              >
                 Tunjukkan kata sandi saya
               </Checkbox>
             </Box>
@@ -165,7 +226,7 @@ const Login = () => {
                 textDecor="underline"
                 fontWeight="bold"
                 textTransform="uppercase"
-                fontSize="16px"
+                fontSize={{ base: '15px', lg: '16px' }}
               >
                 ketentuan penggunaan
               </Text>
@@ -173,20 +234,22 @@ const Login = () => {
                 textDecor="underline"
                 fontWeight="bold"
                 textTransform="uppercase"
-                fontSize="16px"
+                fontSize={{ base: '15px', lg: '16px' }}
+                py={{ base: 3, lg: 0 }}
               >
                 kebijakan privasi
               </Text>
             </Box>
-            <Box py="3">
+            <Box py={{ base: 0, lg: '3' }}>
               <Button
                 textTransform="uppercase"
                 bgColor="black"
                 color="white"
                 fontWeight="bold"
                 borderRadius="0"
-                w="50%"
+                w={{ base: '100%', lg: '50%' }}
                 onClick={() => navigate('/')}
+                size={{ base: 'lg', lg: 'md' }}
               >
                 masuk
               </Button>
@@ -194,24 +257,79 @@ const Login = () => {
                 textDecor="underline"
                 fontWeight="bold"
                 textTransform="uppercase"
-                fontSize="16px"
+                fontSize={{ base: '15px', lg: '16px' }}
+                textAlign={{ base: 'right', lg: 'left' }}
+                py={{ base: 5, lg: 0 }}
               >
                 lupa kata sandi anda?
               </Text>
             </Box>
           </Box>
-          <Flex w="5%" align="center" justify="center">
+          <Box
+            w="5%"
+            align="center"
+            justify="center"
+            display={{ base: 'none', lg: 'flex' }}
+            pl="7"
+          >
             <Divider orientation="vertical" />
-          </Flex>
-          <Box w="47.5%">
+          </Box>
+          {isDesktop ? (
+            <Box w={{ base: '100%', lg: '47.5%' }}>
+              <Heading
+                textTransform="uppercase"
+                fontSize="36px"
+                fontWeight="bold"
+              >
+                buat akun
+              </Heading>
+
+              <Text fontSize="16px">
+                Jika Anda membuat akun, Anda bisa mendapatkan layanan yang
+                dipersonalisasi seperti melihat riwayat pembelian dan
+                mendapatkan kupon diskon dengan keanggotaan Anda. Daftar hari
+                ini, gratis!
+              </Text>
+              <Box py="8">
+                <Button
+                  textTransform="uppercase"
+                  bgColor="black"
+                  color="white"
+                  fontWeight="bold"
+                  borderRadius="0"
+                  w={{ base: '100%', lg: '50%' }}
+                  onClick={() => navigate('/registry')}
+                  size={{ base: 'lg', lg: 'md' }}
+                >
+                  buat akun
+                </Button>
+              </Box>
+            </Box>
+          ) : (
+            <></>
+          )}
+        </Flex>
+      </Container>
+      {!isDesktop ? (
+        <>
+          <Box bgColor={'#f4f4f4'}>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize="20px"
               fontWeight="bold"
+              px={{ base: 5, md: 10 }}
             >
               buat akun
             </Heading>
-            <Text fontSize="16px">
+          </Box>
+          <Container
+            pt={10}
+            px={{ base: 5, md: 10 }}
+            bgColor="white"
+            maxW="8xl"
+            borderBottom={{ base: '1px solid #ababab', lg: 'none' }}
+          >
+            <Text fontSize="15px" color="#1b1b1b">
               Jika Anda membuat akun, Anda bisa mendapatkan layanan yang
               dipersonalisasi seperti melihat riwayat pembelian dan mendapatkan
               kupon diskon dengan keanggotaan Anda. Daftar hari ini, gratis!
@@ -223,23 +341,42 @@ const Login = () => {
                 color="white"
                 fontWeight="bold"
                 borderRadius="0"
-                w="50%"
+                w={{ base: '100%', lg: '50%' }}
                 onClick={() => navigate('/registry')}
+                size={{ base: 'lg', lg: 'md' }}
               >
                 buat akun
               </Button>
             </Box>
-          </Box>
-        </Flex>
-      </Container>
-      <Box mt={10}>
-        <Flex align="center" justify="center" h="80px">
-          <Text textTransform="uppercase" fontSize="14px" fontWeight="bold">
+          </Container>
+        </>
+      ) : (
+        <></>
+      )}
+      <Box
+        pt={10}
+        bgColor={{ base: '#f4f4f4', lg: 'white' }}
+        maxW="8xl"
+        px={{ base: 5, md: 10, lg: 20 }}
+        borderTop={{ base: '1px solid #ababab', lg: 'none' }}
+      >
+        <Flex
+          align="center"
+          justify="center"
+          h="80px"
+          borderTop={{ base: '1px solid #ababab', lg: 'none' }}
+        >
+          <Text
+            textTransform="uppercase"
+            fontSize="14px"
+            fontWeight={{ base: 'normal', lg: 'bold' }}
+            color={{ base: '#ababab', lg: 'black' }}
+          >
             HAK CIPTA © UNIQLO CO., LTD. SEMUA HAK DILINDUNGI UNDANG-UNDANG.
           </Text>
         </Flex>
       </Box>
-    </>
+    </Box>
   );
 };
 
