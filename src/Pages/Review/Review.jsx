@@ -15,17 +15,14 @@ import {
   Input,
   Link,
   ListItem,
-  Popover,
-  PopoverArrow,
-  PopoverBody,
-  PopoverContent,
-  PopoverHeader,
-  PopoverTrigger,
+  Progress,
   Select,
   Text,
   Textarea,
   UnorderedList,
   useColorModeValue as mode,
+  useBreakpointValue,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -34,57 +31,115 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import { SizePicker } from '../../Components/ProductGallery/SizePicker';
 import { Rating } from '../Search/Rating';
-import { AiOutlineInfoCircle } from 'react-icons/ai';
+import { AiOutlineLeft } from 'react-icons/ai';
 import { ProgressBar } from './Progressbar';
 import { StarReview } from '../../Components/StarReview/StarReview';
 import { review } from './data';
 
 const Review = () => {
   const navigate = useNavigate();
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
+  const color = useColorModeValue('gray.600', 'gray.400');
 
   return (
     <>
       <Header />
-      <Container bgColor="white" px="20">
-        <Box>
-          <Breadcrumb
-            fontSize="sm"
-            fontWeight="medium"
-            color={mode('gray.600', 'gray.400')}
-            separator={'/'}
-            my="5"
-          >
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate('/')}>
-                Home
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink onClick={() => navigate('/products/baju')}>
-                Product
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Review</BreadcrumbLink>
-            </BreadcrumbItem>
-          </Breadcrumb>
-
-          <Box py="5">
-            <Text
-              fontWeight="bold"
-              textDecor="underline"
-              cursor="pointer"
-              textTransform="uppercase"
+      {!isDesktop ? (
+        <>
+          <Box px={{ base: 5, md: 10 }} py="5" bgColor="white">
+            <Flex
+              justify="space-between"
+              align="center"
               onClick={() => navigate('/products/baju')}
             >
-              kembali ke detail produk
-            </Text>
-            <Heading fontSize="32px" fontWeight="bold">
-              T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
-            </Heading>
+              <AiOutlineLeft />
+              <Text fontSize="16px" fontWeight="bold">
+                T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
+              </Text>
+            </Flex>
+            <Flex align="center" justify="right">
+              <Rating defaultValue={5} size="sm" />
 
-            <Flex justify="space-between" my="5">
-              <Box w="68%">
+              <Link
+                href="#"
+                fontSize="sm"
+                fontWeight="medium"
+                color={color}
+                mx="3"
+              >
+                (8)
+              </Link>
+            </Flex>
+          </Box>
+          <Box bgColor={'#f4f4f4'}>
+            <Text
+              fontSize="22px"
+              textTransform="uppercase"
+              fontWeight="bold"
+              textAlign="left"
+              p={5}
+              px={{ base: 5, md: 10 }}
+            >
+              ulasan
+            </Text>
+          </Box>
+        </>
+      ) : (
+        <></>
+      )}
+      <Container bgColor="white" px={{ base: 5, md: 10, lg: '20' }}>
+        <Box>
+          {isDesktop ? (
+            <>
+              <Breadcrumb
+                fontSize="sm"
+                fontWeight="medium"
+                color={mode('gray.600', 'gray.400')}
+                separator={'/'}
+                my="5"
+              >
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => navigate('/')}>
+                    Home
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbLink onClick={() => navigate('/products/baju')}>
+                    Product
+                  </BreadcrumbLink>
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                  <BreadcrumbLink href="#">Review</BreadcrumbLink>
+                </BreadcrumbItem>
+              </Breadcrumb>
+              <Box py="5">
+                <Text
+                  fontWeight="bold"
+                  textDecor="underline"
+                  cursor="pointer"
+                  textTransform="uppercase"
+                  onClick={() => navigate('/products/baju')}
+                >
+                  kembali ke detail produk
+                </Text>
+                <Heading fontSize="32px" fontWeight="bold">
+                  T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
+                </Heading>
+              </Box>
+            </>
+          ) : (
+            <></>
+          )}
+          <Box py={{ base: 0, lg: '5' }}>
+            <Flex
+              justify="space-between"
+              my="5"
+              flexDir={{ base: 'column-reverse', lg: 'row' }}
+            >
+              <Box w={{ base: '100%', lg: '68%' }}>
                 <Box>
                   {review.map((data, index) => (
                     <Box key={index}>
@@ -94,7 +149,7 @@ const Review = () => {
                           <Text
                             fontWeight="bold"
                             textTransform="uppercase"
-                            fontSize="20px"
+                            fontSize={{ base: '15px', lg: '20px' }}
                           >
                             {data.title}
                           </Text>
@@ -108,16 +163,16 @@ const Review = () => {
                         <Box my="3">
                           <Flex>
                             <Text>Ukuran yang dibeli: </Text>
-                            <Text>{data.size}</Text>
+                            <Text mx="2">{data.size}</Text>
                           </Flex>
                           <Flex>
                             <Text>Ukuran yang pas: </Text>
-                            <Text>{data.fit}</Text>
+                            <Text mx="2">{data.fit}</Text>
                           </Flex>
                         </Box>
                         <Text>{data.comment}</Text>
                       </Box>
-                      <Flex>
+                      <Flex mb="3">
                         {data.name !== '' ? (
                           <Text
                             fontWeight="bold"
@@ -135,6 +190,7 @@ const Review = () => {
                           size="sm"
                           fontSize="14px"
                           color="#7d7d7d"
+                          flexWrap="wrap"
                         >
                           {data.gender !== '' ? (
                             <ListItem mr="5">{data.gender}</ListItem>
@@ -167,115 +223,301 @@ const Review = () => {
                   ))}
                 </Box>
               </Box>
-              <Flex w="30%">
-                <Box>
-                  <Box border="1px solid rgb(224, 224, 224) " p="5">
+
+              <Box w={{ base: '100%', lg: '30%' }}>
+                <Box
+                  border={{
+                    base: 'none',
+                    lg: '1px solid rgb(224, 224, 224) ',
+                  }}
+                  p={{ base: 0, lg: '5' }}
+                >
+                  <Box>
+                    <Text
+                      fontWeight="bold"
+                      fontSize="26px"
+                      textTransform="uppercase"
+                      display={{ base: 'none', lg: 'block' }}
+                    >
+                      rangkuman ulasan
+                    </Text>
                     <Box>
                       <Text
-                        fontWeight="bold"
-                        fontSize="26px"
+                        fontSize="14px"
                         textTransform="uppercase"
+                        fontWeight="bold"
+                        my="3"
                       >
-                        rangkuman ulasan
+                        rating
                       </Text>
-                      <Box>
-                        <Text
-                          fontSize="14px"
-                          textTransform="uppercase"
-                          fontWeight="bold"
-                          my="3"
+                      <Flex my="5" align="center">
+                        <Box
+                          w={{ base: '45%', lg: '100%' }}
+                          display="flex"
+                          flexDir="row"
                         >
-                          rating
-                        </Text>
-                        <Flex>
                           <Rating defaultValue={5} size="sm" />
-                          <Link
-                            href="#"
-                            fontSize="sm"
-                            fontWeight="medium"
-                            color={mode('gray.600', 'gray.400')}
-                            mx="3"
-                          >
-                            (8)
-                          </Link>
-                        </Flex>{' '}
-                        <Flex my="5">
+                          {isDesktop ? (
+                            <>
+                              <Link
+                                href="#"
+                                fontSize="sm"
+                                fontWeight="medium"
+                                color={color}
+                                mx="3"
+                              >
+                                (8)
+                              </Link>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Box>
+                        {!isDesktop ? (
+                          <>
+                            <Box w="55%">
+                              <Progress
+                                value={8}
+                                max={12}
+                                colorScheme="blackAlpha"
+                                borderRadius="0"
+                              />
+                            </Box>
+                            <Link
+                              href="#"
+                              fontSize="sm"
+                              fontWeight="medium"
+                              color={color}
+                              mx="3"
+                            >
+                              (8)
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </Flex>
+                      <Flex my="5" align="center">
+                        <Box
+                          w={{ base: '45%', lg: '100%' }}
+                          display="flex"
+                          flexDir="row"
+                        >
                           <Rating defaultValue={4} size="sm" />
-                          <Link
-                            href="#"
-                            fontSize="sm"
-                            fontWeight="medium"
-                            color={mode('gray.600', 'gray.400')}
-                            mx="3"
-                          >
-                            (1)
-                          </Link>
-                        </Flex>{' '}
-                        <Flex my="5">
+                          {isDesktop ? (
+                            <>
+                              <Link
+                                href="#"
+                                fontSize="sm"
+                                fontWeight="medium"
+                                color={color}
+                                mx="3"
+                              >
+                                (1)
+                              </Link>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Box>
+                        {!isDesktop ? (
+                          <>
+                            <Box w="55%">
+                              <Progress
+                                value={1}
+                                max={12}
+                                colorScheme="blackAlpha"
+                                borderRadius="0"
+                              />
+                            </Box>
+                            <Link
+                              href="#"
+                              fontSize="sm"
+                              fontWeight="medium"
+                              color={color}
+                              mx="3"
+                            >
+                              (1)
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </Flex>
+                      <Flex my="5" align="center">
+                        <Box
+                          w={{ base: '45%', lg: '100%' }}
+                          display="flex"
+                          flexDir="row"
+                        >
                           <Rating defaultValue={3} size="sm" />
-                          <Link
-                            href="#"
-                            fontSize="sm"
-                            fontWeight="medium"
-                            color={mode('gray.600', 'gray.400')}
-                            mx="3"
-                          >
-                            (1)
-                          </Link>
-                        </Flex>{' '}
-                        <Flex my="5">
+                          {isDesktop ? (
+                            <>
+                              <Link
+                                href="#"
+                                fontSize="sm"
+                                fontWeight="medium"
+                                color={color}
+                                mx="3"
+                              >
+                                (1)
+                              </Link>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Box>
+                        {!isDesktop ? (
+                          <>
+                            <Box w="55%">
+                              <Progress
+                                value={1}
+                                max={12}
+                                colorScheme="blackAlpha"
+                                borderRadius="0"
+                              />
+                            </Box>
+                            <Link
+                              href="#"
+                              fontSize="sm"
+                              fontWeight="medium"
+                              color={color}
+                              mx="3"
+                            >
+                              (1)
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </Flex>
+                      <Flex my="5" align="center">
+                        <Box
+                          w={{ base: '45%', lg: '100%' }}
+                          display="flex"
+                          flexDir="row"
+                        >
                           <Rating defaultValue={2} size="sm" />
-                          <Link
-                            href="#"
-                            fontSize="sm"
-                            fontWeight="medium"
-                            color={mode('gray.600', 'gray.400')}
-                            mx="3"
-                          >
-                            (1)
-                          </Link>
-                        </Flex>{' '}
-                        <Flex my="5">
+                          {isDesktop ? (
+                            <>
+                              <Link
+                                href="#"
+                                fontSize="sm"
+                                fontWeight="medium"
+                                color={color}
+                                mx="3"
+                              >
+                                (1)
+                              </Link>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Box>
+                        {!isDesktop ? (
+                          <>
+                            <Box w="55%">
+                              <Progress
+                                value={1}
+                                max={12}
+                                colorScheme="blackAlpha"
+                                borderRadius="0"
+                              />
+                            </Box>
+                            <Link
+                              href="#"
+                              fontSize="sm"
+                              fontWeight="medium"
+                              color={color}
+                              mx="3"
+                            >
+                              (1)
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </Flex>
+                      <Flex my="5" align="center">
+                        <Box
+                          w={{ base: '45%', lg: '100%' }}
+                          display="flex"
+                          flexDir="row"
+                        >
                           <Rating defaultValue={1} size="sm" />
-                          <Link
-                            href="#"
-                            fontSize="sm"
-                            fontWeight="medium"
-                            color={mode('gray.600', 'gray.400')}
-                            mx="3"
-                          >
-                            (1)
-                          </Link>
-                        </Flex>
-                      </Box>
+                          {isDesktop ? (
+                            <>
+                              <Link
+                                href="#"
+                                fontSize="sm"
+                                fontWeight="medium"
+                                color={color}
+                                mx="3"
+                              >
+                                (1)
+                              </Link>
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </Box>
+                        {!isDesktop ? (
+                          <>
+                            <Box w="55%">
+                              <Progress
+                                value={1}
+                                max={12}
+                                colorScheme="blackAlpha"
+                                borderRadius="0"
+                              />
+                            </Box>
+                            <Link
+                              href="#"
+                              fontSize="sm"
+                              fontWeight="medium"
+                              color={color}
+                              mx="3"
+                            >
+                              (1)
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
+                      </Flex>
                     </Box>
-                    <Box>
-                      <Text
-                        fontSize="20px"
-                        textTransform="uppercase"
-                        fontWeight="bold"
-                        my="4"
-                      >
-                        ukuran yang pas
-                      </Text>
-                      <ProgressBar />
-                    </Box>
-                    <Button
+                  </Box>
+                  {!isDesktop ? <Divider /> : <></>}
+                  <Box mb={{ base: 4, lg: 0 }}>
+                    <Text
+                      fontSize={{ base: '15px', lg: '20px' }}
                       textTransform="uppercase"
                       fontWeight="bold"
-                      borderRadius="0"
-                      bgColor="white"
-                      color="black"
-                      border="1px solid black"
-                      w="90%"
-                      my="5"
-                      onClick={() => navigate('/products/E457999/review/new')}
+                      my="4"
                     >
-                      tulis ulasan
-                    </Button>
+                      ukuran yang pas
+                    </Text>
+                    <Flex justify="center" align="center">
+                      <ProgressBar />
+                    </Flex>
                   </Box>
+
+                  <Button
+                    textTransform="uppercase"
+                    fontWeight="bold"
+                    borderRadius="0"
+                    bgColor="white"
+                    color="black"
+                    border="1px solid black"
+                    w="90%"
+                    my="5"
+                    onClick={() => navigate('/products/E457999/review/new')}
+                    display={{ base: 'none', lg: 'block' }}
+                  >
+                    tulis ulasan
+                  </Button>
                 </Box>
-              </Flex>
+              </Box>
             </Flex>
           </Box>
         </Box>

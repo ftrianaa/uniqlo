@@ -463,6 +463,7 @@ const ReviewNew = () => {
                       my={{ base: '0', lg: '5' }}
                       mx={{ base: '0', lg: '5' }}
                       size={{ base: 'lg', lg: 'md' }}
+                      onClick={() => navigate('/products/baju')}
                     >
                       kembali ke detail produk
                     </Button>

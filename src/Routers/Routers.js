@@ -27,8 +27,14 @@ import ValueBuy from '../Pages/ValueBuy/ValueBuy';
 import Wishlist from '../Pages/Wishlist/Wishlist';
 import ReviewNew from '../Pages/ReviewNew/ReviewNew';
 import Review from '../Pages/Review/Review';
+import { useBreakpointValue } from '@chakra-ui/react';
+import MobileMember from '../Pages/Profile/MobileMember';
 
 const Routers = () => {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
@@ -48,17 +54,36 @@ const Routers = () => {
       <Route path="/store inventory" element={<StoreInventory />} />
       <Route path="/products/:id/review/new" element={<ReviewNew />} />
       <Route path="/products/:id/review" element={<Review />} />
-      <Route path="/member" element={<Member />}>
-        <Route path="details" element={<Profile />} />
-        <Route path="coupon" element={<Coupon />} />
-        <Route path="purchase/history" element={<PurchaseHistory />} />
-        <Route path="orders" element={<Orders />} />
-        <Route path="edit" element={<EditProfile />} />
-        <Route path="addresses" element={<Addresses />} />
-        <Route path="edit/password" element={<EditPassword />} />
-        <Route path="wallets" element={<Wallet />} />
-        <Route path="unsubscribe" element={<Unsubscribe />} />
-      </Route>
+      {isDesktop ? (
+        <Route path="/member" element={<Member />}>
+          <Route path="/member/details" element={<Profile />} />
+          <Route path="coupon" element={<Coupon />} />
+          <Route path="purchase/history" element={<PurchaseHistory />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="edit" element={<EditProfile />} />
+          <Route path="addresses" element={<Addresses />} />
+          <Route path="edit/password" element={<EditPassword />} />
+          <Route path="wallets" element={<Wallet />} />
+          <Route path="unsubscribe" element={<Unsubscribe />} />
+        </Route>
+      ) : (
+        <>
+          <Route path="/member" element={<Member />} />
+          <Route path="/member/:pages" element={<MobileMember />} />
+          {/* <Route path="/member/details" element={<Profile />} />
+          <Route path="/member/coupon" element={<Coupon />} />
+          <Route
+            path="/member/purchase/history"
+            element={<PurchaseHistory />}
+          />
+          <Route path="/member/orders" element={<Orders />} />
+          <Route path="/member/edit" element={<EditProfile />} />
+          <Route path="/member/addresses" element={<Addresses />} />
+          <Route path="/member/edit/password" element={<EditPassword />} />
+          <Route path="/member/wallets" element={<Wallet />} />
+          <Route path="/member/unsubscribe" element={<Unsubscribe />} />{' '} */}
+        </>
+      )}
     </Routes>
   );
 };
