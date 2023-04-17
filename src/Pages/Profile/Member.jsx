@@ -179,7 +179,7 @@ const Member = () => {
                   align="center"
                   p="5"
                   borderBottom="solid 1px #ababab"
-                  onClick={() => navigate('/member/purchase/history')}
+                  onClick={() => navigate('/member/purchase history')}
                 >
                   <Text textTransform="uppercase" fontWeight="bold">
                     riwayat pembelian
@@ -242,7 +242,7 @@ const Member = () => {
                 align="center"
                 p="5"
                 borderBottom="solid 1px #ababab"
-                onClick={() => navigate('/member/edit/password')}
+                onClick={() => navigate('/member/edit password')}
               >
                 <Text textTransform="uppercase" fontWeight="bold">
                   ubah kata sandi saya

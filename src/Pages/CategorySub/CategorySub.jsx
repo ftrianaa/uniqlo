@@ -23,6 +23,12 @@ import {
   FormControl,
   RadioGroup,
   Radio,
+  useBreakpointValue,
+  TabPanels,
+  TabPanel,
+  InputGroup,
+  InputRightElement,
+  Spacer,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -48,15 +54,43 @@ import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import SliderBanner from '../../Components/SliderBanner/SliderBanner';
+import { SearchIcon } from '@chakra-ui/icons';
+import { VscSettings, VscSplitHorizontal } from 'react-icons/vsc';
 
 const CategorySub = () => {
   const { category, subCategory } = useParams();
   const navigate = useNavigate();
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   //   console.log(category, 'categoryyy');
   //   console.log(subCategory, 'subbsbsss');
   return (
     <>
       <Header />
+      {!isDesktop ? (
+        <>
+          <Tabs isFitted variant="enclosed" bgColor="#f4f4f4">
+            <TabList mb="1em">
+              <Tab textTransform="uppercase" fontWeight="bold">
+                wanita
+              </Tab>
+              <Tab textTransform="uppercase" fontWeight="bold">
+                pria
+              </Tab>
+              <Tab textTransform="uppercase" fontWeight="bold">
+                anak
+              </Tab>
+              <Tab textTransform="uppercase" fontWeight="bold">
+                bayi
+              </Tab>
+            </TabList>
+          </Tabs>
+        </>
+      ) : (
+        <></>
+      )}
       <Container bgColor="white">
         <Box
           maxW="7xl"
@@ -68,107 +102,136 @@ const CategorySub = () => {
           }}
           py="5"
         >
-          <ProductBreadcrumb data={breadcrumbData} />
-          <Box>
-            <Heading
-              textTransform="uppercase"
-              fontSize="48px"
-              fontWeight="bold"
-              pt="6"
-            >
-              {category}
-            </Heading>
-          </Box>
+          {isDesktop ? (
+            <>
+              <ProductBreadcrumb data={breadcrumbData} />
+              <Box>
+                <Heading
+                  textTransform="uppercase"
+                  fontSize="48px"
+                  fontWeight="bold"
+                  pt="6"
+                >
+                  {category}
+                </Heading>
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box>
+                <Text
+                  textTransform="uppercase"
+                  fontSize="20px"
+                  fontWeight="bold"
+                >
+                  {category}
+                </Text>
+              </Box>
+            </>
+          )}
           <Box as="section" pt="5">
             <Stack spacing="16">
-              <Tabs size="lg" variant="with-line">
-                <TabList>
-                  <Flex align="center" w="25%" justify="center">
-                    <Tab
-                      textTransform="uppercase"
-                      fontSize="18px"
-                      fontWeight="bold"
-                    >
-                      <Text textAlign="center">wanita</Text>
-                    </Tab>
-                  </Flex>
-                  <Flex align="center" w="25%" justify="center">
-                    <Tab
-                      textTransform="uppercase"
-                      fontSize="18px"
-                      fontWeight="bold"
-                    >
-                      <Text textAlign="center">pria</Text>
-                    </Tab>
-                  </Flex>
-                  <Flex align="center" w="25%" justify="center">
-                    <Tab
-                      textTransform="uppercase"
-                      fontSize="18px"
-                      fontWeight="bold"
-                    >
-                      <Text textAlign="center">anak</Text>
-                    </Tab>
-                  </Flex>
-                  <Flex align="center" w="25%" justify="center">
-                    <Tab
-                      textTransform="uppercase"
-                      fontSize="18px"
-                      fontWeight="bold"
-                    >
-                      <Text textAlign="center">bayi</Text>
-                    </Tab>
-                  </Flex>
-                </TabList>
-              </Tabs>
+              {isDesktop ? (
+                <>
+                  <Tabs size="lg" variant="with-line">
+                    <TabList>
+                      <Flex align="center" w="25%" justify="center">
+                        <Tab
+                          textTransform="uppercase"
+                          fontSize="18px"
+                          fontWeight="bold"
+                        >
+                          <Text textAlign="center">wanita</Text>
+                        </Tab>
+                      </Flex>
+                      <Flex align="center" w="25%" justify="center">
+                        <Tab
+                          textTransform="uppercase"
+                          fontSize="18px"
+                          fontWeight="bold"
+                        >
+                          <Text textAlign="center">pria</Text>
+                        </Tab>
+                      </Flex>
+                      <Flex align="center" w="25%" justify="center">
+                        <Tab
+                          textTransform="uppercase"
+                          fontSize="18px"
+                          fontWeight="bold"
+                        >
+                          <Text textAlign="center">anak</Text>
+                        </Tab>
+                      </Flex>
+                      <Flex align="center" w="25%" justify="center">
+                        <Tab
+                          textTransform="uppercase"
+                          fontSize="18px"
+                          fontWeight="bold"
+                        >
+                          <Text textAlign="center">bayi</Text>
+                        </Tab>
+                      </Flex>
+                    </TabList>
+                  </Tabs>
+                </>
+              ) : (
+                <></>
+              )}
             </Stack>
           </Box>
-          <Box py="5">
+
+          <Box py="5" display={{ base: 'none', lg: 'block' }}>
             <SliderBanner />
           </Box>
           <Box
             mt={{
-              base: '8',
-              md: '16',
+              base: '0',
+              lg: '16',
             }}
           >
-            <Flex justify="space-between" align="center" my="6">
-              <Box>
-                <Text
-                  flexShrink={0}
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  fontSize="sm"
-                >
-                  hasil
-                </Text>
-                <Text>407 Produk</Text>
-              </Box>
-              <Box>
-                <Text
-                  flexShrink={0}
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  fontSize="sm"
-                >
-                  pilih berdasarkan
-                </Text>
-                <SortbySelect />
-              </Box>
-            </Flex>
+            {isDesktop ? (
+              <>
+                <Flex justify="space-between" align="center" my="6">
+                  <Box>
+                    <Text
+                      flexShrink={0}
+                      fontWeight="bold"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                    >
+                      hasil
+                    </Text>
+                    <Text>407 Produk</Text>
+                  </Box>
+                  <Box>
+                    <Text
+                      flexShrink={0}
+                      fontWeight="bold"
+                      textTransform="uppercase"
+                      fontSize="sm"
+                    >
+                      pilih berdasarkan
+                    </Text>
+                    <SortbySelect />
+                  </Box>
+                </Flex>
+              </>
+            ) : (
+              <></>
+            )}
             <Grid
               templateColumns={{
                 base: '1fr',
-                md: '240px 1fr',
+                lg: '25% 1fr',
               }}
-              gap="14"
+              gap="1"
             >
               <Stack
                 spacing="10"
                 maxW="240px"
                 display={{
                   base: 'none',
-                  md: 'flex',
+                  lg: 'flex',
                 }}
               >
                 <Box>
@@ -503,31 +566,90 @@ const CategorySub = () => {
               </Stack>
 
               <Box width="full">
-                <Stack
-                  spacing={{
-                    base: '6',
-                    md: '4',
-                  }}
-                  direction={{
-                    base: 'column',
-                    md: 'row',
-                  }}
-                  justify="space-between"
-                  align="flex-start"
-                  width="full"
-                >
-                  <MobileFilter />
-                </Stack>
-                <Box minH="480px" rounded="xl">
+                {!isDesktop ? (
+                  <>
+                    <Stack
+                      spacing={{
+                        base: '6',
+                        lg: '4',
+                      }}
+                      direction={{
+                        base: 'column',
+                        lg: 'row',
+                      }}
+                      justify="space-between"
+                      align="flex-start"
+                      width="full"
+                    >
+                      <InputGroup>
+                        <Input placeholder="Search" />
+                        <InputRightElement children={<SearchIcon />} />
+                      </InputGroup>
+
+                      <Flex
+                        w="100%"
+                        alignItems="center"
+                        gap="2"
+                        borderY="1px solid #dadada"
+                      >
+                        <Flex align="center">
+                          <Text
+                            flexShrink={0}
+                            fontWeight="bold"
+                            textTransform="uppercase"
+                            fontSize="sm"
+                          >
+                            hasil:
+                          </Text>
+                          <Text
+                            mx="2"
+                            fontSize="sm"
+                            textTransform="uppercase"
+                            fontWeight="bold"
+                          >
+                            407 Produk
+                          </Text>
+                        </Flex>
+                        <Spacer />
+                        <Box cursor="pointer" borderX="1px solid #dadada" p="2">
+                          <Flex align="center" justify="center">
+                            <VscSplitHorizontal />
+                          </Flex>
+                          <Text
+                            fontWeight="bold"
+                            textTransform="uppercase"
+                            fontSize="13px"
+                          >
+                            medium
+                          </Text>
+                        </Box>
+                        <Box cursor="pointer">
+                          <Flex align="center" justify="center">
+                            <VscSettings />
+                          </Flex>
+                          <Text
+                            fontWeight="bold"
+                            textTransform="uppercase"
+                            fontSize="13px"
+                          >
+                            filter
+                          </Text>
+                        </Box>
+                      </Flex>
+                    </Stack>
+                  </>
+                ) : (
+                  <></>
+                )}
+                <Box minH="480px" rounded="xl" mt={{ base: 5, lg: 0 }}>
                   <SimpleGrid
                     columns={{
-                      base: 1,
-                      sm: 2,
+                      base: 2,
                       md: 3,
                       lg: 4,
                     }}
                     gap={{
-                      base: '8',
+                      base: '4',
                       lg: '2',
                     }}
                   >

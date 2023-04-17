@@ -1,9 +1,21 @@
 import { CheckIcon } from '@chakra-ui/icons';
-import { Box, Button, Divider, Flex, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Heading,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import React from 'react';
 import { addresses, memberAddress } from '../data';
 
 const Addresses = () => {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   return (
     <>
       <Box>

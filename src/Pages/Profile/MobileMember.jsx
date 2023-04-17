@@ -1,16 +1,35 @@
-import { Box, Button, Container, Flex, Image, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Image,
+  ListItem,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
+  Text,
+  UnorderedList,
+} from '@chakra-ui/react';
 import React from 'react';
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineInfoCircle, AiOutlineUser } from 'react-icons/ai';
 import { useNavigate, useParams } from 'react-router-dom';
 import Profile from './Member/Profile';
 import Coupon from './Member/Coupon';
 import Orders from './Member/Orders';
-
+import Unsubscribe from './Setting/Unsubscribe';
+import EditPassword from './Setting/EditPassword';
+import Wallet from './Setting/Wallet';
+import PurchaseHistory from './Member/PurchaseHistory';
 const MobileMember = () => {
   const navigate = useNavigate();
   const { pages } = useParams();
 
-  // console.log(pages, 'page di mobile member');
+  console.log(pages, 'page di mobile member');
   return (
     <Box display="flex" flexDirection="column" minH="100vh" bgColor="#f4f4f4">
       <Box
@@ -37,16 +56,68 @@ const MobileMember = () => {
         </Flex>
       </Box>
       <Box bgColor={'#f4f4f4'}>
-        <Text
-          fontSize="20px"
-          textTransform="uppercase"
-          fontWeight="bold"
-          textAlign="left"
-          p={5}
-          px={{ base: 5, md: 10 }}
-        >
-          {pages}
-        </Text>
+        {pages === 'purchase history' ? (
+          <Flex justify="space-between" align="center" px={{ base: 5, md: 10 }}>
+            <Text
+              fontSize="20px"
+              textTransform="uppercase"
+              fontWeight="bold"
+              textAlign="left"
+              py={{ base: '5' }}
+            >
+              {pages}
+            </Text>
+            <Popover placement="auto">
+              <PopoverTrigger>
+                <Text>
+                  <AiOutlineInfoCircle />
+                </Text>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverHeader textTransform="uppercase" fontWeight="bold">
+                  tentang riwayat pembelian
+                </PopoverHeader>
+                <PopoverBody>
+                  <UnorderedList>
+                    <ListItem my="2">
+                      Anda dapat melihat riwayat pembelian Anda di toko retail
+                      dan toko online.
+                    </ListItem>
+                    <ListItem my="2">
+                      Riwayat pembelian toko retail Anda akan terlihat pada hari
+                      berikutnya, jika Anda memindai barcode keanggotaan Anda
+                      dengan pembelian Anda.
+                    </ListItem>
+                    <ListItem my="2">
+                      Riwayat pembelian tidak menunjukkan barang yang
+                      dikembalikan atau ditukar.
+                    </ListItem>
+                    <ListItem my="2">
+                      Riwayat pembelian bukanlah bukti pembelian yang sah.
+                    </ListItem>
+                    <ListItem my="2">
+                      Harap bawa tanda terima jika Anda ingin mengembalikan atau
+                      menukar barang di toko.
+                    </ListItem>
+                  </UnorderedList>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
+          </Flex>
+        ) : (
+          <Text
+            fontSize="20px"
+            textTransform="uppercase"
+            fontWeight="bold"
+            textAlign="left"
+            p={5}
+            px={{ base: 5, md: 10 }}
+          >
+            {pages}
+          </Text>
+        )}
       </Box>
       {pages === 'details' ? (
         <Profile />
@@ -54,6 +125,14 @@ const MobileMember = () => {
         <Coupon />
       ) : pages === 'orders' ? (
         <Orders />
+      ) : pages === 'unsubscribe' ? (
+        <Unsubscribe />
+      ) : pages === 'edit password' ? (
+        <EditPassword />
+      ) : pages === 'wallets' ? (
+        <Wallet />
+      ) : pages === 'purchase history' ? (
+        <PurchaseHistory />
       ) : (
         <></>
       )}
