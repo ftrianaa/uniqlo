@@ -24,12 +24,12 @@ export const ProductCard = props => {
   return (
     <Stack
       spacing="3"
-      w="200px"
+      w="100%"
       onClick={() => navigate('/products/baju')}
       cursor="pointer"
     >
       <Box position="relative" className="group">
-        <AspectRatio ratio={5 / 5} width="200px">
+        <AspectRatio ratio={5 / 5} w="100%">
           <Box>
             <Box position="absolute" zIndex="1" top="10px" right="10px">
               <TbHeartPlus size="24px" />
