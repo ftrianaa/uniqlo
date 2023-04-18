@@ -30,9 +30,19 @@ import {
   PopoverArrow,
   Heading,
   Text,
+  Tabs,
+  TabList,
+  Tab,
+  Stack,
+  TabPanel,
+  TabPanels,
 } from '@chakra-ui/react';
-import { AiOutlineSearch, AiOutlineUser } from 'react-icons/ai';
-import { MdMenu } from 'react-icons/md';
+import {
+  AiOutlineAppstore,
+  AiOutlineSearch,
+  AiOutlineUser,
+} from 'react-icons/ai';
+import { MdMenu, MdOutlineStore } from 'react-icons/md';
 import { RiHeartLine, RiShoppingCartLine } from 'react-icons/ri';
 // import { CurrencySelect } from '../CurrencySelect';
 // import { Logo } from './Logo';
@@ -51,6 +61,8 @@ import Women from '../MenuDropdown/Women';
 import Child from '../MenuDropdown/Child';
 import Baby from '../MenuDropdown/Baby';
 import Profile from '../MenuDropdown/Profile';
+import { CloseIcon } from '@chakra-ui/icons';
+import Footer from '../Footer/Footer';
 const buttonArr = [
   {
     id: 1,
@@ -81,8 +93,20 @@ const Header = () => {
     lg: true,
   });
 
-  const { onToggle, isOpen } = useDisclosure();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const categories = [
+    'new arrivals',
+    'limited offer',
+    'value buy',
+    'coming soon',
+    'featured news',
+    'ut graphic t-shirt',
+    'styling book',
+    'about lifewear',
+    'extra size',
+    'pembelian jumlah besar',
+    'kirim kado',
+  ];
   return (
     <>
       <Flex
@@ -95,6 +119,8 @@ const Header = () => {
         textTransform="uppercase"
         fontWeight="bold"
         fontSize="14px"
+        display={{ base: 'none', lg: 'flex' }}
+        w="100%"
       >
         <Text>Heritage</Text>
         <Text mx="5">Signature</Text>
@@ -144,11 +170,17 @@ const Header = () => {
         px={{ base: 5, md: 10, lg: 20 }}
         bg={mode('white', 'gray.800')}
         position="sticky"
+        w="100%"
         top="0"
         zIndex="999"
         borderBottom="1px solid rgb(204, 204, 204)"
       >
-        <Flex height="4.5rem" align="center" maxW="8xl" mx="auto">
+        <Flex
+          height={{ base: '5rem', lg: '4.5rem' }}
+          align="center"
+          maxW="8xl"
+          mx="auto"
+        >
           <HStack flex="24rem" spacing="32px">
             {isDesktop ? (
               <>
@@ -303,8 +335,15 @@ const Header = () => {
             {!isDesktop ? (
               <IconButton
                 variant="ghost"
-                icon={<FiMenu fontSize="1.25rem" />}
+                icon={
+                  isOpen ? (
+                    <CloseIcon fontSize="1rem" />
+                  ) : (
+                    <FiMenu fontSize="1.25rem" />
+                  )
+                }
                 aria-label="Open Menu"
+                onClick={isOpen ? onClose : onOpen}
               />
             ) : (
               <></>
@@ -312,7 +351,192 @@ const Header = () => {
           </HStack>
         </Flex>
       </Box>
-
+      {isOpen && !isDesktop ? (
+        <>
+          <Box
+            bgColor="white"
+            position="fixed"
+            zIndex={998}
+            w="100%"
+            top="20"
+            h="100vh"
+            overflowY="auto"
+          >
+            <Flex py="5" borderBottom="1px solid #dadada">
+              <Flex
+                align="center"
+                w="50%"
+                justify="center"
+                onClick={() => navigate('/member')}
+              >
+                <AiOutlineUser fontWeight="bold" />
+                <Text
+                  fontWeight="bold"
+                  fontSize="18px"
+                  textTransform="uppercase"
+                >
+                  keanggotaan
+                </Text>
+              </Flex>
+              <Flex align="center" w="50%" justify="center">
+                <MdOutlineStore fontWeight="bold" />
+                <Text
+                  fontWeight="bold"
+                  fontSize="18px"
+                  textTransform="uppercase"
+                >
+                  toko
+                </Text>
+              </Flex>
+            </Flex>
+            <Box as="section" pt="5">
+              <Stack spacing="16">
+                <Tabs size="lg" variant="with-line">
+                  <TabList>
+                    <Flex align="center" w="25%" justify="center">
+                      <Tab
+                        textTransform="uppercase"
+                        fontSize="15px"
+                        fontWeight="bold"
+                        w="100%"
+                        textAlign="center"
+                      >
+                        <Text textAlign="center" w="100%">
+                          wanita
+                        </Text>
+                      </Tab>
+                    </Flex>
+                    <Flex align="center" w="25%" justify="center">
+                      <Tab
+                        textTransform="uppercase"
+                        fontSize="15px"
+                        fontWeight="bold"
+                        w="100%"
+                        textAlign="center"
+                      >
+                        <Text textAlign="center" w="100%">
+                          pria
+                        </Text>
+                      </Tab>
+                    </Flex>
+                    <Flex align="center" w="25%" justify="center">
+                      <Tab
+                        textTransform="uppercase"
+                        fontSize="15px"
+                        fontWeight="bold"
+                        w="100%"
+                        textAlign="center"
+                      >
+                        <Text textAlign="center" w="100%">
+                          anak
+                        </Text>
+                      </Tab>
+                    </Flex>
+                    <Flex align="center" w="25%" justify="center">
+                      <Tab
+                        textTransform="uppercase"
+                        fontSize="15px"
+                        fontWeight="bold"
+                        w="100%"
+                        textAlign="center"
+                      >
+                        <Text textAlign="center" w="100%">
+                          bayi
+                        </Text>
+                      </Tab>
+                    </Flex>
+                  </TabList>
+                  <TabPanels>
+                    <TabPanel>
+                      {categories.map((item, index) => (
+                        <Box
+                          key={index}
+                          py="5"
+                          borderBottom="1px solid #dadada"
+                          onClick={() =>
+                            navigate('/new arrivals/koleksi-kemeja')
+                          }
+                        >
+                          <Text
+                            fontSize="15px"
+                            textTransform="uppercase"
+                            fontWeight="bold"
+                          >
+                            {item}
+                          </Text>
+                        </Box>
+                      ))}
+                    </TabPanel>
+                    <TabPanel>
+                      {categories.map((item, index) => (
+                        <Box
+                          key={index}
+                          py="5"
+                          borderBottom="1px solid #dadada"
+                          onClick={() =>
+                            navigate('/new arrivals/koleksi-kemeja')
+                          }
+                        >
+                          <Text
+                            fontSize="15px"
+                            textTransform="uppercase"
+                            fontWeight="bold"
+                          >
+                            {item}
+                          </Text>
+                        </Box>
+                      ))}
+                    </TabPanel>
+                    <TabPanel>
+                      {categories.map((item, index) => (
+                        <Box
+                          key={index}
+                          py="5"
+                          borderBottom="1px solid #dadada"
+                          onClick={() =>
+                            navigate('/new arrivals/koleksi-kemeja')
+                          }
+                        >
+                          <Text
+                            fontSize="15px"
+                            textTransform="uppercase"
+                            fontWeight="bold"
+                          >
+                            {item}
+                          </Text>
+                        </Box>
+                      ))}
+                    </TabPanel>
+                    <TabPanel>
+                      {categories.map((item, index) => (
+                        <Box
+                          key={index}
+                          py="5"
+                          borderBottom="1px solid #dadada"
+                          onClick={() =>
+                            navigate('/new arrivals/koleksi-kemeja')
+                          }
+                        >
+                          <Text
+                            fontSize="15px"
+                            textTransform="uppercase"
+                            fontWeight="bold"
+                          >
+                            {item}
+                          </Text>
+                        </Box>
+                      ))}
+                    </TabPanel>
+                  </TabPanels>
+                </Tabs>
+              </Stack>
+            </Box>
+            <Footer />
+          </Box>
+        </>
+      ) : (
+        <></>
+      )}
       {/* {isOpen && isDesktop ? (
         <ResourcesSubmenu isOpen={isDesktop && isOpen} />
       ) : (

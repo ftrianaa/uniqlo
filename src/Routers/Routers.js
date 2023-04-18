@@ -37,7 +37,11 @@ const Routers = () => {
   });
   return (
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      {isDesktop ? (
+        <Route exact path="/" element={<Home />} />
+      ) : (
+        <Route exact path="/" element={<Category />} />
+      )}
       <Route path="/:category" element={<Category />} />
       <Route path="/:category/:categorysub" element={<CategorySub />} />
       <Route path="/products/:category/:id" element={<ItemProduct />} />

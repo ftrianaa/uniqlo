@@ -581,10 +581,10 @@ const CategorySub = () => {
                       align="flex-start"
                       width="full"
                     >
-                      <InputGroup>
+                      {/* <InputGroup>
                         <Input placeholder="Search" />
                         <InputRightElement children={<SearchIcon />} />
-                      </InputGroup>
+                      </InputGroup> */}
 
                       <Flex
                         w="100%"

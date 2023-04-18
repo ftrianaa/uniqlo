@@ -104,13 +104,23 @@ const MobileMember = () => {
             w="100%"
           >
             <Box bgColor="white">
-              <Flex justify="space-between" align="center" p="5">
+              <Flex
+                justify="space-between"
+                align="center"
+                p="5"
+                onClick={() => navigate('/login')}
+              >
                 <Text textTransform="uppercase" fontWeight="bold">
                   keluar
                 </Text>
                 <AiOutlineRight color="grey" />
               </Flex>
-              <Flex justify="space-between" align="center" p="5">
+              <Flex
+                justify="space-between"
+                align="center"
+                p="5"
+                onClick={() => navigate('/member')}
+              >
                 <Text textTransform="uppercase" fontWeight="bold">
                   keanggotaan
                 </Text>
