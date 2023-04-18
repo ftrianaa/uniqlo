@@ -2,6 +2,7 @@ import { CheckIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
+  CloseButton,
   Divider,
   Flex,
   Heading,
@@ -18,20 +19,34 @@ const Addresses = () => {
   });
   return (
     <>
-      <Box>
-        <Text textTransform="uppercase" fontSize="32px" fontWeight="bold">
+      <Box
+        bgColor="white"
+        p={{ base: '5', md: 8, lg: '0' }}
+        boxShadow={{ base: '0 2px 2px rgba(0,0,0,0.16)', lg: 'none' }}
+      >
+        <Text
+          textTransform="uppercase"
+          fontSize={{ base: '16px', lg: '32px' }}
+          fontWeight="bold"
+        >
           Alamat keanggotaan
         </Text>
-        <Flex my="5">
-          <Box w="30%">{memberAddress.name}</Box>
-          <Box w="35%">
+        <Flex my={{ base: 0, lg: '5' }} flexDir={{ base: 'column', lg: 'row' }}>
+          <Box w={{ base: '100%', lg: '30%' }}>{memberAddress.name}</Box>
+          <Box w={{ base: '100%', lg: '35%' }}>
             {memberAddress.address}
             {memberAddress.telp}
           </Box>
-          <Flex direction="column" w="35%" align="center" justify="center">
+          <Flex
+            direction={{ base: 'row', lg: 'column' }}
+            w={{ base: '100%', lg: '35%' }}
+            align={{ base: 'right', lg: 'center' }}
+            justify={{ base: 'right', lg: 'center' }}
+            my={{ base: 3, lg: 0 }}
+          >
             <Button
               textTransform="uppercase"
-              w="70%"
+              w={{ base: '40%', lg: '70%' }}
               variant="outline"
               borderColor="black"
               bgColor="white"
@@ -41,13 +56,14 @@ const Addresses = () => {
               leftIcon={<CheckIcon color="green" />}
               fontWeight="bold"
               fontSize="14px"
+              mx={{ base: 4, lg: 0 }}
             >
               Alamat saat ini
             </Button>
             <Button
-              mt="3"
+              mt={{ base: 0, lg: '3' }}
               textTransform="uppercase"
-              w="70%"
+              w={{ base: '40%', lg: '70%' }}
               variant="outline"
               borderColor="black"
               bgColor="white"
@@ -63,19 +79,41 @@ const Addresses = () => {
         </Flex>
       </Box>
       <Divider />
-      <Box>
-        <Heading textTransform="uppercase" fontSize="32px" fontWeight="bold">
+      <Box
+        bgColor="white"
+        p={{ base: '5', md: 8, lg: '0' }}
+        mt={{ base: 5, lg: 0 }}
+        boxShadow={{ base: '0 2px 2px rgba(0,0,0,0.16)', lg: 'none' }}
+      >
+        <Text
+          textTransform="uppercase"
+          fontSize={{ base: '16px', lg: '32px' }}
+          fontWeight="bold"
+        >
           alamat pengiriman ({addresses.length})
-        </Heading>
+        </Text>
         <Text>Dapat menyimpan hingga 10 alamat.</Text>
         {addresses.map((item, index) => (
-          <Flex key={index} my="5">
-            <Box w="30%"> {item.name}</Box>
-            <Box w="35%">
+          <Flex key={index} my="5" flexDir={{ base: 'column', lg: 'row' }}>
+            <Flex
+              justify="space-between"
+              align="center"
+              w={{ base: '100%', lg: '30%' }}
+            >
+              <Box> {item.name}</Box>
+              <CloseButton display={{ base: 'block', lg: 'none' }} />
+            </Flex>
+            <Box w={{ base: '100%', lg: '35%' }}>
               {item.address}
               {item.telp}
             </Box>
-            <Flex w="35%" direction="column" align="center" justify="center">
+            <Flex
+              w={{ base: '100%', lg: '35%' }}
+              direction={{ base: 'row', lg: 'column' }}
+              align={{ base: 'right', lg: 'center' }}
+              justify={{ base: 'right', lg: 'center' }}
+              my={{ base: 3, lg: 0 }}
+            >
               <Button
                 textTransform="uppercase"
                 variant="outline"
@@ -85,13 +123,14 @@ const Addresses = () => {
                 borderRadius="0"
                 size="sm"
                 fontWeight="bold"
-                w="70%"
+                w={{ base: '60%', lg: '70%' }}
                 fontSize="14px"
+                mx={{ base: 4, lg: 0 }}
               >
                 pasang sebagai default
               </Button>
               <Button
-                mt="3"
+                mt={{ base: 0, lg: '3' }}
                 textTransform="uppercase"
                 variant="outline"
                 borderColor="black"
@@ -99,7 +138,7 @@ const Addresses = () => {
                 color="black"
                 borderRadius="0"
                 size="sm"
-                w="70%"
+                w={{ base: '40%', lg: '70%' }}
                 fontSize="14px"
                 fontWeight="bold"
               >
@@ -115,8 +154,9 @@ const Addresses = () => {
           bgColor="black"
           color="white"
           borderRadius="0"
-          w="35%"
+          w={{ base: '100%', lg: '35%' }}
           fontWeight="bold"
+          size={{ base: 'lg', lg: 'md' }}
         >
           daftar alamat baru
         </Button>

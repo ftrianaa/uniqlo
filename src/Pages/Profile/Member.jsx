@@ -1,8 +1,14 @@
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  CloseButton,
   Container,
   Flex,
   Heading,
@@ -10,6 +16,7 @@ import {
   Text,
   useColorModeValue as mode,
   useBreakpointValue,
+  useDisclosure,
 } from '@chakra-ui/react';
 import React from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
@@ -26,6 +33,7 @@ const Member = () => {
     base: false,
     lg: true,
   });
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       {isDesktop ? (
@@ -68,39 +76,111 @@ const Member = () => {
         </>
       ) : (
         <>
-          <Box
-            borderBottom="1px solid #dadada"
-            px={{ base: 5, md: 10, lg: 20 }}
-            py="2"
-            bgColor="white"
-            W="8xl"
-          >
-            <Flex
-              height="4.5rem"
-              align="center"
-              mx="auto"
-              justify="space-between"
+          <Box position="fixed" zIndex={999} w="100%">
+            <Box
+              borderBottom="1px solid #dadada"
+              px={{ base: 5, md: 10, lg: 20 }}
+              py="2"
+              bgColor="white"
+              W="8xl"
             >
-              <Image
-                src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
-                h="9"
-                onClick={() => navigate('/')}
-              />
-              <Box>
-                <Flex align="center" justify="center">
-                  <AiOutlineUser cursor="pointer" />
-                </Flex>
-                <Text
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  fontSize="13px"
-                >
-                  akun
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
+              <Flex
+                height="4.5rem"
+                align="center"
+                mx="auto"
+                justify="space-between"
+              >
+                <Image
+                  src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
+                  h="9"
+                  onClick={() => navigate('/')}
+                />
+                <Box onClick={isOpen ? onClose : onOpen} cursor="pointer">
+                  {isOpen ? (
+                    <>
+                      <Flex align="center" justify="center">
+                        <CloseButton />
+                      </Flex>
+                      <Text
+                        fontWeight="bold"
+                        textTransform="uppercase"
+                        fontSize="13px"
+                      >
+                        tutup
+                      </Text>
+                    </>
+                  ) : (
+                    <>
+                      <Flex align="center" justify="center">
+                        <AiOutlineUser />
+                      </Flex>
+                      <Text
+                        fontWeight="bold"
+                        textTransform="uppercase"
+                        fontSize="13px"
+                      >
+                        akun
+                      </Text>
+                    </>
+                  )}
+                </Box>
+              </Flex>
+            </Box>
+            {isOpen ? (
+              <Box
+                minH="100vh"
+                bgColor="rgba(27,27,27,0.5)"
+                position="fixed"
+                w="100%"
+              >
+                <Box bgColor="white">
+                  <Flex justify="space-between" align="center" p="5">
+                    <Text textTransform="uppercase" fontWeight="bold">
+                      keluar
+                    </Text>
+                    <AiOutlineRight color="grey" />
+                  </Flex>
+                  <Flex justify="space-between" align="center" p="5">
+                    <Text textTransform="uppercase" fontWeight="bold">
+                      keanggotaan
+                    </Text>
+                    <AiOutlineRight color="grey" />
+                  </Flex>
+                  <Accordion
+                    defaultIndex={[0]}
+                    allowMultiple
+                    bgColor="white"
+                    borderColor="transparent"
+                    p="1"
+                  >
+                    <AccordionItem>
+                      <h2>
+                        <AccordionButton>
+                          <Box as="span" flex="1" textAlign="left">
+                            <Text textTransform="uppercase" fontWeight="bold">
+                              bahasa
+                            </Text>
+                          </Box>
+                          <AccordionIcon color="grey" />
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel pb={4}>
+                        <Text px="5" pb="3">
+                          English
+                        </Text>
 
+                        <Text color="#378694" px="5">
+                          Bahasa Indonesia
+                        </Text>
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                </Box>
+              </Box>
+            ) : (
+              <></>
+            )}
+          </Box>
           <Box bgColor={'#f4f4f4'}>
             <Text
               fontSize="20px"

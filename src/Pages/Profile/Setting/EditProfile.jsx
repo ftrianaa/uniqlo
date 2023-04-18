@@ -18,21 +18,35 @@ import { biodata } from '../data';
 
 const EditProfile = () => {
   return (
-    <>
-      <Flex justify="space-between" align="center">
-        <Text textTransform="uppercase" fontSize="32px" fontWeight="bold">
+    <Box
+      bgColor="white"
+      p={{ base: 5, lg: 0 }}
+      boxShadow={{ base: '0 2px 2px rgba(0,0,0,0.16)', lg: 'none' }}
+    >
+      <Flex justify={{ base: 'right', lg: 'space-between' }} align="center">
+        <Text
+          textTransform="uppercase"
+          fontSize="32px"
+          fontWeight="bold"
+          display={{ base: 'none', lg: 'block' }}
+        >
           sunting profil
         </Text>
         <Text color="#378694">Wajib diisi*</Text>
       </Flex>
-      <Flex align="center" justify="space-between">
-        <Flex align="center" w="30%">
-          <Heading textTransform="uppercase" fontSize="18px" fontWeight="bold">
+      <Flex
+        align="center"
+        justify={{ base: 'left', lg: 'space-between' }}
+        flexDir={{ base: 'column', lg: 'row' }}
+        my={5}
+      >
+        <Flex align="center" w={{ base: '100%', lg: '30%' }}>
+          <Text textTransform="uppercase" fontSize="18px" fontWeight="bold">
             alamat email
-          </Heading>
+          </Text>
           <Text color="#378694">*</Text>
         </Flex>
-        <Text w="70%">{biodata.email}</Text>
+        <Text w={{ base: '100%', lg: '70%' }}>{biodata.email}</Text>
       </Flex>
       <Checkbox>Ganti alamat e-mail</Checkbox>
       <Box my="5">
@@ -51,8 +65,11 @@ const EditProfile = () => {
       </Text>
       <Box>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -70,14 +87,17 @@ const EditProfile = () => {
                 </Flex>
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input type="text" variant="flushed" value={biodata.firstName} />
             </Box>
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -95,14 +115,17 @@ const EditProfile = () => {
                 </Flex>
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input type="text" variant="flushed" value={biodata.lastName} />
             </Box>
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -120,14 +143,17 @@ const EditProfile = () => {
                 </Flex>
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input type="text" variant="flushed" value={biodata.address} />
             </Box>
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -145,14 +171,17 @@ const EditProfile = () => {
                 </Flex>
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input type="text" variant="flushed" value={biodata.postalCode} />
             </Box>
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -161,12 +190,12 @@ const EditProfile = () => {
                 telepon
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input
                 type="text"
                 variant="flushed"
                 value={biodata.telephone}
-                w="60%"
+                w={{ base: '100%', lg: '60%' }}
               />
               <FormHelperText fontSize="14px" color="black">
                 Mohon untuk tidak memasukkan kode negara (+62) jika nomor
@@ -176,8 +205,11 @@ const EditProfile = () => {
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -195,12 +227,12 @@ const EditProfile = () => {
                 </Flex>
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input
                 type="text"
                 variant="flushed"
                 value={biodata.phone}
-                w="60%"
+                w={{ base: '100%', lg: '60%' }}
               />
               <FormHelperText fontSize="14px" color="black">
                 Mohon untuk tidak memasukkan kode negara (+62) jika nomor
@@ -210,8 +242,11 @@ const EditProfile = () => {
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -220,12 +255,12 @@ const EditProfile = () => {
                 tanggal lahir
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <Input
                 type="date"
                 variant="flushed"
                 value={biodata.dob}
-                w="60%"
+                w={{ base: '100%', lg: '60%' }}
               />
               <FormHelperText fontSize="14px">
                 Tidak dapat mengubah tanggal lahir setelah Anda mendaftar.
@@ -234,8 +269,11 @@ const EditProfile = () => {
           </Flex>
         </FormControl>
         <FormControl my="3">
-          <Flex align="center">
-            <Box w="30%">
+          <Flex
+            align={{ base: 'left', lg: 'center' }}
+            flexDir={{ base: 'column', lg: 'row' }}
+          >
+            <Box w={{ base: '100%', lg: '30%' }}>
               <FormLabel
                 textTransform="uppercase"
                 fontSize="16px"
@@ -244,9 +282,9 @@ const EditProfile = () => {
                 jenis kelamin
               </FormLabel>
             </Box>
-            <Box w="70%">
+            <Box w={{ base: '100%', lg: '70%' }}>
               <RadioGroup>
-                <Stack direction="row">
+                <Stack direction={{ base: 'column', lg: 'row' }}>
                   <Radio value="1">Pria</Radio>
                   <Radio value="2">Wanita</Radio>
                   <Radio value="3">Tidak Dipilih</Radio>
@@ -274,11 +312,12 @@ const EditProfile = () => {
         bgColor="black"
         color="white"
         borderRadius="0"
-        w="30%"
+        w={{ base: '100%', lg: '30%' }}
+        size={{ base: 'lg', lg: 'md' }}
       >
         simpan perubahan
       </Button>
-    </>
+    </Box>
   );
 };
 
