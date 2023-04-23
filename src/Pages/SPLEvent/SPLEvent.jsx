@@ -17,12 +17,13 @@ import EventSlider from '../../Components/EventSlider/EventSlider';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
+import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 
 const SPLEvent = () => {
   return (
     <>
       <Header />
-      <Container px="20" bgColor="white">
+      <Container px={{ base: 0, lg: 20 }} bgColor="white">
         <Box my="5">
           <Image
             src="https://im.uniqlo.com/global-cms/spa/res5b4e88ab4fbb1d51c120a4eb42dcb878fr.jpg"
@@ -40,7 +41,7 @@ const SPLEvent = () => {
             w="33.3%"
             h="70px"
           >
-            hari raya collection
+            limited
           </Button>
           <Button
             bgColor="transparent"
@@ -51,7 +52,7 @@ const SPLEvent = () => {
             w="33.3%"
             h="70px"
           >
-            batik motif collection
+            batik motif
           </Button>
           <Button
             bgColor="transparent"
@@ -66,7 +67,7 @@ const SPLEvent = () => {
             app benefits
           </Button>
         </Flex>
-        <EventSlider />
+        <MiniCarousel />
         <Box my="5">
           <Image src="https://im.uniqlo.com/global-cms/spa/resa9b083fecea970db6883eb79d5e112b1fr.jpg" />
         </Box>
@@ -77,7 +78,7 @@ const SPLEvent = () => {
           <Stack spacing="16">
             <Tabs size="lg" variant="with-line">
               <TabList>
-                <Flex align="center" w="25%" justify="center">
+                <Flex align="center" w="33.3%" justify="center">
                   <Tab
                     textTransform="uppercase"
                     fontSize="18px"
@@ -86,7 +87,7 @@ const SPLEvent = () => {
                     <Text textAlign="center">wanita</Text>
                   </Tab>
                 </Flex>
-                <Flex align="center" w="25%" justify="center">
+                <Flex align="center" w="33.3%" justify="center">
                   <Tab
                     textTransform="uppercase"
                     fontSize="18px"
@@ -95,7 +96,7 @@ const SPLEvent = () => {
                     <Text textAlign="center">pria</Text>
                   </Tab>
                 </Flex>
-                <Flex align="center" w="25%" justify="center">
+                <Flex align="center" w="33.3%" justify="center">
                   <Tab
                     textTransform="uppercase"
                     fontSize="18px"
