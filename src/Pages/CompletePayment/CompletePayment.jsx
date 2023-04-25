@@ -13,6 +13,7 @@ import {
   Spacer,
   Text,
   Tooltip,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { RiInformationLine } from 'react-icons/ri';
@@ -22,6 +23,10 @@ import Header from '../../Components/Header/Header';
 import { cart, addresses } from '../Checkout/data';
 
 const CompletePayment = () => {
+  const isDesktop = useBreakpointValue({
+    base: false,
+    lg: true,
+  });
   const navigate = useNavigate();
   function orderId(length) {
     let result = '';
@@ -60,15 +65,16 @@ const CompletePayment = () => {
       <Header />
       <Container bgColor="white">
         <Flex align="center" justify="center">
-          <Box w="60%">
+          <Box w={{ base: '100%', lg: '60%' }}>
             <Box textAlign="center" m={5}>
-              <Heading
+              <Text
                 textTransform="uppercase"
-                fontSize="36px"
+                fontSize={{ base: '22px', lg: '36px' }}
                 fontWeight="bold"
+                my={{ base: '0', lg: '5' }}
               >
                 terima kasih
-              </Heading>
+              </Text>
               <Text>
                 Terima kasih telah berbelanja di UNIQLO. Kami telah menerima
                 pesanan Anda.
@@ -80,7 +86,9 @@ const CompletePayment = () => {
                 fontWeight="bold"
                 borderRadius="0"
                 my="5"
-                w="40%"
+                display={{ base: 'none', lg: 'block' }}
+                w="100%"
+                onClick={() => navigate('/')}
               >
                 lanjut belanja
               </Button>
@@ -99,40 +107,47 @@ const CompletePayment = () => {
               </Text>
             </Box>
             <Box border="1px solid #dadada" p={5} mt="2">
-              <Flex align="center">
+              <Flex align="center" justify="space-between">
                 <Text
                   textTransform="uppercase"
-                  fontSize="20px"
+                  fontSize={{ base: '16px', lg: '20px' }}
                   fontWeight="bold"
                 >
                   ringkasan pesanan
                 </Text>
-                <Spacer />
-                <Text>Tentang pembatalan</Text>
-                <Popover islazy trigger={'hover'} placement="left">
-                  <PopoverTrigger>
-                    <Text>
-                      <RiInformationLine />
-                    </Text>
-                  </PopoverTrigger>
-                  <PopoverContent>
-                    <PopoverArrow />
 
-                    <PopoverBody>
-                      <Flex>
-                        <Text>
-                          Saat ini, setiap pembelanjaan melalui online tidak
-                          dapat di batalkan. Jika Anda ingin membatalkan, Anda
-                          dapat melakukan pengembalian produk dan selanjutnya
-                          melakukan transaksi kembali. Untuk keterangan lebih
-                          lanjut silahkan cek <u>Kebijakan pengembalian</u>
-                        </Text>
-                      </Flex>
-                    </PopoverBody>
-                  </PopoverContent>
-                </Popover>
+                <Box display={{ base: 'none', lg: 'flex' }} align="center">
+                  <Text>Tentang pembatalan</Text>
+                  <Popover islazy trigger={'hover'} placement="left">
+                    <PopoverTrigger>
+                      <Text>
+                        <RiInformationLine />
+                      </Text>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <PopoverArrow />
+
+                      <PopoverBody>
+                        <Flex>
+                          <Text>
+                            Saat ini, setiap pembelanjaan melalui online tidak
+                            dapat di batalkan. Jika Anda ingin membatalkan, Anda
+                            dapat melakukan pengembalian produk dan selanjutnya
+                            melakukan transaksi kembali. Untuk keterangan lebih
+                            lanjut silahkan cek <u>Kebijakan pengembalian</u>
+                          </Text>
+                        </Flex>
+                      </PopoverBody>
+                    </PopoverContent>
+                  </Popover>
+                </Box>
               </Flex>
-              <Flex my="5">
+              <Flex
+                my="5"
+                display={{ base: 'none', lg: 'block' }}
+                justify="space-between"
+                align="center"
+              >
                 <Button
                   textTransform="uppercase"
                   variant="outline"
@@ -182,9 +197,73 @@ const CompletePayment = () => {
                 </Text>
                 <Text fontWeight="bold">Rp{total}</Text>
               </Flex>
+              {!isDesktop ? (
+                <Box>
+                  <Flex align="center" justify="space-between">
+                    <Text>Tentang pembatalan</Text>
+                    <Popover islazy trigger={'hover'} placement="left">
+                      <PopoverTrigger>
+                        <Text>
+                          <RiInformationLine />
+                        </Text>
+                      </PopoverTrigger>
+                      <PopoverContent>
+                        <PopoverArrow />
+
+                        <PopoverBody>
+                          <Flex>
+                            <Text>
+                              Saat ini, setiap pembelanjaan melalui online tidak
+                              dapat di batalkan. Jika Anda ingin membatalkan,
+                              Anda dapat melakukan pengembalian produk dan
+                              selanjutnya melakukan transaksi kembali. Untuk
+                              keterangan lebih lanjut silahkan cek{' '}
+                              <u>Kebijakan pengembalian</u>
+                            </Text>
+                          </Flex>
+                        </PopoverBody>
+                      </PopoverContent>
+                    </Popover>
+                  </Flex>
+                  <Button
+                    textTransform="uppercase"
+                    variant="outline"
+                    borderColor="black"
+                    borderRadius="0"
+                    fontWeight="bold"
+                    onClick={() => navigate('/member/orders')}
+                    bgColor="black"
+                    color="white"
+                    mt="3"
+                    w="100%"
+                    size="lg"
+                  >
+                    riwayat pesanan
+                  </Button>
+                  <Button
+                    my="3"
+                    textTransform="uppercase"
+                    variant="outline"
+                    borderColor="black"
+                    borderRadius="0"
+                    fontWeight="bold"
+                    w="100%"
+                    size="lg"
+                    onClick={() => navigate('/')}
+                  >
+                    lanjut belanja
+                  </Button>
+                </Box>
+              ) : (
+                <></>
+              )}
             </Box>
             <Box border="1px solid #dadada" mt={10} p={5}>
-              <Text textTransform="uppercase" fontSize="20px" fontWeight="bold">
+              <Text
+                textTransform="uppercase"
+                fontSize={{ base: '16px', lg: '20px' }}
+                fontWeight="bold"
+              >
                 pembayaran transfer bank
               </Text>
               <Text>
@@ -196,7 +275,7 @@ const CompletePayment = () => {
               <Text
                 fontWeight="bold"
                 textTransform="uppercase"
-                fontSize="20px"
+                fontSize={{ base: '16px', lg: '20px' }}
                 my="3"
               >
                 VIRTUAL ACCOUNT NUMBER {virtualAccount(16)}
@@ -211,7 +290,11 @@ const CompletePayment = () => {
               </Text>
             </Box>
             <Box border="1px solid #dadada" mt={10} p={5}>
-              <Text textTransform="uppercase" fontSize="20px" fontWeight="bold">
+              <Text
+                textTransform="uppercase"
+                fontSize={{ base: '16px', lg: '20px' }}
+                fontWeight="bold"
+              >
                 alamat pengiriman
               </Text>
               <Box my="4">
@@ -221,7 +304,11 @@ const CompletePayment = () => {
               </Box>
             </Box>
             <Box border="1px solid #dadada" my={10} p={5}>
-              <Text fontWeight="bold" textTransform="uppercase" fontSize="20px">
+              <Text
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize={{ base: '16px', lg: '20px' }}
+              >
                 tanggal pengiriman
               </Text>
               <Box my="4">
