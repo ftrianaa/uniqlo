@@ -37,15 +37,14 @@ const Login = () => {
     lg: true,
   });
   return (
-    <Box w={{ base: '128vw', lg: '100%' }}>
+    <>
       <Box
         borderBottom="1px solid #dadada"
         px={{ base: 5, md: 10, lg: 20 }}
         py="5"
         bgColor="white"
-        W="8xl"
       >
-        <Flex height="4.5rem" align="center" mx="auto">
+        <Flex height="4.5rem" align="center">
           <Image
             src="https://cdn.shopify.com/s/files/1/0608/6724/8340/files/Logo_klamby_baru_banget_140x@2x.png?v=1643345083"
             h="9"
@@ -55,7 +54,12 @@ const Login = () => {
       </Box>
       {!isDesktop ? (
         <>
-          <Flex bgColor={'#f4f4f4'} justify="space-between" align="center">
+          <Flex
+            bgColor={'#f4f4f4'}
+            justify="space-between"
+            align="center"
+            w="100%"
+          >
             <Text
               fontSize="22px"
               textTransform="uppercase"
@@ -83,11 +87,10 @@ const Login = () => {
         <></>
       )}
 
-      <Container
+      <Box
         pt={10}
         px={{ base: 5, md: 10, lg: 20 }}
         bgColor="white"
-        maxW="8xl"
         borderBottom={{ base: '1px solid #ababab', lg: 'none' }}
       >
         <Flex
@@ -121,7 +124,7 @@ const Login = () => {
                     <AiOutlineInfoCircle fontSize="27px" />
                   </Text>
                 </PopoverTrigger>
-                <PopoverContent w="500px">
+                <PopoverContent>
                   <PopoverArrow />
                   <PopoverCloseButton />
                   <PopoverBody>
@@ -309,7 +312,7 @@ const Login = () => {
             <></>
           )}
         </Flex>
-      </Container>
+      </Box>
       {!isDesktop ? (
         <>
           <Box bgColor={'#f4f4f4'}>
@@ -322,11 +325,10 @@ const Login = () => {
               buat akun
             </Heading>
           </Box>
-          <Container
+          <Box
             pt={10}
             px={{ base: 5, md: 10 }}
             bgColor="white"
-            maxW="8xl"
             borderBottom={{ base: '1px solid #ababab', lg: 'none' }}
           >
             <Text fontSize="15px" color="#1b1b1b">
@@ -348,7 +350,7 @@ const Login = () => {
                 buat akun
               </Button>
             </Box>
-          </Container>
+          </Box>
         </>
       ) : (
         <></>
@@ -356,7 +358,6 @@ const Login = () => {
       <Box
         pt={10}
         bgColor={{ base: '#f4f4f4', lg: 'white' }}
-        maxW="8xl"
         px={{ base: 5, md: 10, lg: 20 }}
         borderTop={{ base: '1px solid #ababab', lg: 'none' }}
       >
@@ -376,7 +377,7 @@ const Login = () => {
           </Text>
         </Flex>
       </Box>
-    </Box>
+    </>
   );
 };
 
