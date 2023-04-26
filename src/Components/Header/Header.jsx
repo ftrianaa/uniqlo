@@ -121,10 +121,17 @@ const Header = () => {
         fontSize="14px"
         display={{ base: 'none', lg: 'flex' }}
         w="100%"
+        gap="5"
       >
-        <Text>Heritage</Text>
-        <Text mx="5">Signature</Text>
-        <Text>Scarves</Text>
+        <Text onClick={() => navigate('/heritage')} cursor="pointer">
+          Heritage
+        </Text>
+        <Text onClick={() => navigate('/signature')} cursor="pointer">
+          Signature
+        </Text>
+        <Text onClick={() => navigate('/scarves')} cursor="pointer">
+          Scarves
+        </Text>
       </Flex>
       <Flex
         direction="column"

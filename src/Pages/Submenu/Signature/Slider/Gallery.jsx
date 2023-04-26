@@ -14,7 +14,7 @@ import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import { Carousel, CarouselSlide, useCarousel } from './Carousel';
 
 export const Gallery = props => {
-  const { images, aspectRatio = 4 / 3, rootProps } = props;
+  const { images, aspectRatio = 16 / 9, rootProps } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [ref, slider] = useCarousel({
     slideChanged: slider => setCurrentSlide(slider.track.details.rel),
@@ -37,6 +37,8 @@ export const Gallery = props => {
           {images.map((image, i) => (
             <CarouselSlide key={i}>
               <AspectRatio
+                h="75vh"
+                w="100%"
                 ratio={aspectRatio}
                 transition="all 200ms"
                 opacity={currentSlide === i ? 1 : 0.4}
@@ -45,8 +47,10 @@ export const Gallery = props => {
                 }}
               >
                 <Image
+                  h="75vh"
+                  w="100%"
                   src={image.src}
-                  objectFit="cover"
+                  objectFit="obtain"
                   alt={image.alt}
                   fallback={<Skeleton />}
                 />

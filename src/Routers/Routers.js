@@ -29,6 +29,9 @@ import ReviewNew from '../Pages/ReviewNew/ReviewNew';
 import Review from '../Pages/Review/Review';
 import { useBreakpointValue } from '@chakra-ui/react';
 import MobileMember from '../Pages/Profile/MobileMember';
+import Signature from '../Pages/Submenu/Signature/Signature';
+import Heritage from '../Pages/Submenu/Heritage/Heritage';
+import Scarves from '../Pages/Submenu/Scarves/Scarves';
 
 const Routers = () => {
   const isDesktop = useBreakpointValue({
@@ -58,6 +61,9 @@ const Routers = () => {
       <Route path="/store inventory" element={<StoreInventory />} />
       <Route path="/products/:id/review/new" element={<ReviewNew />} />
       <Route path="/products/:id/review" element={<Review />} />
+      <Route path="/signature" element={<Signature />} />
+      <Route path="/heritage" element={<Heritage />} />
+      <Route path="/scarves" element={<Scarves />} />
       {isDesktop ? (
         <Route path="/member" element={<Member />}>
           <Route path="/member/details" element={<Profile />} />
