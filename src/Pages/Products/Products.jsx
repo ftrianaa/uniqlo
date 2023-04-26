@@ -31,6 +31,7 @@ const Products = () => {
             fontWeight="medium"
             color={mode('gray.600', 'gray.400')}
             separator={'/'}
+            my="5"
           >
             <BreadcrumbItem>
               <BreadcrumbLink onClick={() => navigate('/')}>
@@ -48,7 +49,11 @@ const Products = () => {
         <ProductGallery />
 
         <Box mb="10">
-          <Heading textTransform="uppercase" fontSize="32px" fontWeight="bold">
+          <Heading
+            textTransform="uppercase"
+            fontSize={{ base: '22px', lg: '32px' }}
+            fontWeight="bold"
+          >
             baru saja dilihat
           </Heading>
           <ProductCarousel />

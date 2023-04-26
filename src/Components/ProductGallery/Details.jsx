@@ -72,6 +72,7 @@ const Details = () => {
             display="flex"
             alignItems="center"
             justifyContent="right"
+            gap="2"
           >
             <Icon as={RiRulerLine} />
             <Link

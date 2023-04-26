@@ -20,13 +20,13 @@ export default function ProductCarousel() {
       setLoaded(true);
     },
     breakpoints: {
-      '(max-width: 959px)': {
+      '(max-width: 767px)': {
         slides: {
-          perView: 3,
+          perView: 2,
           spacing: 1,
         },
       },
-      '(min-width: 960px)': {
+      '(min-width: 768px)': {
         slides: {
           perView: 4,
           spacing: 5,

@@ -43,7 +43,7 @@ export const ProductGallery = () => {
       // mx="auto"
 
       py={{
-        base: '2',
+        base: '5',
         md: '8',
         lg: '12',
       }}
@@ -57,11 +57,13 @@ export const ProductGallery = () => {
       >
         <Box flex="1">
           <Stack spacing="1">
-            <AspectRatio ratio="1">
+            <AspectRatio ratio={6 / 5}>
               <Gallery />
             </AspectRatio>
+
             {!isDesktop ? (
               <>
+                <br />
                 <Details />
               </>
             ) : (
@@ -153,7 +155,7 @@ export const ProductGallery = () => {
             </Accordion>
           </Stack>
           <Box>
-            <Flex justifyContent="space-between">
+            <Flex justifyContent="space-between" my="5">
               <Flex flexDir={{ base: 'column', lg: 'row' }}>
                 <Text
                   fontSize={{ base: '16px', lg: '20px' }}
@@ -193,7 +195,7 @@ export const ProductGallery = () => {
                 <></>
               )}
             </Flex>
-            <Divider my={{ base: '3', lg: '0' }} />
+            <Divider my={{ base: '5', lg: '0' }} />
             <Flex flexDirection={{ base: 'column', lg: 'row' }}>
               <Box w={{ base: '100%', lg: '30%' }}>
                 <Text
@@ -368,16 +370,18 @@ export const ProductGallery = () => {
               <Box
                 w={{ base: '100%', lg: '70%' }}
                 borderY={{ base: '1px solid #ababab', lg: 'none' }}
+                py={{ base: '5', lg: '5' }}
               >
                 <Text
                   fontSize={{ base: '16px', lg: '20px' }}
                   textTransform="uppercase"
                   fontWeight="bold"
-                  my={{ base: '3', lg: '5' }}
                 >
                   ukuran yang pas
                 </Text>
-                <ProgressBar />
+                <Flex align="center" justify="center" w="100%">
+                  <ProgressBar />
+                </Flex>
               </Box>
             </Flex>
             {isDesktop ? (
@@ -394,8 +398,8 @@ export const ProductGallery = () => {
                   onClick={() => navigate('/products/E457999/review/new')}
                 >
                   tulis ulasan
-                </Button>{' '}
-                <Divider />{' '}
+                </Button>
+                <Divider />
               </>
             ) : (
               <></>
@@ -407,8 +411,8 @@ export const ProductGallery = () => {
 
             {review.map((data, index) => (
               <Box key={index}>
-                <Divider mt="3" />
-                <Box my="3">
+                <Divider mt="5" />
+                <Box my="5">
                   <Flex align="center" justify="space-between">
                     <Text
                       fontWeight="bold"
@@ -551,6 +555,7 @@ export const ProductGallery = () => {
                   // alignSelf="centw"
                   align="center"
                   width="100vw"
+                  gap="2"
                 >
                   <Rating defaultValue={4} size="sm" />
                   <Link

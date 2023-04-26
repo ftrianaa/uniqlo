@@ -61,6 +61,7 @@ const Cart = () => {
               fontWeight="medium"
               color={mode('gray.600', 'gray.400')}
               separator={'/'}
+              my="5"
             >
               <BreadcrumbItem>
                 <BreadcrumbLink onClick={() => navigate('/')}>

@@ -199,7 +199,11 @@ const ReviewNew = () => {
                           *
                         </Text>
                       </Flex>
-                      <Flex justify="left" w={{ base: '100%', lg: '70%' }}>
+                      <Flex
+                        justify="center"
+                        align="center"
+                        w={{ base: '100%', lg: '70%' }}
+                      >
                         <ProgressBar />
                       </Flex>
                     </Flex>

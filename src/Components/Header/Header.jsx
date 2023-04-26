@@ -294,7 +294,7 @@ const Header = () => {
             )}
           </HStack>
 
-          <HStack spacing="8" flexShrink={0}>
+          <HStack spacing="5" flexShrink={0}>
             {!isDesktop ? (
               <Box onClick={() => navigate('/search/shirt')}>
                 <AiOutlineSearch />

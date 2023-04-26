@@ -4,8 +4,14 @@ import { StepCircle } from './StepCircle';
 export const Step = props => {
   const { isActive, isCompleted, isLastStep, label, ...stackProps } = props;
   return (
-    <Box>
-      <Box>
+    <Box
+      display="flex"
+      flexDir="column"
+      alignItems="left"
+      justifyContent="center"
+      // h="40px"
+    >
+      <Box display="flex" flexWrap="wrap">
         <Text fontWeight="bold" fontSize="9px" textTransform="uppercase">
           {label}
         </Text>
@@ -17,7 +23,7 @@ export const Step = props => {
             orientation="horizontal"
             borderWidth="1px"
             borderColor={isCompleted ? 'accent' : 'inherit'}
-            w={{ base: '15vw', lg: '5vw  ' }}
+            w={{ base: '16vw', lg: '5vw  ' }}
           />
         )}
       </HStack>

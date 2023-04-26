@@ -5,9 +5,9 @@ import { useStep } from './useStep';
 export const ProgressBar = () => {
   const numberOfSteps = [
     { id: 1, value: 'Ketat' },
-    { id: 2, value: '.' },
+    { id: 2, value: 'ㅤ' },
     { id: 3, value: 'Pas' },
-    { id: 4, value: '.' },
+    { id: 4, value: 'ㅤ' },
     { id: 5, value: 'Longgar' },
   ];
 
@@ -17,17 +17,17 @@ export const ProgressBar = () => {
   });
   return (
     <Box bg="bg-surface">
-      <Container
+      <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
         minH={{ base: '20', lg: '40' }}
+        w="100%"
       >
         <HStack spacing="0" justify="space-evenly" flex="1">
           {numberOfSteps.map((item, id) => (
             <Step
               key={id}
-              cursor="pointer"
               // onClick={() => setStep(id)}
               isActive={currentStep === id}
               // isCompleted={currentStep > id}
@@ -36,7 +36,7 @@ export const ProgressBar = () => {
             />
           ))}
         </HStack>
-      </Container>
+      </Box>
     </Box>
   );
 };

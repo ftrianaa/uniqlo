@@ -51,6 +51,7 @@ const Category = () => {
               fontWeight="medium"
               color={mode('gray.600', 'gray.400')}
               separator={'/'}
+              my="5"
             >
               <BreadcrumbItem>
                 <BreadcrumbLink onClick={() => navigate('/')}>
@@ -140,7 +141,7 @@ const Category = () => {
               align="center"
               justify="center"
               fontSize={{ base: '15px', lg: '16px' }}
-              templateColumns="repeat(4, 1fr)"
+              templateColumns="repeat(3, 1fr)"
               gridColumnGap="0.75rem"
               gridRowGap="1.5rem"
             >
@@ -162,7 +163,7 @@ const Category = () => {
           <Box className="new-arrivals" my="5">
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >
@@ -377,7 +378,7 @@ const Category = () => {
           <Box>
             <Heading
               textTransform="uppercase"
-              fontSize="36px"
+              fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
             >

@@ -7,7 +7,7 @@ export const Items = () => {
   return (
     <Box>
       <SimpleGrid
-        columns="3"
+        columns="2"
         gap={{
           base: '2',
           lg: '8',
