@@ -42,11 +42,7 @@ export const ProductGallery = () => {
       maxW="7xl"
       // mx="auto"
 
-      py={{
-        base: '5',
-        md: '8',
-        lg: '12',
-      }}
+      py={5}
     >
       <Stack
         direction={{
@@ -57,7 +53,7 @@ export const ProductGallery = () => {
       >
         <Box flex="1">
           <Stack spacing="1">
-            <AspectRatio ratio={6 / 5}>
+            <AspectRatio ratio={10 / 5}>
               <Gallery />
             </AspectRatio>
 

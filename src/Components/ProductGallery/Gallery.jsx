@@ -136,7 +136,7 @@ export default function Gallery() {
       </Flex>
 
       {!isDesktop && loaded && instanceRef.current && (
-        <Box className="dota" mt="18vh" zIndex={1}>
+        <Box className="dota" mt="13vh" zIndex={1}>
           {[
             ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map(idx => {

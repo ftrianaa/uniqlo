@@ -141,7 +141,7 @@ const Category = () => {
               align="center"
               justify="center"
               fontSize={{ base: '15px', lg: '16px' }}
-              templateColumns="repeat(3, 1fr)"
+              templateColumns={{ base: 'repeat(3, 1fr)', lg: 'repeat(4, 1fr)' }}
               gridColumnGap="0.75rem"
               gridRowGap="1.5rem"
             >
