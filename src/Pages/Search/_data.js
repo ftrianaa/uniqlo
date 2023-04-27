@@ -55,7 +55,7 @@ export const products = [
     price: 900,
     currency: 'USD',
     imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/457500/item/idgoods_60_457500.jpg?width=320',
+      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455424/item/idgoods_03_455424.jpg?width=320',
     rating: 4,
     ratingCount: 12,
     category: 'wanita',

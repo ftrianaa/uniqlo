@@ -45,7 +45,7 @@ const Wishlist = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
+      <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }} pb="5">
         {isDesktop ? (
           <>
             <Breadcrumb
