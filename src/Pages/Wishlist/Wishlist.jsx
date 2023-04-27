@@ -53,6 +53,7 @@ const Wishlist = () => {
               fontWeight="medium"
               color={mode('gray.600', 'gray.400')}
               separator={'/'}
+              my="5"
             >
               <BreadcrumbItem>
                 <BreadcrumbLink onClick={() => navigate('/')}>
@@ -68,7 +69,7 @@ const Wishlist = () => {
               textTransform="uppercase"
               fontWeight="bold"
               textAlign="left"
-              py="8"
+              py="5"
             >
               Wish list
             </Heading>

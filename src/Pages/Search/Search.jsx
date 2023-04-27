@@ -79,7 +79,6 @@ const Search = () => {
             md: '8',
             lg: '12',
           }}
-          py="5"
         >
           {isDesktop ? (
             <>
