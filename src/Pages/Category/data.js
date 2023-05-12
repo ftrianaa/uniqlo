@@ -74,7 +74,7 @@ export const news = [
     src: 'https://im.uniqlo.com/global-cms/spa/resee409512aab950f53b3b200ea8edbc64fr.jpg',
     alt: 'Koleksi Jeans',
     description:
-      'Miliki gaya yang unik dan otentik. Jeans UNIQLO dirancang secara istimewa demi kenyamanan Anda.',
+      'Miliki gaya yang unik dan otentik. Jeans Klamby dirancang secara istimewa demi kenyamanan Anda.',
   },
   {
     id: '3',
@@ -104,12 +104,12 @@ export const uniqloToday = [
     src: 'https://www.uniqlo.com/id/en/news/sp/topics/2022122701/img/mimg_1_m.jpg',
     title: '7 Ide OOTD Kaos Lengan Panjang, Cocok untuk Musim Dingin',
     description:
-      'Miliki gaya yang unik dan otentik. Jeans UNIQLO dirancang secara istimewa demi kenyamanan Anda.',
+      'Miliki gaya yang unik dan otentik. Jeans Klamby dirancang secara istimewa demi kenyamanan Anda.',
   },
   {
     id: '3',
     src: 'https://www.uniqlo.com/id/en/news/topics/2023012601/img/thumb_ll.jpg',
-    title: 'UNIQLO 2023 Spring/Summer Collection',
+    title: 'Klamby 2023 Spring/Summer Collection',
     description: 'Rasakan sejuknya koleksi terbaru AIRism untuk pria.',
   },
   {
@@ -125,16 +125,16 @@ export const liveStation = [
     id: '1',
     src: 'https://im.uniqlo.com/global-cms/spa/resa7c2298c58f2b308871f2bc15a1b8b34fr.jpg',
     date: '10 Februari 2023',
-    title: 'Expert Styling Guide for 2023 Uniqlo U',
+    title: 'Expert Styling Guide for 2023 Klamby U',
     description:
-      'Koleksi Uniqlo U Spring/Summer 2023 terbaru kali ini menghadirkan pakaian esensial LifeWear yang menggabungkan unsur stylish dalam bahan yang inovatif.',
+      'Koleksi Klamby U Spring/Summer 2023 terbaru kali ini menghadirkan pakaian esensial LifeWear yang menggabungkan unsur stylish dalam bahan yang inovatif.',
     link: 'https://www.uniqlo.com/id/id/special-feature/live-station/28',
   },
   {
     id: '2',
     src: 'https://im.uniqlo.com/global-cms/spa/res2f27c6c504b927fce9dc0587b1ab4ff7fr.jpg',
     date: '20 Januari 2023',
-    title: 'UNIQLO Spring/Summer 2023 Collection',
+    title: 'Klamby Spring/Summer 2023 Collection',
     description:
       'Koleksi Spring/Summer 2023 terbaru kali ini menghadirkan pakaian esensial yang menggabungkan unsur fungsionalitas dan gaya dalam filosofi LifeWear.',
     link: '',
@@ -145,7 +145,7 @@ export const liveStation = [
     date: '13 Januari 2023',
     title: 'New Year Resolutions',
     description:
-      'Rencanakan styling di tahun baru dengan koleksi terbaru Spring/Summer 2023 UNIQLO!',
+      'Rencanakan styling di tahun baru dengan koleksi terbaru Spring/Summer 2023 Klamby!',
     link: '',
   },
 ];

@@ -398,7 +398,7 @@ const Category = () => {
               fontWeight="bold"
               textAlign="center"
             >
-              uniqlo today
+              klamby today
             </Heading>
             <Grid
               templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(2,1fr)' }}

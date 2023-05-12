@@ -28,12 +28,11 @@ export default function SliderSignature() {
       <Box className="navigation-wrapper">
         <Box ref={sliderRef} className="keen-slider">
           {images.map(item => (
-            <Box className="keen-slider__slide " h="75vh" w="100%">
+            <Box className="keen-slider__slide " w="100%">
               <Image
                 src={item.src}
                 alt={item.title}
                 objectFit="cover"
-                h="75vh"
                 w="100%"
               />
             </Box>
