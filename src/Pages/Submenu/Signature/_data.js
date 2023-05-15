@@ -178,3 +178,50 @@ export const products = [
     ],
   },
 ];
+export const latestJournal = [
+  {
+    id: 1,
+    img: 'https://i.ytimg.com/vi/uJvA9Jb7wC0/maxresdefault.jpg',
+    title: 'Klamby Spring/Summer 2022',
+    desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque scelerisque est, sit amet consectetur tellus commodo id. Sed et neque egestas lorem blandit dignissim. Vivamus tincidunt orci neque, in cursus ante tincidunt et. Nunc et eleifend ex, in auctor augue. Nam in laoreet nisi, eget pellentesque nibh. ',
+  },
+  {
+    id: 2,
+    img: 'https://i.ytimg.com/vi/TVPFzMWyu-o/maxresdefault.jpg',
+    title: 'Klamby Annual Digital Show 2022',
+    desc: 'Vivamus ac dignissim nulla, vel dignissim leo. Praesent viverra eget justo a ornare. Mauris tempus tellus sit amet vehicula iaculis. Donec ut velit eu nisi lobortis fringilla. Cras mollis nunc lectus, sit amet consequat nisi bibendum quis. Donec ut enim dolor.',
+  },
+  {
+    id: 3,
+    img: 'https://cdn.idntimes.com/content-images/post/20210307/6-79a1cc007ae5f8232db7b74c1346ddd0.png',
+    title: 'Lebaran Klamby 2022',
+    desc: 'Vivamus malesuada porttitor metus porta viverra. Nunc convallis, augue sit amet facilisis congue, turpis augue dapibus elit, eget pharetra felis dui nec nibh. In arcu enim, consequat sed purus eu, varius scelerisque dolor. Duis mauris urna, rhoncus ut arcu nec, consectetur posuere turpis. Suspendisse quis ex dictum, faucibus nulla eget, facilisis erat.',
+  },
+];
+
+export const review = [
+  {
+    id: 1,
+    username: '@tantarinamriah',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAiy6TARK2UaBFbAciZl465sdLx2zVWp7x1IsOGt7PIl8ZWMV',
+    usrReview:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque scelerisque est',
+    job: 'influencer',
+  },
+  {
+    id: 2,
+    username: '@tantarinamriah',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAiy6TARK2UaBFbAciZl465sdLx2zVWp7x1IsOGt7PIl8ZWMV',
+    usrReview:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque scelerisque est',
+    job: 'influencer',
+  },
+  {
+    id: 3,
+    username: '@tantarinamriah',
+    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYAiy6TARK2UaBFbAciZl465sdLx2zVWp7x1IsOGt7PIl8ZWMV',
+    usrReview:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque scelerisque est',
+    job: 'influencer',
+  },
+];
