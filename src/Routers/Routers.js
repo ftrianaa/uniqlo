@@ -61,9 +61,8 @@ const Routers = () => {
       <Route path="/store inventory" element={<StoreInventory />} />
       <Route path="/products/:id/review/new" element={<ReviewNew />} />
       <Route path="/products/:id/review" element={<Review />} />
-      <Route path="/signature" element={<Signature />} />
-      <Route path="/heritage" element={<Heritage />} />
-      <Route path="/scarves" element={<Scarves />} />
+      <Route path="/s/:page" element={<Signature />} />
+      <Route path="/s/scarves" element={<Scarves />} />
       {isDesktop ? (
         <Route path="/member" element={<Member />}>
           <Route path="/member/details" element={<Profile />} />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../../Components/Header/Header';
 import {
   AspectRatio,
@@ -26,8 +26,15 @@ import InstallKlamby from '../../../Text/install-klamby.PNG';
 import Footer from '../Component/Footer/Footer';
 import { news } from '../../Category/data';
 import ReviewSlider from './ReviewSlider';
+import LatestLookbook from '../Component/LatestLookbook/LatestLookbook';
+import LatestJournal from '../Component/LatestJournal/LatestJournal';
+import { useParams } from 'react-router-dom';
 
 const Signature = () => {
+  const [test, setTest] = useState(false);
+  console.log(test, 'niest');
+  const { page } = useParams();
+
   return (
     <>
       <Header />
@@ -113,9 +120,12 @@ const Signature = () => {
       </Grid>
       <Box px={{ base: 5, md: 10, lg: 20 }} bgColor="white" p="5">
         <Box my="5">
-          <ReviewSlider />
+          <Box display={test ? 'none' : 'block'}>
+            <ReviewSlider />
+          </Box>
+          {/* <Button onClick={() => setTest(!test)}> guewgr</Button> */}
         </Box>
-        <Box display="flex" justifyContent="space-between" gap="100">
+        <Box display="flex" justifyContent="space-between" gap="100" my="10">
           <VStack spacing="5" align="left">
             <Box>
               <Text textTransform="uppercase" fontWeight="bold">
@@ -166,7 +176,7 @@ const Signature = () => {
         <Grid
           templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(3,1fr)' }}
           gap="5"
-          my="5"
+          my="10"
         >
           <GridItem p="5" bgColor="#f4f4f4">
             <Text
@@ -213,11 +223,12 @@ const Signature = () => {
             />
           </GridItem>
         </Grid>
-        <Box>
+        <Box my="5">
           <Text
             fontSize={{ base: '22px', lg: '36px' }}
             fontWeight="bold"
             textTransform="uppercase"
+            my="5"
           >
             What's new
           </Text>
@@ -247,22 +258,25 @@ const Signature = () => {
             Selengkapnya
           </Button>
         </Box>
-        <Box>
+        <Box my="5">
           <Text
             fontSize={{ base: '22px', lg: '36px' }}
             fontWeight="bold"
             textTransform="uppercase"
+            my="5"
           >
             Top picks
           </Text>
+
           <ProductCarousel />
         </Box>
 
-        <Box>
+        <Box my={5}>
           <Text
             fontSize={{ base: '22px', lg: '36px' }}
             fontWeight="bold"
             textTransform="uppercase"
+            my="5"
           >
             Shop by Category
           </Text>
@@ -301,133 +315,17 @@ const Signature = () => {
           </Grid>
         </Box>
         <Box>
-          <Heading
-            textTransform="uppercase"
-            fontSize={{ base: '22px', lg: '36px' }}
-            fontWeight="bold"
-          >
-            latest lookbook
-          </Heading>
-          <Grid
-            templateColumns={{ base: 'repeat(1,1fr)', lg: 'repeat(2,1fr)' }}
-            gap="1"
-            borderTop="1px solid #dadada"
-            borderBottom="1px solid #dadada"
-          >
-            {news.map((item, index) => (
-              <Flex key={index} flexDirection={{ base: 'row', lg: 'column' }}>
-                <Image src={item.src} w={{ base: '155px', lg: '100%' }} />
-                <Box px={{ base: 3, lg: 0 }}>
-                  <Text fontWeight="bold">{item.alt}</Text>
-                  <Text>{item.description}</Text>
-                </Box>
-              </Flex>
-            ))}
-          </Grid>
-          <Button
-            w="100%"
-            textTransform="uppercase"
-            variant="outline"
-            borderColor="black"
-            borderRadius="0"
-            my="10"
-          >
-            Selengkapnya
-          </Button>
+          <LatestLookbook />
         </Box>
         <Box>
-          <Box>
-            <Text
-              fontSize={{ base: '22px', lg: '36px' }}
-              fontWeight="bold"
-              textTransform="uppercase"
-            >
-              Latest journal
-            </Text>
-            <Text>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia
-              voluptates tenetur id, sed dignissimos necessitatibus distinctio
-              eos impedit expedita vero.
-            </Text>
-          </Box>
-
-          <Grid
-            templateColumns={{ base: 'repeat(2,1fr)', lg: 'repeat(3,1fr)' }}
-            gap="5"
-            my="5"
-          >
-            <GridItem>
-              <Image src="https://i.ytimg.com/vi/TVPFzMWyu-o/maxresdefault.jpg" />
-              <Text fontWeight="bold">
-                Klamby Annual Digital Annual Show 2022
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, odio.
-              </Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                borderRadius="0"
-                textDecor="underline"
-              >
-                lihat selengkapnya
-              </Text>
-            </GridItem>
-            <GridItem>
-              <Image src="https://i.ytimg.com/vi/TVPFzMWyu-o/maxresdefault.jpg" />
-              <Text fontWeight="bold">
-                Klamby Annual Digital Annual Show 2022
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, odio.
-              </Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                borderRadius="0"
-                textDecor="underline"
-              >
-                lihat selengkapnya
-              </Text>
-            </GridItem>
-            <GridItem display={{ base: 'none', md: 'block' }}>
-              <Image src="https://i.ytimg.com/vi/TVPFzMWyu-o/maxresdefault.jpg" />
-              <Text fontWeight="bold">
-                Klamby Annual Digital Annual Show 2022
-              </Text>
-              <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Excepturi, odio.
-              </Text>
-              <Text
-                textTransform="uppercase"
-                fontWeight="bold"
-                borderRadius="0"
-                textDecor="underline"
-              >
-                lihat selengkapnya
-              </Text>
-            </GridItem>
-          </Grid>
-          <Button
-            w="100%"
-            textTransform="uppercase"
-            variant="outline"
-            borderColor="black"
-            borderRadius="0"
-            my="10"
-            // onClick={() => navigate('/new arrivals/koleksi-kemeja')}
-          >
-            Selengkapnya
-          </Button>
+          <LatestJournal />
         </Box>
-        <Box>
+        <Box my="5">
           <Text
             fontSize={{ base: '22px', lg: '36px' }}
             fontWeight="bold"
             textTransform="uppercase"
+            my="5"
           >
             Klamby on London Fashion Week 2022
           </Text>
@@ -449,7 +347,7 @@ const Signature = () => {
           >
             As Seen On
           </Text>
-          <Wrap spacing="10" align="center" justify="center" my="5">
+          <Wrap spacing="20" align="center" justify="center" my="5">
             <WrapItem>
               <Image
                 h={{ base: '20px', lg: '50px' }}
@@ -494,14 +392,15 @@ const Signature = () => {
             </WrapItem>
           </Wrap>
         </Box>
-        <Box my="5">
+        <Box my="10">
           <Text
             fontSize={{ base: '22px', lg: '36px' }}
             fontWeight="bold"
             textTransform="uppercase"
             mb="5"
           >
-            follow us on @wearingklamby
+            follow us on
+            {page === 'signature' ? ' @wearingklamby' : ' @klambyheritage'}
           </Text>
           <FollowUsSlider />
         </Box>

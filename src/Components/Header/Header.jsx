@@ -123,13 +123,13 @@ const Header = () => {
         w="100%"
         gap="5"
       >
-        <Text onClick={() => navigate('/heritage')} cursor="pointer">
+        <Text onClick={() => navigate('/s/heritage')} cursor="pointer">
           Heritage
         </Text>
-        <Text onClick={() => navigate('/signature')} cursor="pointer">
+        <Text onClick={() => navigate('/s/signature')} cursor="pointer">
           Signature
         </Text>
-        <Text onClick={() => navigate('/scarves')} cursor="pointer">
+        <Text onClick={() => navigate('/s/scarves')} cursor="pointer">
           Scarves
         </Text>
       </Flex>
