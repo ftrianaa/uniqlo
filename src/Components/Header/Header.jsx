@@ -364,6 +364,7 @@ const Header = () => {
                     w="50%"
                     justify="center"
                     onClick={() => navigate('/member')}
+                    gap="2"
                   >
                     <AiOutlineUser fontWeight="bold" />
                     <Text
@@ -374,7 +375,7 @@ const Header = () => {
                       keanggotaan
                     </Text>
                   </Flex>
-                  <Flex align="center" w="50%" justify="center">
+                  <Flex align="center" w="50%" justify="center" gap="2">
                     <MdOutlineStore fontWeight="bold" />
                     <Text
                       fontWeight="bold"

@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Checkbox,
-  Container,
   Divider,
   Flex,
   FormControl,
@@ -13,17 +12,13 @@ import {
   Input,
   ListItem,
   Popover,
-  PopoverAnchor,
   PopoverArrow,
   PopoverBody,
   PopoverCloseButton,
   PopoverContent,
   PopoverTrigger,
-  Portal,
   Text,
   UnorderedList,
-  useBoolean,
-  useColorModeValue as mode,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
@@ -32,7 +27,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
@@ -324,6 +319,7 @@ const Login = () => {
               fontSize="20px"
               fontWeight="bold"
               px={{ base: 5, md: 10 }}
+              py="5"
             >
               buat akun
             </Heading>
