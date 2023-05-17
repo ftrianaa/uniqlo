@@ -12,15 +12,17 @@ import {
 import { useState } from 'react';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import { Carousel, CarouselSlide, useCarousel } from './Carousel';
+import { useNavigate } from 'react-router-dom';
 
 export const Gallery = props => {
-  const { images, aspectRatio = 16 / 9, rootProps } = props;
+  const { images, aspectRatio = 1, rootProps } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [ref, slider] = useCarousel({
     slideChanged: slider => setCurrentSlide(slider.track.details.rel),
   });
   const hasPrevious = currentSlide < images.length;
   const hasNext = currentSlide < images.length;
+  const navigate = useNavigate();
   return (
     <Stack spacing="4" {...rootProps}>
       <Box
@@ -39,12 +41,12 @@ export const Gallery = props => {
               <AspectRatio
                 ratio={aspectRatio}
                 transition="all 200ms"
-                opacity={currentSlide === i ? 1 : 0.4}
+                // opacity={currentSlide === i ? 1 : 0.4}
                 _hover={{
                   opacity: 1,
                 }}
-                h="100vh"
-                w="100vw"
+                onClick={() => navigate('/products/baju')}
+                cursor="pointer"
               >
                 <Image
                   src={image.src}

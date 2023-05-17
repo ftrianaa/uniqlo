@@ -65,7 +65,7 @@ export const useCarousel = options => {
     initial: 0,
     loop: true,
     slides: {
-      perView: 1,
+      perView: 5,
       spacing: 2,
     },
     ...options,

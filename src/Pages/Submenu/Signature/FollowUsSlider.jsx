@@ -9,7 +9,7 @@ export default function FollowUsSlider() {
   const [sliderRef] = useKeenSlider({
     initial: 0,
     slides: {
-      perView: 5,
+      perView: 4,
       spacing: 15,
     },
     loop: true,

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
-import { Box, Heading } from '@chakra-ui/react';
+
+import { Box, Heading, Text } from '@chakra-ui/react';
 import { images } from './_data';
 import { Gallery } from './Gallery';
 import AppBenefits from '../../Components/AppBenefits/AppBenefits';
@@ -109,17 +108,53 @@ export const Home = () => {
       > */}
       {/* <Gallery images={images} /> */}
       <Box className="navigation-wrapper">
-        <Box ref={sliderRef} className="keen-slider" style={{ height: '80vh' }}>
+        <Box ref={sliderRef} className="keen-slider" style={{ height: '60vh' }}>
           <Box className="keen-slider__slide ">
+            <Text
+              textTransform="uppercase"
+              fontSize={{ base: '22x', lg: '36px' }}
+              fontWeight="bold"
+              textAlign="center"
+              my={5}
+            >
+              Koleksi Terbaru
+            </Text>
             <Gallery images={images} />
           </Box>
           <Box className="keen-slider__slide ">
+            <Text
+              textTransform="uppercase"
+              fontSize={{ base: '22x', lg: '36px' }}
+              fontWeight="bold"
+              textAlign="center"
+              my={5}
+            >
+              Best Seller
+            </Text>
             <Gallery images={images} />
           </Box>
           <Box className="keen-slider__slide">
+            <Text
+              textTransform="uppercase"
+              fontSize={{ base: '22x', lg: '36px' }}
+              fontWeight="bold"
+              textAlign="center"
+              my={5}
+            >
+              Koleksi Musim Panas 2022
+            </Text>
             <Gallery images={images} />
           </Box>
           <Box className="keen-slider__slide ">
+            <Text
+              textTransform="uppercase"
+              fontSize={{ base: '22x', lg: '36px' }}
+              fontWeight="bold"
+              textAlign="center"
+              my={5}
+            >
+              Limited Stock
+            </Text>
             <Gallery images={images} />
           </Box>
         </Box>
