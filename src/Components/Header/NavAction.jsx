@@ -7,6 +7,7 @@ import {
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 const MobileNavAction = props => {
   const { label, icon, isActive, href, children } = props;
   return (
@@ -35,8 +36,10 @@ const MobileNavAction = props => {
 };
 const DesktopNavAction = props => {
   const { label, icon, href } = props;
+  const navigate = useNavigate();
+  console.log(href, 'ni href');
   return (
-    <HStack spacing="2" as="a" href={href}>
+    <HStack spacing="2" as="a" onClick={() => navigate(`${href}`)}>
       <Text fontSize="sm" fontWeight="semibold">
         {label}
       </Text>
