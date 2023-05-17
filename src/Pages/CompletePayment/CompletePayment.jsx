@@ -91,7 +91,7 @@ const CompletePayment = () => {
                 lanjut belanja
               </Button>
             </Box>
-            <Box>
+            <Box px={{ base: '5', md: '0' }}>
               <Box mb="5">
                 <Text size="16px" textTransform="uppercase" fontWeight="bold">
                   nomor pesanan
