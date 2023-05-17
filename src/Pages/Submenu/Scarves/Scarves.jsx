@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../../../Components/Header/Header';
-import Footer from '../Component/Footer/Footer';
 import {
   AspectRatio,
   Box,
@@ -25,7 +23,6 @@ import InstallKlamby from '../../../Text/install-klamby.PNG';
 const Scarves = () => {
   return (
     <>
-      <Header />
       <AspectRatio ratio={16 / 8}>
         <SliderSignature />
       </AspectRatio>
@@ -201,7 +198,6 @@ const Scarves = () => {
       <Box>
         <Image src={InstallKlamby} />
       </Box>
-      <Footer />
     </>
   );
 };

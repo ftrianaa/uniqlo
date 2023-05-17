@@ -22,7 +22,6 @@ import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 const SPLEvent = () => {
   return (
     <>
-      <Header />
       <Container px={{ base: 0, lg: 20 }} bgColor="white">
         <Box my="5">
           <Image
@@ -150,7 +149,6 @@ const SPLEvent = () => {
           <AboutLifewear />
         </Box>
       </Container>
-      <Footer />
     </>
   );
 };

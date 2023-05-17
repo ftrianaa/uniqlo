@@ -2,14 +2,7 @@ import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import { Items } from './data';
-import {
-  Box,
-  Flex,
-  Image,
-  Stack,
-  Text,
-  useBreakpointValue,
-} from '@chakra-ui/react';
+import { Box, Flex, Image, Text, useBreakpointValue } from '@chakra-ui/react';
 import '../../CSS/styles.css';
 
 export default function AppBenefits() {

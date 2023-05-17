@@ -1,13 +1,18 @@
 import React from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Container } from '@chakra-ui/react';
 import { theme } from './Theme';
 import Routers from './Routers/Routers';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <>
+      <Header />
       <Routers />
-    </ChakraProvider>
+
+      <Footer />
+    </>
   );
 }
 

@@ -1,21 +1,15 @@
 import {
-  AspectRatio,
   Box,
   Button,
   Container,
   Icon,
-  Image,
   Link,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
   SimpleGrid,
   Stack,
   Text,
 } from '@chakra-ui/react';
 import { FiPlayCircle } from 'react-icons/fi';
 import { items, tutorials } from './data';
-import { PopoverIcon } from './PopoverIcon';
 
 export const ResourcesPopover = () => (
   // <Popover trigger="hover" openDelay={0} placement="bottom" gutter={12}>

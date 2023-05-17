@@ -1,9 +1,11 @@
 import { Box, Text } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UseAuthDispatch } from '../../Context/Context';
 
 const Profile = () => {
   const navigate = useNavigate();
+
   return (
     <Box fontSize="14px">
       <Text mb="2" cursor="pointer" onClick={() => navigate('/member/details')}>

@@ -93,7 +93,6 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
       {/* <Box
         maxW="3xl"
         mx="auto"
@@ -177,7 +176,6 @@ export const Home = () => {
         <AppBenefits />
       </Box>
       {/* </Box> */}
-      <Footer />
     </>
   );
 };

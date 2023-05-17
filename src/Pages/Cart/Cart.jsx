@@ -47,13 +47,12 @@ const Cart = () => {
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <Image src="https://im.uniqlo.com/global-cms/spa/res0bb2cb01bf1656f3168063e7b4a61856fr.jpg" />
       ) : (
         <></>
       )}
-      <Container px={{ base: 5, md: 10, lg: 20 }} bgColor="white">
+      <Box px={{ base: 5, md: 10, lg: 20 }} bgColor="white">
         {isDesktop ? (
           <>
             <Breadcrumb
@@ -344,8 +343,7 @@ const Cart = () => {
           </Heading>
           <ProductCarousel />
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

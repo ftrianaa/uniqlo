@@ -1,4 +1,4 @@
-import { Box, Divider, HStack, Stack, Text } from '@chakra-ui/react';
+import { Box, Divider, HStack, Text } from '@chakra-ui/react';
 import { StepCircle } from './StepCircle';
 
 export const Step = props => {

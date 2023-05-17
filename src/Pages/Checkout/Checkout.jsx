@@ -19,13 +19,15 @@ import {
   WrapItem,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RiCoupon3Line } from 'react-icons/ri';
 import { SlArrowRight, SlLock } from 'react-icons/sl';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
 import { addresses, cart } from './data';
+import { LayoutHeader, WithHeader } from '../../Context/Actions';
+import { UseAuthDispatch } from '../../Context/Context';
 
 const Checkout = () => {
   const isDesktop = useBreakpointValue({
@@ -40,12 +42,11 @@ const Checkout = () => {
       total += parseInt(item.price) * item.qty;
     });
   }
+
   return (
     <>
       {isDesktop ? (
-        <>
-          <Header />
-        </>
+        <></>
       ) : (
         <>
           <Flex
@@ -304,7 +305,7 @@ const Checkout = () => {
       )}
       {isDesktop ? (
         <>
-          <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
+          <Box bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
             <Breadcrumb
               fontSize="sm"
               fontWeight="medium"
@@ -681,8 +682,7 @@ const Checkout = () => {
                 </Box>
               </Box>
             </Flex>
-          </Container>
-          <Footer />
+          </Box>
         </>
       ) : (
         <></>

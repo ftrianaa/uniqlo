@@ -3,15 +3,12 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Container,
   Heading,
   useColorModeValue as mode,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import { ProductGallery } from '../../Components/ProductGallery/ProductGallery';
 
@@ -23,8 +20,7 @@ const Products = () => {
   });
   return (
     <>
-      <Header />
-      <Container bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
+      <Box bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
         {isDesktop ? (
           <Breadcrumb
             fontSize="sm"
@@ -58,9 +54,7 @@ const Products = () => {
           </Heading>
           <ProductCarousel />
         </Box>
-      </Container>
-
-      <Footer />
+      </Box>
     </>
   );
 };

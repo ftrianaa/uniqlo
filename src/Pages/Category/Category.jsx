@@ -25,9 +25,7 @@ import AboutLifewear from '../../Components/AboutLifewear/AboutLifewear';
 
 import AppBenefits from '../../Components/AppBenefits/AppBenefits';
 import { CategoryFilter } from '../../Components/CategoryFilter/CategoryFilter';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
-import { Items } from '../../Components/Items/Items';
+
 import { MenuGallery } from '../../Components/MenuGallery/MenuGallery';
 import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
@@ -42,7 +40,6 @@ const Category = () => {
   });
   return (
     <>
-      <Header />
       <Box px={{ base: 5, md: 10, lg: 20 }} bgColor="white">
         {isDesktop ? (
           <>
@@ -505,7 +502,6 @@ const Category = () => {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 };

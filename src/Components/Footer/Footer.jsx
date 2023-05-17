@@ -2,25 +2,15 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Container,
   Divider,
   Flex,
   IconButton,
-  Input,
   Stack,
   Text,
   useBreakpointValue,
 } from '@chakra-ui/react';
 import React from 'react';
-import {
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaFacebook,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-} from 'react-icons/fa';
+import { FaTwitter, FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 const Footer = () => {
   const isDesktop = useBreakpointValue({
     base: false,
@@ -28,7 +18,7 @@ const Footer = () => {
   });
   return (
     <>
-      <Container
+      <Box
         as="footer"
         role="contentinfo"
         px={{ base: 5, md: 10, xl: 20 }}
@@ -420,7 +410,7 @@ const Footer = () => {
             </Box>
           </Box>
         )}
-      </Container>
+      </Box>
     </>
   );
 };

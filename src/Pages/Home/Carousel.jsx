@@ -17,7 +17,7 @@ export const Carousel = forwardRef(function Carousel(props, ref) {
   );
 });
 export const CarouselSlide = props => {
-  console.log(props, 'ini props carousel');
+  // console.log(props, 'ini props carousel');
   return (
     <Box
       className="chakra-carousel__slide"
@@ -56,7 +56,7 @@ export const CarouselIconButton = props => (
   />
 );
 export const useCarousel = options => {
-  console.log(options, 'ini opse');
+  // console.log(options, 'ini opse');
   const defaultOptions = {
     selector: '.chakra-carousel__slide',
   };

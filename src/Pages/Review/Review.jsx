@@ -4,21 +4,13 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
-  Checkbox,
-  Container,
   Divider,
   Flex,
-  FormControl,
-  FormLabel,
   Heading,
-  Image,
-  Input,
   Link,
   ListItem,
   Progress,
-  Select,
   Text,
-  Textarea,
   UnorderedList,
   useColorModeValue as mode,
   useBreakpointValue,
@@ -26,14 +18,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ColorPicker } from '../../Components/ColorPicker/ColorPicker';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
-import { SizePicker } from '../../Components/ProductGallery/SizePicker';
+
 import { Rating } from '../Search/Rating';
 import { AiOutlineLeft } from 'react-icons/ai';
 import { ProgressBar } from './Progressbar';
-import { StarReview } from '../../Components/StarReview/StarReview';
 import { review } from './data';
 
 const Review = () => {
@@ -46,7 +34,6 @@ const Review = () => {
 
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <>
           <Box px={{ base: 5, md: 10 }} py="5" bgColor="white">
@@ -90,7 +77,7 @@ const Review = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white" px={{ base: 5, md: 10, lg: '20' }}>
+      <Box bgColor="white" px={{ base: 5, md: 10, lg: '20' }}>
         <Box>
           {isDesktop ? (
             <>
@@ -521,8 +508,7 @@ const Review = () => {
             </Flex>
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import Header from '../../../Components/Header/Header';
+import React from 'react';
 import {
   AspectRatio,
   Box,
   Button,
-  Flex,
   Grid,
   GridItem,
-  HStack,
-  Heading,
   Image,
   SimpleGrid,
   Text,
@@ -19,25 +15,19 @@ import {
 import SliderSignature from './SliderSignature';
 import { ProductCard } from '../../Search/ProductCard';
 import { products } from '../../Search/_data';
-import { MenuGallery } from '../../../Components/MenuGallery/MenuGallery';
 import ProductCarousel from '../../../Components/ProductCarousel/ProductCarousel';
 import FollowUsSlider from './FollowUsSlider';
 import InstallKlamby from '../../../Text/install-klamby.PNG';
-import Footer from '../Component/Footer/Footer';
-import { news } from '../../Category/data';
 import ReviewSlider from './ReviewSlider';
 import LatestLookbook from '../Component/LatestLookbook/LatestLookbook';
 import LatestJournal from '../Component/LatestJournal/LatestJournal';
 import { useParams } from 'react-router-dom';
 
 const Signature = () => {
-  const [test, setTest] = useState(false);
-  console.log(test, 'niest');
   const { page } = useParams();
 
   return (
     <>
-      <Header />
       <AspectRatio ratio={16 / 8}>
         <SliderSignature />
       </AspectRatio>
@@ -120,10 +110,7 @@ const Signature = () => {
       </Grid>
       <Box px={{ base: 5, md: 10, lg: 20 }} bgColor="white" p="5">
         <Box my="5">
-          <Box display={test ? 'none' : 'block'}>
-            <ReviewSlider />
-          </Box>
-          {/* <Button onClick={() => setTest(!test)}> guewgr</Button> */}
+          <ReviewSlider />
         </Box>
         <Box display="flex" justifyContent="space-between" gap="100" my="10">
           <VStack spacing="5" align="left">
@@ -409,7 +396,6 @@ const Signature = () => {
       <Box>
         <Image src={InstallKlamby} />
       </Box>
-      <Footer />
     </>
   );
 };

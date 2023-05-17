@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import '../../../CSS/styles.css';
 import { images } from './_data';
 export default function SliderSignature() {

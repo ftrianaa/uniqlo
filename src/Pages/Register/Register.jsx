@@ -40,7 +40,6 @@ const Register = () => {
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <Flex justify="space-between" align="center" px={{ base: 5, md: 10 }}>
           <Heading textTransform="uppercase" fontSize="22px" fontWeight="bold">
@@ -381,7 +380,6 @@ const Register = () => {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 };

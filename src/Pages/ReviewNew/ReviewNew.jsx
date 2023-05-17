@@ -5,12 +5,9 @@ import {
   BreadcrumbLink,
   Button,
   Checkbox,
-  Container,
   Divider,
   Flex,
   FormControl,
-  FormLabel,
-  Heading,
   Image,
   Input,
   ListItem,
@@ -29,11 +26,6 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ColorPicker } from '../../Components/ColorPicker/ColorPicker';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
-import { SizePicker } from '../../Components/ProductGallery/SizePicker';
-import { Rating } from '../Search/Rating';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { ProgressBar } from '../../Components/ProgressBar/Progressbar';
 import { StarReview } from '../../Components/StarReview/StarReview';
@@ -46,7 +38,6 @@ const ReviewNew = () => {
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <Box bgColor={'#f4f4f4'}>
           <Text
@@ -63,7 +54,7 @@ const ReviewNew = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
+      <Box bgColor="white" px={{ base: 5, md: 10, xl: 20 }}>
         <Box>
           {isDesktop ? (
             <>
@@ -489,8 +480,7 @@ const ReviewNew = () => {
             </Flex>
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

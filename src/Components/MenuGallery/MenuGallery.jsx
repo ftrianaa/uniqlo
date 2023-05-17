@@ -1,13 +1,4 @@
-import {
-  Box,
-  Grid,
-  Heading,
-  HStack,
-  Image,
-  Input,
-  Stack,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Grid, Image, Text } from '@chakra-ui/react';
 
 import { Items } from '../Items/Items';
 import { useNavigate } from 'react-router-dom';

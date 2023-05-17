@@ -28,14 +28,17 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
   });
+  // console.log(location, 'ni location');
+
   return (
     <>
       <Box

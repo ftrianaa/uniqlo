@@ -1,10 +1,15 @@
-import { FormControl, FormLabel, HStack, useRadioGroup } from '@chakra-ui/react'
-import { ColorPickerOption } from './ColorPickerOption'
+import {
+  FormControl,
+  FormLabel,
+  HStack,
+  useRadioGroup,
+} from '@chakra-ui/react';
+import { ColorPickerOption } from './ColorPickerOption';
 
-export const ColorPicker = (props) => {
-  const { options, rootProps, hideLabel, label, ...rest } = props
-  const { getRadioProps, getRootProps, value } = useRadioGroup(rest)
-  const selectedOption = options.find((option) => option.value == value)
+export const ColorPicker = props => {
+  const { options, rootProps, hideLabel, label, ...rest } = props;
+  const { getRadioProps, getRootProps, value } = useRadioGroup(rest);
+  const selectedOption = options.find(option => option.value === value);
   return (
     <FormControl {...rootProps}>
       {!hideLabel && (
@@ -13,7 +18,7 @@ export const ColorPicker = (props) => {
         </FormLabel>
       )}
       <HStack {...getRootProps()}>
-        {options.map((option) => (
+        {options.map(option => (
           <ColorPickerOption
             key={option.label}
             color={option.value}
@@ -24,5 +29,5 @@ export const ColorPicker = (props) => {
         ))}
       </HStack>
     </FormControl>
-  )
-}
+  );
+};

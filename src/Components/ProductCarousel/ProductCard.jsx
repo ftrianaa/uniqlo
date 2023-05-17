@@ -6,13 +6,11 @@ import {
   Image,
   Skeleton,
   Stack,
-  Tag,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Rating } from './Rating';
 import { PriceTag } from './PriceTag';
-import { ProductButtonGroup } from './ProductButtonGroup';
 import { useNavigate } from 'react-router-dom';
 import { TbHeartPlus } from 'react-icons/tb';
 import { ColorPicker } from '../ProductGallery/ColorPicker';

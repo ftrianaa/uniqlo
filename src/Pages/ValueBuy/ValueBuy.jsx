@@ -1,9 +1,5 @@
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Container,
   Heading,
   HStack,
   Input,
@@ -17,7 +13,7 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CheckboxFilter } from '../../Components/CategoryFilter/CheckboxFilter';
 import { ColorPicker } from '../../Components/CategoryFilter/ColorPicker';
 import { MobileFilter } from '../../Components/CategoryFilter/MobileFilter';
@@ -36,29 +32,16 @@ import {
   sizeFilter,
 } from '../../Components/CategoryFilter/_data';
 
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
-import SliderBanner from '../../Components/SliderBanner/SliderBanner';
 
 const ValueBuy = () => {
-  const { category, subCategory } = useParams();
   const navigate = useNavigate();
   //   console.log(category, 'categoryyy');
   //   console.log(subCategory, 'subbsbsss');
   return (
     <>
-      <Header />
-      <Container bgColor="white">
-        <Box
-          maxW="7xl"
-          mx="auto"
-          px={{
-            base: '4',
-            md: '8',
-            lg: '12',
-          }}
-        >
+      <Box bgColor="white" mb="5">
+        <Box maxW="7xl" px={{ base: 5, md: 10, lg: 20 }}>
           <ProductBreadcrumb data={breadcrumbData} />
           <Box>
             <Heading
@@ -243,8 +226,7 @@ const ValueBuy = () => {
             <ProductCarousel />
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

@@ -6,7 +6,6 @@ import {
   Image,
   Skeleton,
   Stack,
-  Tag,
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';

@@ -30,7 +30,7 @@ import Review from '../Pages/Review/Review';
 import { useBreakpointValue } from '@chakra-ui/react';
 import MobileMember from '../Pages/Profile/MobileMember';
 import Signature from '../Pages/Submenu/Signature/Signature';
-import Heritage from '../Pages/Submenu/Heritage/Heritage';
+
 import Scarves from '../Pages/Submenu/Scarves/Scarves';
 
 const Routers = () => {
@@ -38,6 +38,7 @@ const Routers = () => {
     base: false,
     lg: true,
   });
+
   return (
     <Routes>
       {isDesktop ? (

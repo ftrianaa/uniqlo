@@ -4,10 +4,8 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Container,
   Divider,
   Flex,
-  Grid,
   Heading,
   Image,
   Text,
@@ -16,8 +14,6 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import { wishlist } from './data';
 import { FcLike } from 'react-icons/fc';
 const Wishlist = () => {
@@ -28,7 +24,6 @@ const Wishlist = () => {
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <Box bgColor={'#f4f4f4'}>
           <Text
@@ -45,7 +40,7 @@ const Wishlist = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }} pb="5">
+      <Box bgColor="white" px={{ base: 5, md: 10, lg: 20 }} pb="5">
         {isDesktop ? (
           <>
             <Breadcrumb
@@ -141,8 +136,7 @@ const Wishlist = () => {
             </>
           ))}
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

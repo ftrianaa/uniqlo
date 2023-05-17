@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Heading,
   Stack,
   Text,
@@ -25,7 +24,6 @@ import {
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ColorPicker } from './ColorPicker';
-import { MobileFilter } from '../../Components/CategoryFilter/MobileFilter';
 import { ProductBreadcrumb } from '../../Components/CategoryFilter/ProductBreadcrumb';
 import { SizePicker } from './SizePicker';
 import { SortbySelect } from '../../Components/CategoryFilter/SortBySelect';
@@ -38,22 +36,18 @@ import {
   sizeFilter,
 } from '../../Components/CategoryFilter/_data';
 
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import { SearchIcon } from '@chakra-ui/icons';
 import { VscSplitHorizontal, VscSettings } from 'react-icons/vsc';
 
 const Search = () => {
-  const { category, subCategory } = useParams();
-  const navigate = useNavigate();
+  const { category } = useParams();
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <Box bgColor={'#f4f4f4'}>
           <Text
@@ -70,7 +64,7 @@ const Search = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white">
+      <Box bgColor="white">
         <Box
           maxW="7xl"
           mx="auto"
@@ -590,8 +584,7 @@ const Search = () => {
             <ProductCarousel />
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

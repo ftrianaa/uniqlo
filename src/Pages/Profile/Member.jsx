@@ -9,7 +9,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   CloseButton,
-  Container,
   Flex,
   Heading,
   Image,
@@ -19,14 +18,12 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React from 'react';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
+import { Outlet, useNavigate } from 'react-router-dom';
+
 import SideMenuMember from './SideMenuMember';
 import { AiOutlineRight, AiOutlineUser } from 'react-icons/ai';
 
 const Member = () => {
-  const { pages } = useParams();
   // console.log(pages, 'ini page');
   const navigate = useNavigate();
   const isDesktop = useBreakpointValue({
@@ -34,12 +31,12 @@ const Member = () => {
     lg: true,
   });
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       {isDesktop ? (
         <>
-          <Header />
-          <Container bgColor="white" px="20">
+          <Box bgColor="white" px="20">
             <Breadcrumb
               fontSize="sm"
               fontWeight="medium"
@@ -72,8 +69,7 @@ const Member = () => {
                 <Outlet />
               </Box>
             </Flex>
-          </Container>
-          <Footer />
+          </Box>
         </>
       ) : (
         <>

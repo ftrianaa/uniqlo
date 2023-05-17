@@ -4,7 +4,6 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
-  Container,
   Flex,
   FormControl,
   Heading,
@@ -19,8 +18,7 @@ import {
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ColorPicker } from '../../Components/ColorPicker/ColorPicker';
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
+
 import { SizePicker } from '../../Components/ProductGallery/SizePicker';
 import { AiOutlineLeft } from 'react-icons/ai';
 
@@ -32,7 +30,6 @@ const StoreInventory = () => {
   });
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <>
           <Flex
@@ -64,7 +61,7 @@ const StoreInventory = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
+      <Box bgColor="white" px={{ base: 5, md: 10, lg: 20 }}>
         <Box>
           {isDesktop ? (
             <>
@@ -285,8 +282,7 @@ const StoreInventory = () => {
             </Flex>
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Container,
   Divider,
   Flex,
   Heading,
@@ -62,8 +61,7 @@ const CompletePayment = () => {
   }
   return (
     <>
-      <Header />
-      <Container bgColor="white">
+      <Box bgColor="white">
         <Flex align="center" justify="center">
           <Box w={{ base: '100%', lg: '60%' }}>
             <Box textAlign="center" m={5}>
@@ -325,7 +323,7 @@ const CompletePayment = () => {
             </Box>
           </Box>
         </Flex>
-      </Container>
+      </Box>
       <Footer />
     </>
   );

@@ -1,13 +1,10 @@
 import {
-  AspectRatio,
   Box,
   Button,
   Container,
   Icon,
-  Image,
   Link,
   SimpleGrid,
-  SlideFade,
   Stack,
   Text,
 } from '@chakra-ui/react';

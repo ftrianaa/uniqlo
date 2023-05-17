@@ -1,12 +1,6 @@
 import {
   Box,
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  Container,
   Heading,
-  HStack,
-  Input,
   Stack,
   Tab,
   TabList,
@@ -24,18 +18,11 @@ import {
   RadioGroup,
   Radio,
   useBreakpointValue,
-  TabPanels,
-  TabPanel,
-  InputGroup,
-  InputRightElement,
   Spacer,
 } from '@chakra-ui/react';
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { CheckboxFilter } from '../../Components/CategoryFilter/CheckboxFilter';
+import { useParams } from 'react-router-dom';
 import { ColorPicker } from '../../Components/CategoryFilter/ColorPicker';
-import { MobileFilter } from '../../Components/CategoryFilter/MobileFilter';
-import { PriceRangePicker } from '../../Components/CategoryFilter/PriceRangePicker';
 import { ProductBreadcrumb } from '../../Components/CategoryFilter/ProductBreadcrumb';
 import { SizePicker } from '../../Components/CategoryFilter/SizePicker';
 import { SortbySelect } from '../../Components/CategoryFilter/SortBySelect';
@@ -43,23 +30,19 @@ import { ProductCard } from '../Search/ProductCard';
 import { products } from './_data';
 
 import {
-  blueFilters,
   breadcrumbData,
   colorFilter,
-  genderFilter,
   sizeFilter,
 } from '../../Components/CategoryFilter/_data';
 
-import Footer from '../../Components/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import SliderBanner from '../../Components/SliderBanner/SliderBanner';
-import { SearchIcon } from '@chakra-ui/icons';
+
 import { VscSettings, VscSplitHorizontal } from 'react-icons/vsc';
 
 const CategorySub = () => {
-  const { category, subCategory } = useParams();
-  const navigate = useNavigate();
+  const { category } = useParams();
+
   const isDesktop = useBreakpointValue({
     base: false,
     lg: true,
@@ -68,7 +51,6 @@ const CategorySub = () => {
   //   console.log(subCategory, 'subbsbsss');
   return (
     <>
-      <Header />
       {!isDesktop ? (
         <>
           <Tabs isFitted variant="enclosed" bgColor="#f4f4f4">
@@ -91,7 +73,7 @@ const CategorySub = () => {
       ) : (
         <></>
       )}
-      <Container bgColor="white">
+      <Box bgColor="white">
         <Box
           maxW="7xl"
           mx="auto"
@@ -683,8 +665,7 @@ const CategorySub = () => {
             <ProductCarousel />
           </Box>
         </Box>
-      </Container>
-      <Footer />
+      </Box>
     </>
   );
 };

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import { Items } from './data';
-import { Box, Image, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import '../../CSS/styles.css';
 
 import { products } from './data';

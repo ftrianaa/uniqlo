@@ -1,10 +1,15 @@
-import { FormControl, FormLabel, HStack, useRadioGroup } from '@chakra-ui/react'
-import { SizePickerButton } from './SizePickerButton'
+import {
+  FormControl,
+  FormLabel,
+  HStack,
+  useRadioGroup,
+} from '@chakra-ui/react';
+import { SizePickerButton } from './SizePickerButton';
 
-export const SizePicker = (props) => {
-  const { options, rootProps, hideLabel, label, ...rest } = props
-  const { getRadioProps, getRootProps, value } = useRadioGroup(rest)
-  const selectedOption = options.find((option) => option.value == value)
+export const SizePicker = props => {
+  const { options, rootProps, hideLabel, label, ...rest } = props;
+  const { getRadioProps, getRootProps, value } = useRadioGroup(rest);
+  const selectedOption = options.find(option => option.value === value);
   return (
     <FormControl {...rootProps}>
       {!hideLabel && (
@@ -13,7 +18,7 @@ export const SizePicker = (props) => {
         </FormLabel>
       )}
       <HStack {...getRootProps()}>
-        {options.map((option) => (
+        {options.map(option => (
           <SizePickerButton
             key={option.value}
             label={option.label}
@@ -24,5 +29,5 @@ export const SizePicker = (props) => {
         ))}
       </HStack>
     </FormControl>
-  )
-}
+  );
+};
