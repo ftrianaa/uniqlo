@@ -39,7 +39,12 @@ const DesktopNavAction = props => {
   const navigate = useNavigate();
   console.log(href, 'ni href');
   return (
-    <HStack spacing="2" as="a" onClick={() => navigate(`${href}`)}>
+    <HStack
+      spacing="2"
+      as="a"
+      onClick={() => navigate(`${href}`)}
+      cursor="pointer"
+    >
       <Text fontSize="sm" fontWeight="semibold">
         {label}
       </Text>
