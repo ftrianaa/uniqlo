@@ -53,6 +53,8 @@ const ItemProduct = () => {
             </Text>
             <Box ml={5} cursor="pointer">
               <Text onClick={() => setPage('profil')}>Profil</Text>
+              <Text onClick={() => setPage('points')}>Points</Text>
+
               <Text onClick={() => setPage('kupon')}>Kupon</Text>
               <Text onClick={() => setPage('riwayat pembelian')}>
                 Riwayat pembelian

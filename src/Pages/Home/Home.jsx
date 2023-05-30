@@ -7,6 +7,9 @@ import { Gallery } from './Gallery';
 import AppBenefits from '../../Components/AppBenefits/AppBenefits';
 import 'keen-slider/keen-slider.min.css';
 import './styles.css';
+import { Slider } from '../../Components/Slider/Slider';
+import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
+import Banner from './Banner';
 // console.log(images, 'ini imageesss');
 const WheelControls = slider => {
   let touchTimeout;
@@ -131,7 +134,7 @@ export const Home = () => {
             >
               Best Seller
             </Text>
-            <Gallery images={images} />
+            <Banner images={images} />
           </Box>
           <Box className="keen-slider__slide">
             <Text
@@ -143,7 +146,7 @@ export const Home = () => {
             >
               Koleksi Musim Panas 2022
             </Text>
-            <Gallery images={images} />
+            {/* <ProductCarousel /> */}
           </Box>
           <Box className="keen-slider__slide ">
             <Text

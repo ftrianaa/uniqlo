@@ -32,6 +32,7 @@ import MobileMember from '../Pages/Profile/MobileMember';
 import Signature from '../Pages/Submenu/Signature/Signature';
 
 import Scarves from '../Pages/Submenu/Scarves/Scarves';
+import Points from '../Pages/Profile/Member/Points';
 
 const Routers = () => {
   const isDesktop = useBreakpointValue({
@@ -75,6 +76,7 @@ const Routers = () => {
           <Route path="edit/password" element={<EditPassword />} />
           <Route path="wallets" element={<Wallet />} />
           <Route path="unsubscribe" element={<Unsubscribe />} />
+          <Route path="points" element={<Points />} />
         </Route>
       ) : (
         <>

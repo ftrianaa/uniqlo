@@ -38,6 +38,7 @@ import Wallet from './Setting/Wallet';
 import Addresses from './Setting/Addresses';
 import EditProfile from './Setting/EditProfile';
 import PurchaseHistory from './Member/PurchaseHistory';
+import Points from './Member/Points';
 const MobileMember = () => {
   const navigate = useNavigate();
   const { pages } = useParams();
@@ -230,7 +231,9 @@ const MobileMember = () => {
             </Text>
           )}
         </Box>
-        {pages === 'details' ? (
+        {pages === 'points' ? (
+          <Points />
+        ) : pages === 'details' ? (
           <Profile />
         ) : pages === 'coupon' ? (
           <Coupon />

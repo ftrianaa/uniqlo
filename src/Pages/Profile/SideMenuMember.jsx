@@ -19,6 +19,14 @@ const SideMenuMember = () => {
           Profil
         </Text>
         <Text
+          onClick={() => navigate('/member/points')}
+          fontSize="14px"
+          my="1"
+          cursor="pointer"
+        >
+          Points
+        </Text>
+        <Text
           onClick={() => navigate('/member/coupon')}
           fontSize="14px"
           my="1"
