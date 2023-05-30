@@ -1,33 +1,66 @@
+import Banner1 from '../../assets/banner/banner1.png';
+
+import Img1 from '../../assets/products/img1.png';
+import Img2 from '../../assets/products/img2.png';
+import Img3 from '../../assets/products/img3.png';
+import Img4 from '../../assets/products/img4.png';
+import Img5 from '../../assets/products/img5.png';
+import Img6 from '../../assets/products/img6.png';
+import Img7 from '../../assets/products/img7.png';
+import Img8 from '../../assets/products/img8.png';
+
 export const images = [
   {
     id: '01',
-    src: 'https://images.unsplash.com/photo-1602024242516-fbc9d4fda4b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    src: Img1,
     alt: 'Awesome watch',
   },
   {
     id: '02',
-    src: 'https://images.unsplash.com/photo-1451290337906-ac938fc89bce?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1777&q=80',
+    src: Img2,
     alt: 'Awesome watch',
   },
   {
     id: '03',
-    src: 'https://images.unsplash.com/photo-1568010434570-74e9ba7126bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    src: Img3,
     alt: 'Awesome watch',
   },
   {
     id: '04',
-    src: 'https://images.unsplash.com/photo-1569411032431-07598b0012c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80',
+    src: Img4,
     alt: 'Awesome watch',
   },
   {
     id: '05',
-    src: 'https://images.unsplash.com/photo-1565440962783-f87efdea99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=936&q=80',
+    src: Img5,
     alt: 'Awesome watch',
   },
   {
     id: '06',
-    src: 'https://images.unsplash.com/photo-1548169874-53e85f753f1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1420&q=80',
+    src: Img6,
     alt: 'Awesome watch',
+  },
+  {
+    id: '07',
+    src: Img7,
+    alt: 'Awesome watch',
+  },
+  {
+    id: '08',
+    src: Img8,
+    alt: 'Awesome watch',
+  },
+];
+export const imageBanner = [
+  {
+    id: 1,
+    alt: 'banner1',
+    src: Banner1,
+  },
+  {
+    id: 2,
+    alt: 'banner2',
+    src: Banner1,
   },
 ];
 export const products = [
@@ -37,13 +70,19 @@ export const products = [
     currency: 'USD',
     price: 199,
     flag: 'new',
-    imageUrl:
-      'https://images.unsplash.com/photo-1602024242516-fbc9d4fda4b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    imageUrl: Img1,
     rating: 4,
     ratingCount: 1,
     description:
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
-    images,
+    colors: [
+      { label: 'black', value: '#000' },
+      { label: 'dark grey', value: '#666' },
+      { label: 'pink', value: 'pink' },
+      { label: 'midnightblue ', value: 'midnightblue' },
+
+      { label: 'mediumslateblue ', value: 'mediumslateblue ' },
+    ],
   },
   {
     id: '2',
@@ -52,38 +91,101 @@ export const products = [
     price: 199,
     salePrice: 179.99,
     flag: 'on-sale',
-    imageUrl:
-      'https://images.unsplash.com/photo-1509941943102-10c232535736?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    imageUrl: Img2,
     rating: 4,
     ratingCount: 12,
     description:
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
-    images,
+    colors: [
+      { label: 'black', value: '#000' },
+      { label: 'dark grey', value: '#666' },
+      { label: 'pink', value: 'pink' },
+      { label: 'midnightblue ', value: 'midnightblue' },
+
+      { label: 'mediumslateblue ', value: 'mediumslateblue ' },
+    ],
   },
   {
     id: '3',
     name: 'Marble Leather',
     currency: 'USD',
     price: 199,
-    imageUrl:
-      'https://images.unsplash.com/photo-1564594985645-4427056e22e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+    imageUrl: Img3,
     rating: 4,
     ratingCount: 12,
     description:
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
-    images,
+    colors: [
+      { label: 'black', value: '#000' },
+      { label: 'dark grey', value: '#666' },
+      { label: 'pink', value: 'pink' },
+      { label: 'midnightblue ', value: 'midnightblue' },
+
+      { label: 'mediumslateblue ', value: 'mediumslateblue ' },
+    ],
   },
   {
     id: '4',
     name: 'Silve wolf',
     currency: 'GBP',
     price: 199,
-    imageUrl:
-      'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=680&q=80',
+    imageUrl: Img4,
     rating: 5,
     ratingCount: 1,
     description:
       'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
-    images,
+    colors: [
+      { label: 'black', value: '#000' },
+      { label: 'dark grey', value: '#666' },
+      { label: 'pink', value: 'pink' },
+      { label: 'midnightblue ', value: 'midnightblue' },
+
+      { label: 'mediumslateblue ', value: 'mediumslateblue ' },
+    ],
+  },
+  {
+    id: '5',
+    name: 'Silve wolf',
+    currency: 'GBP',
+    price: 199,
+    imageUrl: Img5,
+    rating: 5,
+    ratingCount: 1,
+    description:
+      'With a sleek design and a captivating essence, this is a modern Classic made for every occasion.',
+    colors: [
+      { label: 'black', value: '#000' },
+      { label: 'dark grey', value: '#666' },
+      { label: 'pink', value: 'pink' },
+      { label: 'midnightblue ', value: 'midnightblue' },
+
+      { label: 'mediumslateblue ', value: 'mediumslateblue ' },
+    ],
+  },
+];
+export const Items = [
+  {
+    id: 1,
+    img: 'https://im.uniqlo.com/global-cms/spa/res1cc09eee4ae25e834cfaae71e745c6bafr.jpg',
+    title: 'New Store Open (Jambi)',
+    desc: 'Nikmati pengalaman baru berbelanja di UNIQLO JAMBI TOWN SQUARE. Buka mulai 31 Maret.',
+  },
+  {
+    id: 2,
+    img: 'https://im.uniqlo.com/global-cms/spa/res666878661fa0bf18f3327a5d08b9d7ebfr.jpg',
+    title: 'Extra Sizes 3XL',
+    desc: 'Temukan item yang paling cocok untuk Anda, kini tersedia dalam ukuran yang lebih beragam.',
+  },
+  {
+    id: 3,
+    img: 'https://im.uniqlo.com/global-cms/spa/res8fc6a010f1ab1e90938b4b908d7a3641fr.jpg',
+    title: 'Welcome Coupon',
+    desc: 'Download aplikasi UNIQLO dan dapatkan welcome coupon untuk pengguna pertama.',
+  },
+  {
+    id: 4,
+    img: 'https://im.uniqlo.com/global-cms/spa/resc16179d30c9ddec5d2ddb271caa3130dfr.jpg',
+    title: 'Mandiri Cashback',
+    desc: 'Dapatkan cashback dengan transaksi menggunakan kartu Mandiri. S&K berlaku. Periode 24 Maret - 23 April.',
   },
 ];

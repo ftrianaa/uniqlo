@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 
-import { Box, Heading, Text } from '@chakra-ui/react';
-import { images } from './_data';
+import { AspectRatio, Box, Heading, Text } from '@chakra-ui/react';
+import { images, imageBanner, products, Items } from './_data';
 import { Gallery } from './Gallery';
 import AppBenefits from '../../Components/AppBenefits/AppBenefits';
 import 'keen-slider/keen-slider.min.css';
@@ -10,6 +10,9 @@ import './styles.css';
 import { Slider } from '../../Components/Slider/Slider';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import Banner from './Banner';
+import { Product } from './Product';
+import Topics from './Topics';
+// import Product from './Product';
 // console.log(images, 'ini imageesss');
 const WheelControls = slider => {
   let touchTimeout;
@@ -111,14 +114,13 @@ export const Home = () => {
       > */}
       {/* <Gallery images={images} /> */}
       <Box className="navigation-wrapper">
-        <Box ref={sliderRef} className="keen-slider" style={{ height: '60vh' }}>
+        <Box ref={sliderRef} className="keen-slider" style={{ height: '73vh' }}>
           <Box className="keen-slider__slide ">
             <Text
               textTransform="uppercase"
-              fontSize={{ base: '22x', lg: '36px' }}
+              fontSize={{ base: '22x', lg: '33px' }}
               fontWeight="bold"
               textAlign="center"
-              my={5}
             >
               Koleksi Terbaru
             </Text>
@@ -127,38 +129,37 @@ export const Home = () => {
           <Box className="keen-slider__slide ">
             <Text
               textTransform="uppercase"
-              fontSize={{ base: '22x', lg: '36px' }}
+              fontSize={{ base: '22px', lg: '33px' }}
               fontWeight="bold"
               textAlign="center"
-              my={5}
             >
-              Best Seller
+              Best seller
             </Text>
-            <Banner images={images} />
+            <AspectRatio ratio={16 / 5}>
+              <Banner images={imageBanner} />
+            </AspectRatio>
           </Box>
           <Box className="keen-slider__slide">
             <Text
               textTransform="uppercase"
-              fontSize={{ base: '22x', lg: '36px' }}
+              fontSize={{ base: '18px', lg: '33px' }}
               fontWeight="bold"
               textAlign="center"
-              my={5}
             >
               Koleksi Musim Panas 2022
             </Text>
-            {/* <ProductCarousel /> */}
+            <Product images={products} />
           </Box>
           <Box className="keen-slider__slide ">
             <Text
               textTransform="uppercase"
-              fontSize={{ base: '22x', lg: '36px' }}
+              fontSize={{ base: '22x', lg: '33px' }}
               fontWeight="bold"
               textAlign="center"
-              my={5}
             >
-              Limited Stock
+              Topics
             </Text>
-            <Gallery images={images} />
+            <Topics Items={Items} />
           </Box>
         </Box>
         {loaded && instanceRef.current && (

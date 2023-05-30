@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import { Box, Flex, Image, Text, useBreakpointValue } from '@chakra-ui/react';
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Image,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import '../../CSS/styles.css';
 
 export default function Banner(props) {
@@ -33,7 +40,9 @@ export default function Banner(props) {
           <Box ref={sliderRef} className="keen-slider">
             {images.map(item => (
               <Box p={2} className="keen-slider__slide ">
-                <Image src={item.src} alt={item.alt} />
+                <AspectRatio ratio={16 / 5}>
+                  <Image src={item.src} alt={item.alt} objectFit="cover" />
+                </AspectRatio>
               </Box>
             ))}
           </Box>

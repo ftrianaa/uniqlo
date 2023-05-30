@@ -18,7 +18,7 @@ import ProductCarousel from '../../../Components/ProductCarousel/ProductCarousel
 import LatestLookbook from '../Component/LatestLookbook/LatestLookbook';
 import LatestJournal from '../Component/LatestJournal/LatestJournal';
 import FollowUsSlider from '../Signature/FollowUsSlider';
-import InstallKlamby from '../../../Text/install-klamby.PNG';
+import InstallKlamby from '../../../assets/banner/footer.png';
 
 const Scarves = () => {
   return (

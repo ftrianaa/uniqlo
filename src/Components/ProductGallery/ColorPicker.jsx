@@ -3,6 +3,7 @@ import { ColorPickerOption } from './ColorPickerOption';
 
 export const ColorPicker = props => {
   const { options, rootProps, hideLabel, label, ...rest } = props;
+  // console.log(options, 'fehbjhbfeebfh');
   const { getRadioProps, getRootProps, value } = useRadioGroup(rest);
   return (
     <FormControl {...rootProps}>

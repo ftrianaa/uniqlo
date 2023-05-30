@@ -16,31 +16,33 @@ import { TbHeartPlus } from 'react-icons/tb';
 import { ColorPicker } from '../ProductGallery/ColorPicker';
 export const ProductCard = props => {
   const { product } = props;
+  console.log(product, ' dfbhefahbdafbh');
   const navigate = useNavigate();
   // let colors = [];
   // product.color.map(item => colors.push(item));
   // console.log(colors, 'ini color');
   return (
     <Stack
-      spacing="3"
+      spacing="2"
       w="100%"
       onClick={() => navigate('/products/baju')}
       cursor="pointer"
+      p="1"
     >
       <Box position="relative" className="group">
-        <AspectRatio ratio={5 / 5} width="100%">
-          <Box>
-            <Box position="absolute" zIndex="1" top="10px" right="10px">
-              <TbHeartPlus size="24px" />
-            </Box>
-            <Image
-              src={product.imageUrl}
-              alt={product.name}
-              draggable="false"
-              fallback={<Skeleton />}
-            />
+        {/* <AspectRatio ratio={2/ 3} width="100%"> */}
+        <Box>
+          <Box position="absolute" zIndex="1" top="10px" right="10px">
+            <TbHeartPlus size="24px" />
           </Box>
-        </AspectRatio>
+          <Image
+            src={product.imageUrl}
+            alt={product.name}
+            draggable="false"
+            fallback={<Skeleton />}
+          />
+        </Box>
+        {/* </AspectRatio> */}
       </Box>
 
       <Stack spacing="1">

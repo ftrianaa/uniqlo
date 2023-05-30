@@ -2,19 +2,22 @@ import {
   AspectRatio,
   Box,
   Circle,
+  Flex,
   HStack,
   IconButton,
   Image,
   Skeleton,
   Stack,
+  Text,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { IoChevronBackOutline, IoChevronForwardOutline } from 'react-icons/io5';
 import { Carousel, CarouselSlide, useCarousel } from './Carousel';
 import { useNavigate } from 'react-router-dom';
-
-export const Gallery = props => {
+import { products } from './_data';
+import { ProductCard } from '../../Components/ProductCard/ProductCard';
+export const Product = props => {
   const { images, aspectRatio = 2 / 3, rootProps } = props;
   const [currentSlide, setCurrentSlide] = useState(0);
   const [ref, slider] = useCarousel({
@@ -38,23 +41,7 @@ export const Gallery = props => {
         <Carousel ref={ref}>
           {images.map((image, i) => (
             <CarouselSlide key={i}>
-              <AspectRatio
-                ratio={aspectRatio}
-                transition="all 200ms"
-                // opacity={currentSlide === i ? 1 : 0.4}
-                _hover={{
-                  opacity: 1,
-                }}
-                onClick={() => navigate('/products/baju')}
-                cursor="pointer"
-              >
-                <Image
-                  src={image.src}
-                  objectFit="cover"
-                  alt={image.alt}
-                  fallback={<Skeleton />}
-                />
-              </AspectRatio>
+              <ProductCard product={image} />
             </CarouselSlide>
           ))}
         </Carousel>

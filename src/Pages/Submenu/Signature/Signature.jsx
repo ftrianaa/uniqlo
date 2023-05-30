@@ -17,12 +17,16 @@ import { ProductCard } from '../../Search/ProductCard';
 import { products } from '../../Search/_data';
 import ProductCarousel from '../../../Components/ProductCarousel/ProductCarousel';
 import FollowUsSlider from './FollowUsSlider';
-import InstallKlamby from '../../../Text/install-klamby.PNG';
+import InstallKlamby from '../../../assets/banner/footer.png';
 import ReviewSlider from './ReviewSlider';
 import LatestLookbook from '../Component/LatestLookbook/LatestLookbook';
 import LatestJournal from '../Component/LatestJournal/LatestJournal';
 import { useParams } from 'react-router-dom';
-
+import trustReview from '../../../assets/icons/TrustReview.png';
+import paymentSecure from '../../../assets/icons/paymentSecure.png';
+import qualityGruanted from '../../../assets/icons/qualityGuaranted.png';
+import loyaltyPoint from '../../../assets/icons/loyalty point.png';
+import delivery from '../../../assets/icons/Dikirim.png';
 const Signature = () => {
   const { page } = useParams();
 
@@ -49,7 +53,7 @@ const Signature = () => {
           flexDirection="column"
         >
           <Image
-            src="https://cdn-icons-png.flaticon.com/512/6475/6475938.png"
+            src={loyaltyPoint}
             w={{ base: '50px', lg: '75px' }}
             objectFit="obtain"
           />
@@ -62,7 +66,7 @@ const Signature = () => {
           flexDirection="column"
         >
           <Image
-            src="https://cdn-icons-png.flaticon.com/512/218/218390.png"
+            src={paymentSecure}
             w={{ base: '50px', lg: '75px' }}
             objectFit="obtain"
           />
@@ -75,7 +79,7 @@ const Signature = () => {
           flexDirection="column"
         >
           <Image
-            src="https://ccs-safety.org/wp-content/uploads/2019/12/programs-certification.png"
+            src={qualityGruanted}
             w={{ base: '50px', lg: '75px' }}
             objectFit="obtain"
           />
@@ -88,7 +92,7 @@ const Signature = () => {
           flexDirection="column"
         >
           <Image
-            src="https://www.pngmart.com/files/7/Good-PNG-Transparent.png"
+            src={trustReview}
             w={{ base: '50px', lg: '75px' }}
             objectFit="obtain"
           />
@@ -101,7 +105,7 @@ const Signature = () => {
           flexDirection="column"
         >
           <Image
-            src="https://static.vecteezy.com/system/resources/previews/014/069/831/non_2x/motorbike-for-food-delivery-service-online-ordering-concept-png.png"
+            src={delivery}
             w={{ base: '50px', lg: '75px' }}
             objectFit="obtain"
           />
