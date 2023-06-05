@@ -22,7 +22,7 @@ export const Step = props => {
           <Divider
             orientation="horizontal"
             borderWidth="1px"
-            borderColor={isCompleted ? 'accent' : 'inherit'}
+            // borderColor={isCompleted ? 'accent' : 'inherit'}
             w={{ base: '16vw', lg: '5vw  ' }}
           />
         )}

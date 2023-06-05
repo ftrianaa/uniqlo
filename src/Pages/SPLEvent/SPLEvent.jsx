@@ -22,7 +22,7 @@ import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 const SPLEvent = () => {
   return (
     <>
-      <Container px={{ base: 0, lg: 20 }} bgColor="white">
+      <Box px={{ base: 0, lg: 20 }} bgColor="white">
         <Box my="5">
           <Image
             src="https://im.uniqlo.com/global-cms/spa/res5b4e88ab4fbb1d51c120a4eb42dcb878fr.jpg"
@@ -148,7 +148,7 @@ const SPLEvent = () => {
           />
           <AboutLifewear />
         </Box>
-      </Container>
+      </Box>
     </>
   );
 };

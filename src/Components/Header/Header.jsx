@@ -53,6 +53,7 @@ import Footer from '../Footer/Footer';
 import { UseAuthDispatch, UseAuthState } from '../../Context/Context';
 import { LayoutHeader, WithHeader } from '../../Context/Actions';
 import { useEffect } from 'react';
+import MenuHeader from './MenuHeader';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -89,8 +90,9 @@ const Header = () => {
     } else {
       WithHeader(dispatch);
     }
-    console.log(location, 'ni loc');
+    // console.log(location, 'ni loc');
   };
+  console.log(location.pathname.includes('/s/'), 'ini loc');
   useEffect(() => {
     Load();
   }, [location.pathname, isDesktop]);
@@ -186,83 +188,91 @@ const Header = () => {
                       cursor="pointer"
                       h="9"
                     />
-                    <Popover islazy trigger={'hover'}>
-                      <PopoverTrigger>
-                        <Box>
-                          <Text
-                            onClick={() => navigate('/women')}
-                            size={'md'}
-                            as={'Button'}
-                            fontWeight="bold"
-                          >
-                            WANITA
-                          </Text>
-                        </Box>
-                      </PopoverTrigger>
-                      <PopoverContent w="100%" borderRadius="0">
-                        <PopoverBody padding={'25px'}>
-                          <Women />
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
-                    <Popover islazy trigger={'hover'}>
-                      <PopoverTrigger>
-                        <Box>
-                          <Text
-                            onClick={() => navigate('/men')}
-                            size={'md'}
-                            as={'Button'}
-                            fontWeight="bold"
-                          >
-                            PRIA
-                          </Text>
-                        </Box>
-                      </PopoverTrigger>
-                      <PopoverContent w="100%" borderRadius="0">
-                        <PopoverBody padding={'25px'}>
-                          <Men />
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
-                    <Popover islazy trigger={'hover'}>
-                      <PopoverTrigger>
-                        <Box>
-                          <Text
-                            onClick={() => navigate('/child')}
-                            size={'md'}
-                            as={'Button'}
-                            fontWeight="bold"
-                          >
-                            ANAK
-                          </Text>
-                        </Box>
-                      </PopoverTrigger>
-                      <PopoverContent w="100%" borderRadius="0">
-                        <PopoverArrow />
-                        <PopoverBody padding={'25px'}>
-                          <Child />
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
-                    <Popover islazy trigger={'hover'}>
-                      <PopoverTrigger>
-                        <Box>
-                          <Text
-                            onClick={() => navigate('/baby')}
-                            size={'md'}
-                            as={'Button'}
-                            fontWeight="bold"
-                          >
-                            BAYI
-                          </Text>
-                        </Box>
-                      </PopoverTrigger>
-                      <PopoverContent w="100%" borderRadius="0">
-                        <PopoverBody padding={'25px'}>
-                          <Baby />
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
+                    {location.pathname.includes('/s/') ? (
+                      <>
+                        <MenuHeader />
+                      </>
+                    ) : (
+                      <>
+                        <Popover islazy trigger={'hover'}>
+                          <PopoverTrigger>
+                            <Box>
+                              <Text
+                                onClick={() => navigate('/women')}
+                                size={'md'}
+                                as={'Button'}
+                                fontWeight="bold"
+                              >
+                                WANITA
+                              </Text>
+                            </Box>
+                          </PopoverTrigger>
+                          <PopoverContent w="100%" borderRadius="0">
+                            <PopoverBody padding={'25px'}>
+                              <Women />
+                            </PopoverBody>
+                          </PopoverContent>
+                        </Popover>
+                        <Popover islazy trigger={'hover'}>
+                          <PopoverTrigger>
+                            <Box>
+                              <Text
+                                onClick={() => navigate('/men')}
+                                size={'md'}
+                                as={'Button'}
+                                fontWeight="bold"
+                              >
+                                PRIA
+                              </Text>
+                            </Box>
+                          </PopoverTrigger>
+                          <PopoverContent w="100%" borderRadius="0">
+                            <PopoverBody padding={'25px'}>
+                              <Men />
+                            </PopoverBody>
+                          </PopoverContent>
+                        </Popover>
+                        <Popover islazy trigger={'hover'}>
+                          <PopoverTrigger>
+                            <Box>
+                              <Text
+                                onClick={() => navigate('/child')}
+                                size={'md'}
+                                as={'Button'}
+                                fontWeight="bold"
+                              >
+                                ANAK
+                              </Text>
+                            </Box>
+                          </PopoverTrigger>
+                          <PopoverContent w="100%" borderRadius="0">
+                            <PopoverArrow />
+                            <PopoverBody padding={'25px'}>
+                              <Child />
+                            </PopoverBody>
+                          </PopoverContent>
+                        </Popover>
+                        <Popover islazy trigger={'hover'}>
+                          <PopoverTrigger>
+                            <Box>
+                              <Text
+                                onClick={() => navigate('/baby')}
+                                size={'md'}
+                                as={'Button'}
+                                fontWeight="bold"
+                              >
+                                BAYI
+                              </Text>
+                            </Box>
+                          </PopoverTrigger>
+                          <PopoverContent w="100%" borderRadius="0">
+                            <PopoverBody padding={'25px'}>
+                              <Baby />
+                            </PopoverBody>
+                          </PopoverContent>
+                        </Popover>
+                      </>
+                    )}
                   </>
                 ) : (
                   // <ButtonGroup variant="link" spacing="5" size="sm">

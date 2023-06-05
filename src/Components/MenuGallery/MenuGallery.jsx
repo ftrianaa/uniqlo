@@ -2,6 +2,7 @@ import { Box, Grid, Image, Text } from '@chakra-ui/react';
 
 import { Items } from '../Items/Items';
 import { useNavigate } from 'react-router-dom';
+import Img8 from '../../assets/products/img8.png';
 
 export const MenuGallery = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export const MenuGallery = () => {
           gap="8"
         >
           <Box onClick={() => navigate('/products/baju')} cursor="pointer">
-            <Image src="https://im.uniqlo.com/global-cms/spa/res30e7c4091690753456c88b55cf3b6951fr.jpg" />
+            <Image src={Img8} />
             <Text
               fontWeight="bold"
               mt="5"

@@ -1,3 +1,16 @@
+import feed1 from '../../../assets/feeds/feed1.png';
+import feed2 from '../../../assets/feeds/feed2.png';
+import feed3 from '../../../assets/feeds/feed3.png';
+import feed4 from '../../../assets/feeds/feed4.png';
+import feed5 from '../../../assets/feeds/feed5.png';
+import Img1 from '../../../assets/products/img1.png';
+import Img2 from '../../../assets/products/img2.png';
+import Img3 from '../../../assets/products/img3.png';
+import Img4 from '../../../assets/products/img4.png';
+import Img5 from '../../../assets/products/img5.png';
+import Img6 from '../../../assets/products/img6.png';
+import Img7 from '../../../assets/products/img7.png';
+import Img8 from '../../../assets/products/img8.png';
 export const images = [
   {
     id: 1,
@@ -30,8 +43,7 @@ export const products = [
     name: 'Off shoulder crop top',
     price: 1400,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/458288/item/idgoods_62_458288.jpg?width=320',
+    imageUrl: Img1,
     rating: 4,
     ratingCount: 12,
     category: 'wanita',
@@ -56,8 +68,7 @@ export const products = [
     name: 'Pattern top',
     price: 2300,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/458289/item/idgoods_54_458289.jpg?width=320',
+    imageUrl: Img2,
     rating: 4,
     ratingCount: 12,
     category: 'wanita',
@@ -80,8 +91,7 @@ export const products = [
     name: 'Free body jacket',
     price: 900,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455424/item/idgoods_03_455424.jpg?width=320',
+    imageUrl: Img3,
     rating: 4,
     ratingCount: 12,
     category: 'wanita',
@@ -98,8 +108,7 @@ export const products = [
     name: 'Polka dot dress',
     price: 2000,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/458590/item/idgoods_01_458590.jpg?width=320',
+    imageUrl: Img4,
     rating: 4,
     ratingCount: 12,
     category: 'wanita',
@@ -117,8 +126,7 @@ export const products = [
     name: 'PATTERN MINI-DRESS',
     price: 48.99,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/457012/item/idgoods_07_457012.jpg?width=320',
+    imageUrl: Img5,
     rating: 4,
     ratingCount: 20,
     category: 'wanita',
@@ -135,8 +143,7 @@ export const products = [
     name: 'MIDI SKATER DRESS',
     price: 199.99,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/456032/item/idgoods_09_456032.jpg?width=320',
+    imageUrl: Img6,
     rating: 4,
     ratingCount: 12,
     category: 'wanita',
@@ -158,8 +165,7 @@ export const products = [
     name: 'OFF-SHOULDER TOP',
     price: 2300,
     currency: 'USD',
-    imageUrl:
-      'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455743/item/idgoods_56_455743.jpg?width=320',
+    imageUrl: Img7,
     rating: 4,
     ratingCount: 9,
     category: 'wanita',
@@ -224,4 +230,24 @@ export const review = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque scelerisque est',
     job: 'influencer',
   },
+];
+
+export const feeds = [
+  {
+    id: 1,
+    src: feed1,
+    alt: 'feed1',
+  },
+  {
+    id: 2,
+    src: feed2,
+    alt: 'feed2',
+  },
+  {
+    id: 3,
+    src: feed3,
+    alt: 'feed3',
+  },
+  { id: 4, src: feed4, alt: 'feed4' },
+  { id: 5, src: feed5, alt: 'feed5' },
 ];

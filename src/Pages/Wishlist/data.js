@@ -1,7 +1,10 @@
+import Img1 from '../../assets/products/img1.png';
+import Img2 from '../../assets/products/img2.png';
+
 export const wishlist = [
   {
     id: 1,
-    src: 'https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/455572/item/goods_50_455572.jpg?width=250',
+    src: Img1,
     title: 'T-Shirt Katun Lembut Kerah Tinggi',
     codeItem: 455572,
     color: '50 LIGHT GREEN',
@@ -11,7 +14,7 @@ export const wishlist = [
   },
   {
     id: 2,
-    src: 'https://image.uniqlo.com/UQ/ST3/id/imagesgoods/454761/item/idgoods_63_454761.jpg?width=250',
+    src: Img2,
     title: 'Jaket Pendek Rajut',
     codeItem: 454761,
     color: '63 BLUE',

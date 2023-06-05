@@ -37,7 +37,7 @@ const MobileNavAction = props => {
 const DesktopNavAction = props => {
   const { label, icon, href } = props;
   const navigate = useNavigate();
-  console.log(href, 'ni href');
+  // console.log(href, 'ni href');
   return (
     <HStack
       spacing="2"

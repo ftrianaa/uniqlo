@@ -4,12 +4,12 @@ import 'keen-slider/keen-slider.min.css';
 
 import { Box, Image } from '@chakra-ui/react';
 import '../../../CSS/styles.css';
-import { products } from './_data';
+import { feeds } from './_data';
 export default function FollowUsSlider() {
   const [sliderRef] = useKeenSlider({
     initial: 0,
     slides: {
-      perView: 4,
+      perView: 5,
       spacing: 15,
     },
     loop: true,
@@ -19,14 +19,9 @@ export default function FollowUsSlider() {
     <>
       <Box className="navigation-wrapper">
         <Box ref={sliderRef} className="keen-slider">
-          {products.map(item => (
+          {feeds.map(item => (
             <Box className="keen-slider__slide ">
-              <Image
-                src={item.imageUrl}
-                alt={item.title}
-                objectFit="cover"
-                w="100%"
-              />
+              <Image src={item.src} alt={item.alt} objectFit="cover" w="100%" />
             </Box>
           ))}
           {/* {loaded && instanceRef.current && (

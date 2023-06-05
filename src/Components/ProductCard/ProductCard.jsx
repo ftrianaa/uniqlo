@@ -16,7 +16,7 @@ import { TbHeartPlus } from 'react-icons/tb';
 import { ColorPicker } from '../ProductGallery/ColorPicker';
 export const ProductCard = props => {
   const { product } = props;
-  console.log(product, ' dfbhefahbdafbh');
+  // console.log(product, ' dfbhefahbdafbh');
   const navigate = useNavigate();
   // let colors = [];
   // product.color.map(item => colors.push(item));

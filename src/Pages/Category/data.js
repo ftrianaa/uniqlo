@@ -1,63 +1,31 @@
+import catOther from '../../assets/category/others.png';
+import catBag from '../../assets/category/bag.png';
+import catTop from '../../assets/category/top.png';
+import catBottom from '../../assets/category/bottom.png';
+import event1 from '../../assets/event/event1.png';
+import event2 from '../../assets/event/event2.png';
+import event3 from '../../assets/event/event3.png';
+
 export const categories = [
   {
     id: '01',
-    src: 'https://im.uniqlo.com/global-cms/spa/resc27ae1b8d995bf3f21164bb5b6fe6ca2fr.jpg',
-    alt: 'Luaran',
+    src: catTop,
+    alt: 'Atasan',
   },
   {
     id: '02',
-    src: 'https://im.uniqlo.com/global-cms/spa/res1a01eb8cbe78e2e248e94194bb82a571fr.jpg',
-    alt: 'T-Shirt',
+    src: catBottom,
+    alt: 'Bawahan',
   },
   {
     id: '03',
-    src: 'https://im.uniqlo.com/global-cms/spa/resb921b365782be5a34335f8fbc509e90dfr.jpg',
-    alt: 'Kaos Polo',
+    src: catBag,
+    alt: 'Tas',
   },
   {
     id: '04',
-    src: 'https://im.uniqlo.com/global-cms/spa/res44322632404c7cfa785b6de66d950fcffr.jpg',
-    alt: 'T-Shirt Grafis',
-  },
-  {
-    id: '05',
-    src: 'https://im.uniqlo.com/global-cms/spa/rese73a5b0834bd922dba6172e479e61ba5fr.jpg',
-    alt: 'Kemeja Kasual',
-  },
-  {
-    id: '06',
-    src: 'https://im.uniqlo.com/global-cms/spa/resff1b026d9fedd6ee307c288d4b56fb14fr.jpg',
-    alt: 'Kemeja Formal',
-  },
-  {
-    id: '07',
-    src: 'https://im.uniqlo.com/global-cms/spa/res8ef43608258a3bec1b8010e737b1bd57fr.jpg',
-    alt: 'Celana Panjang',
-  },
-  {
-    id: '08',
-    src: 'https://im.uniqlo.com/global-cms/spa/resab13ff56cad83aed98ca6f81f670f516fr.jpg',
-    alt: 'Jeans',
-  },
-  {
-    id: '09',
-    src: 'https://im.uniqlo.com/global-cms/spa/resc77fb485eec854ef2020efa9cfe77344fr.jpg',
-    alt: 'Loungewear',
-  },
-  {
-    id: '10',
-    src: 'https://im.uniqlo.com/global-cms/spa/res61b6d2a3f9256fc22f8b30bd501c9d0bfr.jpg',
-    alt: 'Dalaman',
-  },
-  {
-    id: '11',
-    src: 'https://im.uniqlo.com/global-cms/spa/res27972c9ff8a53167275dd14992c0f34ffr.jpg',
-    alt: 'AIRism',
-  },
-  {
-    id: '12',
-    src: 'https://im.uniqlo.com/global-cms/spa/res7dbbe4a17c0e15bb1f959001a8705877fr.jpg',
-    alt: 'HEATTECH',
+    src: catOther,
+    alt: 'Lainnya',
   },
 ];
 
@@ -94,27 +62,27 @@ export const news = [
 export const uniqloToday = [
   {
     id: '1',
-    src: 'https://www.uniqlo.com/id/en/news/sp/topics/2023012002/img/mimg_1_m.jpg',
+    src: event1,
     title: '6 Rekomendasi Gaya Outfit Pria, Cocok Untuk Imlek',
     description:
       'Ekspresikan diri dengan pilihan T-shirt dalam berbagai warna, bahan, dan gaya.',
   },
   {
     id: '2',
-    src: 'https://www.uniqlo.com/id/en/news/sp/topics/2022122701/img/mimg_1_m.jpg',
+    src: event2,
     title: '7 Ide OOTD Kaos Lengan Panjang, Cocok untuk Musim Dingin',
     description:
       'Miliki gaya yang unik dan otentik. Jeans Klamby dirancang secara istimewa demi kenyamanan Anda.',
   },
   {
     id: '3',
-    src: 'https://www.uniqlo.com/id/en/news/topics/2023012601/img/thumb_ll.jpg',
+    src: event3,
     title: 'Klamby 2023 Spring/Summer Collection',
     description: 'Rasakan sejuknya koleksi terbaru AIRism untuk pria.',
   },
   {
     id: '4',
-    src: 'https://www.uniqlo.com/id/en/news/sp/topics/2022111801/img/mimg_1_m.jpg',
+    src: event1,
     title: 'Autumn Color Mix and Match',
     description:
       'Pakaian unisex simpel yang memberikan kebebasan untuk memilih. Saatnya perluas referensi penampilan lalu kreasikan sesuka Anda.',

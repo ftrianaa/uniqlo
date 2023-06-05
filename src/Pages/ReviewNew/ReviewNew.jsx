@@ -29,7 +29,7 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { ProgressBar } from '../../Components/ProgressBar/Progressbar';
 import { StarReview } from '../../Components/StarReview/StarReview';
-
+import Img1 from '../../assets/products/img1.png';
 const ReviewNew = () => {
   const navigate = useNavigate();
   const isDesktop = useBreakpointValue({
@@ -107,16 +107,11 @@ const ReviewNew = () => {
                 fontWeight="bold"
                 my={{ base: '0', lg: '5' }}
               >
-                T-Shirt Kerah Bulat Lengan Pendek Uniqlo U
+                T-Shirt Kerah Bulat Lengan Pendek Klamby U
               </Text>
               {!isDesktop ? (
                 <>
-                  <Image
-                    w="100px"
-                    objectFit="contain"
-                    src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455360/item/idgoods_30_455360.jpg"
-                    mr="5"
-                  />
+                  <Image w="100px" objectFit="contain" src={Img1} mr="5" />
                 </>
               ) : (
                 <></>
@@ -246,159 +241,6 @@ const ReviewNew = () => {
                         </Text>
                       </Box>
                     </Flex>
-                    <FormControl w="100%">
-                      <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                        <Text fontWeight="bold" textTransform="uppercase">
-                          ukuran yang di beli
-                        </Text>
-                        <Text color="#378694" fontWeight="bold">
-                          *
-                        </Text>
-                      </Flex>
-                      <Select placeholder="pilih" borderRadius="0">
-                        <option>s</option>
-                        <option>m</option>
-                        <option>l</option>
-                      </Select>
-                    </FormControl>
-                    <Flex
-                      align="center"
-                      my="4"
-                      flexDir={{ base: 'column', lg: 'row' }}
-                    >
-                      <Flex
-                        w={{ base: '100%', lg: '30%' }}
-                        fontSize={{ base: '15px', lg: '16px' }}
-                      >
-                        <Text fontWeight="bold" textTransform="uppercase">
-                          nama panggilan
-                        </Text>
-                        <Text color="#378694" fontWeight="bold">
-                          *
-                        </Text>
-                      </Flex>
-                      <Flex w={{ base: '100%', lg: '70%' }} align="center">
-                        <Input type="text" variant="flushed" />
-                        <Popover isLazy trigger={'hover'}>
-                          <PopoverTrigger>
-                            <Text>
-                              <AiOutlineInfoCircle />
-                            </Text>
-                          </PopoverTrigger>
-                          <PopoverContent>
-                            <PopoverArrow />
-                            <PopoverHeader
-                              fontSize={{ base: '13px', lg: '14px' }}
-                              fontWeight="bold"
-                            >
-                              Nama Panggilan
-                            </PopoverHeader>
-                            <PopoverBody>
-                              <Text fontSize={{ base: '13px', lg: '14px' }}>
-                                Anda dapat membuat nama panggilan untuk
-                                mengidentifikasi komentar Anda. Nama panggilan
-                                Anda ditampilkan dengan komentar Anda. Nama
-                                panggilan harus terdiri dari 20 karakter untuk
-                                bagian ini.
-                              </Text>
-                            </PopoverBody>
-                          </PopoverContent>
-                        </Popover>
-                      </Flex>
-                    </Flex>
-                  </Box>
-                  <Box>
-                    <Text
-                      textTransform="uppercase"
-                      fontSize={{ base: '15px', lg: '18px' }}
-                      fontWeight="bold"
-                    >
-                      info pengguna
-                    </Text>
-                    <Flex justify="space-between" my="5">
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            jenis kelamin
-                          </Text>
-                          <Text color="#378694" fontWeight="bold">
-                            *
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            lokasi
-                          </Text>
-                          <Text color="#378694" fontWeight="bold">
-                            *
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                    </Flex>
-                    <Flex justify="space-between" my="5">
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            usia
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            tinggi
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                    </Flex>
-                    <Flex justify="space-between" my="5">
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            bobot
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                      <FormControl w="45%">
-                        <Flex fontSize={{ base: '15px', lg: '16px' }}>
-                          <Text fontWeight="bold" textTransform="uppercase">
-                            ukuran sepatu
-                          </Text>
-                        </Flex>
-                        <Select placeholder="pilih" borderRadius="0">
-                          <option>s</option>
-                          <option>m</option>
-                          <option>l</option>
-                        </Select>
-                      </FormControl>
-                    </Flex>
                   </Box>
                   <Divider />
                   <Text
@@ -468,10 +310,7 @@ const ReviewNew = () => {
               {isDesktop ? (
                 <Flex w="30%">
                   <Box>
-                    <Image
-                      objectFit="contain"
-                      src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455360/item/idgoods_30_455360.jpg"
-                    />
+                    <Image objectFit="contain" src={Img1} />
                   </Box>
                 </Flex>
               ) : (

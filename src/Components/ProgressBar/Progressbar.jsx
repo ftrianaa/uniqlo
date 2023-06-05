@@ -30,7 +30,7 @@ export const ProgressBar = () => {
             cursor="pointer"
             onClick={() => setStep(id)}
             isActive={currentStep === id}
-            // isCompleted={currentStep > id}
+            isCompleted={currentStep === id}
             isLastStep={numberOfSteps.length === id + 1}
             label={item.value}
           />

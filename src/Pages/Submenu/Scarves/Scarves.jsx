@@ -19,7 +19,9 @@ import LatestLookbook from '../Component/LatestLookbook/LatestLookbook';
 import LatestJournal from '../Component/LatestJournal/LatestJournal';
 import FollowUsSlider from '../Signature/FollowUsSlider';
 import InstallKlamby from '../../../assets/banner/footer.png';
-
+import poster2 from '../../../assets/poster/poster2.png';
+import poster3 from '../../../assets/poster/poster3.png';
+import poster4 from '../../../assets/poster/poster4.png';
 const Scarves = () => {
   return (
     <>
@@ -44,10 +46,9 @@ const Scarves = () => {
             <Text>Collection with typical klamby pattern</Text>
             <br />
 
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/458289/item/idgoods_54_458289.jpg?width=320"
-            />
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster2} />
+            </Flex>
           </GridItem>
           <GridItem p="5" bgColor="#f4f4f4">
             <Text
@@ -58,10 +59,10 @@ const Scarves = () => {
               Heritage
             </Text>
             <Text>Collection that represents elegance and luxury for you </Text>
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455743/item/idgoods_56_455743.jpg?width=320"
-            />
+
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster3} />
+            </Flex>
           </GridItem>
           <GridItem p="5" bgColor="#f4f4f4" colSpan={{ base: 2, lg: 1 }}>
             <Text
@@ -72,10 +73,10 @@ const Scarves = () => {
               Scarves
             </Text>
             <Text>Klamby scarves collection with its signature pattern</Text>
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/457012/item/idgoods_07_457012.jpg?width=320"
-            />
+
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster4} />
+            </Flex>
           </GridItem>
         </Grid>
         <Box py="5">

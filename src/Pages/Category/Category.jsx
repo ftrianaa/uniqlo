@@ -31,6 +31,8 @@ import MiniCarousel from '../../Components/MiniCarousel/MiniCarousel';
 import ProductCarousel from '../../Components/ProductCarousel/ProductCarousel';
 import { Slider } from '../../Components/Slider/Slider';
 import { categories, liveStation, news, uniqloToday } from './data';
+import banner4 from '../../assets/banner/banner4.png';
+
 const Category = () => {
   const { category } = useParams();
   const navigate = useNavigate();
@@ -64,6 +66,7 @@ const Category = () => {
               fontSize="48px"
               fontWeight="bold"
               textAlign="center"
+              mb="5"
             >
               {category}
             </Heading>
@@ -73,7 +76,7 @@ const Category = () => {
         )}
 
         <Box>
-          <Box>
+          <Box position="relative">
             <Image src="https://im.uniqlo.com/global-cms/spa/res140999e3d5d2fc3333546b1e84d869c4fr.jpg" />
             <Box
               m="5"
@@ -120,6 +123,7 @@ const Category = () => {
               fontSize={{ base: '22x', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               Topics
             </Heading>
@@ -131,6 +135,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               Search by category
             </Heading>
@@ -163,6 +168,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               New Arrivals
             </Heading>
@@ -190,6 +196,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               Best Sellers
             </Heading>
@@ -203,6 +210,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               Top Picks
             </Heading>
@@ -226,6 +234,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              mb="5"
             >
               Seasonal Picks
             </Heading>
@@ -248,6 +257,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              mb="5"
             >
               Value Buy
             </Heading>
@@ -275,6 +285,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               ut collection
             </Heading>
@@ -320,6 +331,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              mb="5"
             >
               App Benefits
             </Heading>
@@ -331,6 +343,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               about lifewear
             </Heading>
@@ -342,6 +355,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               Featured News
             </Heading>
@@ -381,7 +395,7 @@ const Category = () => {
             >
               Styling Book
             </Heading>
-            <Image src="https://im.uniqlo.com/global-cms/spa/resb176e0d3c29b41e40cdc17ce470c07b9fr.jpg" />
+            <Image src={banner4} w="full" />
             <Text fontWeight="bold">Styling Book </Text>
             <Text>
               Dapatkan ide gaya untuk inspirasi pakaian sehari-hari Anda untuk
@@ -394,6 +408,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              my="5"
             >
               klamby today
             </Heading>
@@ -405,7 +420,7 @@ const Category = () => {
               fontSize={{ base: '15px', lg: '16px' }}
             >
               {uniqloToday.map((item, index) => (
-                <Flex key={index}>
+                <Flex key={index} my="5">
                   <HStack>
                     <Image
                       src={item.src}
@@ -437,6 +452,7 @@ const Category = () => {
               fontSize={{ base: '22px', lg: '36px' }}
               fontWeight="bold"
               textAlign="center"
+              mb="5"
             >
               live station
             </Heading>

@@ -3,6 +3,7 @@ import {
   AspectRatio,
   Box,
   Button,
+  Flex,
   Grid,
   GridItem,
   Image,
@@ -27,6 +28,15 @@ import paymentSecure from '../../../assets/icons/paymentSecure.png';
 import qualityGruanted from '../../../assets/icons/qualityGuaranted.png';
 import loyaltyPoint from '../../../assets/icons/loyalty point.png';
 import delivery from '../../../assets/icons/Dikirim.png';
+import poster1 from '../../../assets/poster/poster1.png';
+import poster2 from '../../../assets/poster/poster2.png';
+import poster3 from '../../../assets/poster/poster3.png';
+import poster4 from '../../../assets/poster/poster4.png';
+import catOther from '../../../assets/category/others.png';
+import catBag from '../../../assets/category/bag.png';
+import catTop from '../../../assets/category/top.png';
+import catBottom from '../../../assets/category/bottom.png';
+
 const Signature = () => {
   const { page } = useParams();
 
@@ -156,7 +166,7 @@ const Signature = () => {
 
           <Box display={{ base: 'none', lg: 'block' }}>
             <Image
-              src="https://im.uniqlo.com/global-cms/spa/res26d29aadd43875d9c42579d0ccaac684fr.jpg"
+              src={poster1}
               alt="modesty-reimagined"
               objectFit="cover"
               h="250px"
@@ -180,10 +190,9 @@ const Signature = () => {
             <Text>Collection with typical klamby pattern</Text>
             <br />
 
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/458289/item/idgoods_54_458289.jpg?width=320"
-            />
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster2} />
+            </Flex>
           </GridItem>
           <GridItem p="5" bgColor="#f4f4f4">
             <Text
@@ -194,10 +203,9 @@ const Signature = () => {
               Heritage
             </Text>
             <Text>Collection that represents elegance and luxury for you </Text>
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/455743/item/idgoods_56_455743.jpg?width=320"
-            />
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster3} />
+            </Flex>
           </GridItem>
           <GridItem p="5" bgColor="#f4f4f4" colSpan={{ base: 2, lg: 1 }}>
             <Text
@@ -208,10 +216,9 @@ const Signature = () => {
               Scarves
             </Text>
             <Text>Klamby scarves collection with its signature pattern</Text>
-            <Image
-              mt="5"
-              src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/457012/item/idgoods_07_457012.jpg?width=320"
-            />
+            <Flex justify="center" align="center">
+              <Image mt="5" src={poster4} />
+            </Flex>
           </GridItem>
         </Grid>
         <Box my="5">
@@ -281,26 +288,26 @@ const Signature = () => {
           >
             <GridItem cursor="pointer">
               <Box>
-                <Image src="https://im.uniqlo.com/global-cms/spa/res1a01eb8cbe78e2e248e94194bb82a571fr.jpg" />
+                <Image src={catTop} />
                 <Text textAlign="center">Top</Text>
               </Box>
             </GridItem>
             <GridItem cursor="pointer">
               <Box>
-                <Image src="https://im.uniqlo.com/global-cms/spa/res8ef43608258a3bec1b8010e737b1bd57fr.jpg" />
+                <Image src={catBottom} />
                 <Text textAlign="center">Bottom</Text>
               </Box>
             </GridItem>
             <GridItem cursor="pointer">
               <Box>
-                <Image src="https://im.uniqlo.com/global-cms/spa/res27972c9ff8a53167275dd14992c0f34ffr.jpg" />
-                <Text textAlign="center">Others</Text>
+                <Image src={catBag} />
+                <Text textAlign="center">Bags</Text>
               </Box>
             </GridItem>
             <GridItem cursor="pointer">
               <Box>
-                <Image src="https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/448447/item/goods_01_448447.jpg?width=320" />
-                <Text textAlign="center">Bags</Text>
+                <Image src={catOther} />
+                <Text textAlign="center">Others</Text>
               </Box>
             </GridItem>
           </Grid>

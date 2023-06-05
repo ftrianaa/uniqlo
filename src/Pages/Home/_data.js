@@ -1,4 +1,5 @@
 import Banner1 from '../../assets/banner/banner1.png';
+import Banner2 from '../../assets/banner/banner2.png';
 
 import Img1 from '../../assets/products/img1.png';
 import Img2 from '../../assets/products/img2.png';
@@ -8,6 +9,11 @@ import Img5 from '../../assets/products/img5.png';
 import Img6 from '../../assets/products/img6.png';
 import Img7 from '../../assets/products/img7.png';
 import Img8 from '../../assets/products/img8.png';
+
+import event1 from '../../assets/event/event1.png';
+import event2 from '../../assets/event/event2.png';
+import event3 from '../../assets/event/event3.png';
+import event4 from '../../assets/banner/banner6.png';
 
 export const images = [
   {
@@ -60,7 +66,7 @@ export const imageBanner = [
   {
     id: 2,
     alt: 'banner2',
-    src: Banner1,
+    src: Banner2,
   },
 ];
 export const products = [
@@ -166,25 +172,25 @@ export const products = [
 export const Items = [
   {
     id: 1,
-    img: 'https://im.uniqlo.com/global-cms/spa/res1cc09eee4ae25e834cfaae71e745c6bafr.jpg',
+    img: event1,
     title: 'New Store Open (Jambi)',
     desc: 'Nikmati pengalaman baru berbelanja di UNIQLO JAMBI TOWN SQUARE. Buka mulai 31 Maret.',
   },
   {
     id: 2,
-    img: 'https://im.uniqlo.com/global-cms/spa/res666878661fa0bf18f3327a5d08b9d7ebfr.jpg',
+    img: event2,
     title: 'Extra Sizes 3XL',
     desc: 'Temukan item yang paling cocok untuk Anda, kini tersedia dalam ukuran yang lebih beragam.',
   },
   {
     id: 3,
-    img: 'https://im.uniqlo.com/global-cms/spa/res8fc6a010f1ab1e90938b4b908d7a3641fr.jpg',
+    img: event3,
     title: 'Welcome Coupon',
     desc: 'Download aplikasi UNIQLO dan dapatkan welcome coupon untuk pengguna pertama.',
   },
   {
     id: 4,
-    img: 'https://im.uniqlo.com/global-cms/spa/resc16179d30c9ddec5d2ddb271caa3130dfr.jpg',
+    img: event4,
     title: 'Mandiri Cashback',
     desc: 'Dapatkan cashback dengan transaksi menggunakan kartu Mandiri. S&K berlaku. Periode 24 Maret - 23 April.',
   },
