@@ -53,9 +53,11 @@ export const ProductGallery = () => {
       >
         <Box flex="1">
           <Stack spacing="1">
-            <AspectRatio ratio={10 / 5}>
+            {/* <AspectRatio ratio={16 / 9} maxW="800px"> */}
+            <Box maxW="800px">
               <Gallery />
-            </AspectRatio>
+            </Box>
+            {/* </AspectRatio> */}
 
             {!isDesktop ? (
               <>
